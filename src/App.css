@@ -1,38 +1,100 @@
 .App {
-  text-align: center;
+	text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App-link, .App a {
+	color: #41bee0;
+	text-decoration: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.App-link:hover, .App a:hover {
+	text-decoration: underline;
+}
+
+.App img {
+	-webkit-transition: 0.7s;
+	-moz-transition: 0.7s;
+	-o-transition: 0.7s;
+	transition: 0.7s;
+}
+
+.App img:hover {
+	opacity: 0;
+}
+
+.App .hidden {
+	display: none;
+}
+
+.Background {
+	height: 100%;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+	background-color: #282c34;
+	height: 80vh;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+	font-size: calc(10px + 2vmin);
+	color: white;
+	text-align: left;
 }
 
-.App-link {
-  color: #61dafb;
+.App-header a {
+	color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Artist-image, .Artist-image img {
+	height: 80vh;
+	width: auto;
+}
+
+.Artist-info {
+	height: 80vh;
+	width: 100%;
+	padding-left: 8vh;
+	flex-flow: column wrap;
+	align-items: baseline;
+}
+
+.Top-tracks {
+	/* would like it if column wrap worked >:/ */
+	column-count: 2;
+}
+
+.Track p {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-top: 0px;
+	padding-bottom: 7%;
+}
+
+.Albums-Singles h1 {
+	color: #282c34;
+	font-size: calc(10px + 3vmin);
+}
+
+.Albums {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: baseline;
+	font-size: calc(10px + 2vmin);;
+		-webkit-transition: 0.75s;
+	-moz-transition: 0.75s;
+	-o-transition: 0.75s;
+	transition: 0.75s;
+}
+
+.Album {
+	padding: 2vw;
+	width: 300px;
+}
+
+.Album img {
+	/* non square images get a little distorted */
+	height: 300px;
+	width: 300px;
 }

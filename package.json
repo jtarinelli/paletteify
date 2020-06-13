@@ -1,11 +1,17 @@
 {
-  "name": "color",
+  "name": "paletteify",
+  "author": "Julia",
   "version": "0.1.0",
+  "description": "Trying to do something with the Spotify API",
+  "main": "src/index.js",
+  "homepage": "https://jtarinelli.github.io/paletteify",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "get-image-colors": "^2.0.1",
+    "gh-pages": "^3.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"

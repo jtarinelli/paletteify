@@ -1,0 +1,691 @@
+{
+  "tracks" : [ {
+    "album" : {
+      "album_type" : "album",
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
+        },
+        "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
+        "id" : "1S2S00lgLYLGHWA44qGEUs",
+        "name" : "Gen Hoshino",
+        "type" : "artist",
+        "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
+      } ],
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/7oFLY1YL5bBI32UHsmQO6q"
+      },
+      "href" : "https://api.spotify.com/v1/albums/7oFLY1YL5bBI32UHsmQO6q",
+      "id" : "7oFLY1YL5bBI32UHsmQO6q",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/ab67616d0000b27302a856097c809fb56c23cfb2",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/ab67616d00001e0202a856097c809fb56c23cfb2",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/ab67616d0000485102a856097c809fb56c23cfb2",
+        "width" : 64
+      } ],
+      "name" : "POP VIRUS",
+      "release_date" : "2018-12-19",
+      "release_date_precision" : "day",
+      "total_tracks" : 14,
+      "type" : "album",
+      "uri" : "spotify:album:7oFLY1YL5bBI32UHsmQO6q"
+    },
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
+      },
+      "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
+      "id" : "1S2S00lgLYLGHWA44qGEUs",
+      "name" : "Gen Hoshino",
+      "type" : "artist",
+      "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
+    } ],
+    "disc_number" : 1,
+    "duration_ms" : 280666,
+    "explicit" : false,
+    "external_ids" : {
+      "isrc" : "JPVI01885660"
+    },
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/track/30QnX1bcrFYqWQNKfWclr8"
+    },
+    "href" : "https://api.spotify.com/v1/tracks/30QnX1bcrFYqWQNKfWclr8",
+    "id" : "30QnX1bcrFYqWQNKfWclr8",
+    "is_local" : false,
+    "is_playable" : true,
+    "name" : "Idea",
+    "popularity" : 42,
+    "preview_url" : "https://p.scdn.co/mp3-preview/0b1c45fdc77c1737e9f599d809760d123f341a96?cid=774b29d4f13844c495f206cafdad9c86",
+    "track_number" : 11,
+    "type" : "track",
+    "uri" : "spotify:track:30QnX1bcrFYqWQNKfWclr8"
+  }, {
+    "album" : {
+      "album_type" : "album",
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
+        },
+        "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
+        "id" : "1S2S00lgLYLGHWA44qGEUs",
+        "name" : "Gen Hoshino",
+        "type" : "artist",
+        "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
+      } ],
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/7oFLY1YL5bBI32UHsmQO6q"
+      },
+      "href" : "https://api.spotify.com/v1/albums/7oFLY1YL5bBI32UHsmQO6q",
+      "id" : "7oFLY1YL5bBI32UHsmQO6q",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/ab67616d0000b27302a856097c809fb56c23cfb2",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/ab67616d00001e0202a856097c809fb56c23cfb2",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/ab67616d0000485102a856097c809fb56c23cfb2",
+        "width" : 64
+      } ],
+      "name" : "POP VIRUS",
+      "release_date" : "2018-12-19",
+      "release_date_precision" : "day",
+      "total_tracks" : 14,
+      "type" : "album",
+      "uri" : "spotify:album:7oFLY1YL5bBI32UHsmQO6q"
+    },
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
+      },
+      "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
+      "id" : "1S2S00lgLYLGHWA44qGEUs",
+      "name" : "Gen Hoshino",
+      "type" : "artist",
+      "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
+    } ],
+    "disc_number" : 1,
+    "duration_ms" : 251266,
+    "explicit" : false,
+    "external_ids" : {
+      "isrc" : "JPVI01820201"
+    },
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/track/4nmjL1mUKOAfAbo9QG9tSE"
+    },
+    "href" : "https://api.spotify.com/v1/tracks/4nmjL1mUKOAfAbo9QG9tSE",
+    "id" : "4nmjL1mUKOAfAbo9QG9tSE",
+    "is_local" : false,
+    "is_playable" : true,
+    "name" : "Koi",
+    "popularity" : 48,
+    "preview_url" : "https://p.scdn.co/mp3-preview/1136e84c4841e243cb136a2f75ed874393b7ab24?cid=774b29d4f13844c495f206cafdad9c86",
+    "track_number" : 2,
+    "type" : "track",
+    "uri" : "spotify:track:4nmjL1mUKOAfAbo9QG9tSE"
+  }, {
+    "album" : {
+      "album_type" : "album",
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
+        },
+        "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
+        "id" : "1S2S00lgLYLGHWA44qGEUs",
+        "name" : "Gen Hoshino",
+        "type" : "artist",
+        "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
+      } ],
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/1vtIqjn25qHypqyoI21q8d"
+      },
+      "href" : "https://api.spotify.com/v1/albums/1vtIqjn25qHypqyoI21q8d",
+      "id" : "1vtIqjn25qHypqyoI21q8d",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/ab67616d0000b2735d947999f612f4a45915da1e",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/ab67616d00001e025d947999f612f4a45915da1e",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/ab67616d000048515d947999f612f4a45915da1e",
+        "width" : 64
+      } ],
+      "name" : "YELLOW DANCER",
+      "release_date" : "2015-12-02",
+      "release_date_precision" : "day",
+      "total_tracks" : 14,
+      "type" : "album",
+      "uri" : "spotify:album:1vtIqjn25qHypqyoI21q8d"
+    },
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
+      },
+      "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
+      "id" : "1S2S00lgLYLGHWA44qGEUs",
+      "name" : "Gen Hoshino",
+      "type" : "artist",
+      "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
+    } ],
+    "disc_number" : 1,
+    "duration_ms" : 241466,
+    "explicit" : false,
+    "external_ids" : {
+      "isrc" : "JPVI01513950"
+    },
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/track/7rIBp3U5Igzn44l7Z7mOtE"
+    },
+    "href" : "https://api.spotify.com/v1/tracks/7rIBp3U5Igzn44l7Z7mOtE",
+    "id" : "7rIBp3U5Igzn44l7Z7mOtE",
+    "is_local" : false,
+    "is_playable" : true,
+    "name" : "SUN",
+    "popularity" : 41,
+    "preview_url" : "https://p.scdn.co/mp3-preview/aa5531b3d4214e504415f70a39e2a819664a1692?cid=774b29d4f13844c495f206cafdad9c86",
+    "track_number" : 3,
+    "type" : "track",
+    "uri" : "spotify:track:7rIBp3U5Igzn44l7Z7mOtE"
+  }, {
+    "album" : {
+      "album_type" : "single",
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
+        },
+        "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
+        "id" : "1S2S00lgLYLGHWA44qGEUs",
+        "name" : "Gen Hoshino",
+        "type" : "artist",
+        "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
+      } ],
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/5VGCJPjawUCJhP4PG2IKtp"
+      },
+      "href" : "https://api.spotify.com/v1/albums/5VGCJPjawUCJhP4PG2IKtp",
+      "id" : "5VGCJPjawUCJhP4PG2IKtp",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/ab67616d0000b2731e2d04a5ab3d84ff8b6c4f3b",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/ab67616d00001e021e2d04a5ab3d84ff8b6c4f3b",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/ab67616d000048511e2d04a5ab3d84ff8b6c4f3b",
+        "width" : 64
+      } ],
+      "name" : "Doraemon",
+      "release_date" : "2018-02-28",
+      "release_date_precision" : "day",
+      "total_tracks" : 4,
+      "type" : "album",
+      "uri" : "spotify:album:5VGCJPjawUCJhP4PG2IKtp"
+    },
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
+      },
+      "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
+      "id" : "1S2S00lgLYLGHWA44qGEUs",
+      "name" : "Gen Hoshino",
+      "type" : "artist",
+      "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
+    } ],
+    "disc_number" : 1,
+    "duration_ms" : 239933,
+    "explicit" : false,
+    "external_ids" : {
+      "isrc" : "JPVI01801800"
+    },
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/track/2pcuXnZhTirLXsfXGVFTv2"
+    },
+    "href" : "https://api.spotify.com/v1/tracks/2pcuXnZhTirLXsfXGVFTv2",
+    "id" : "2pcuXnZhTirLXsfXGVFTv2",
+    "is_local" : false,
+    "is_playable" : true,
+    "name" : "Doraemon",
+    "popularity" : 40,
+    "preview_url" : "https://p.scdn.co/mp3-preview/c3bd47814215483d0b8691ab88ef07b67ff01ba3?cid=774b29d4f13844c495f206cafdad9c86",
+    "track_number" : 1,
+    "type" : "track",
+    "uri" : "spotify:track:2pcuXnZhTirLXsfXGVFTv2"
+  }, {
+    "album" : {
+      "album_type" : "single",
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
+        },
+        "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
+        "id" : "1S2S00lgLYLGHWA44qGEUs",
+        "name" : "Gen Hoshino",
+        "type" : "artist",
+        "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
+      } ],
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/5cJKQHjMY2k19tGNS2QdCe"
+      },
+      "href" : "https://api.spotify.com/v1/albums/5cJKQHjMY2k19tGNS2QdCe",
+      "id" : "5cJKQHjMY2k19tGNS2QdCe",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/ab67616d0000b2736ccbca3e545541dc74449999",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/ab67616d00001e026ccbca3e545541dc74449999",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/ab67616d000048516ccbca3e545541dc74449999",
+        "width" : 64
+      } ],
+      "name" : "Dancing On The Inside",
+      "release_date" : "2020-05-08",
+      "release_date_precision" : "day",
+      "total_tracks" : 1,
+      "type" : "album",
+      "uri" : "spotify:album:5cJKQHjMY2k19tGNS2QdCe"
+    },
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
+      },
+      "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
+      "id" : "1S2S00lgLYLGHWA44qGEUs",
+      "name" : "Gen Hoshino",
+      "type" : "artist",
+      "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
+    } ],
+    "disc_number" : 1,
+    "duration_ms" : 57600,
+    "explicit" : false,
+    "external_ids" : {
+      "isrc" : "JPVI02001134"
+    },
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/track/59FDamxhk7qmI5Smrgnlrt"
+    },
+    "href" : "https://api.spotify.com/v1/tracks/59FDamxhk7qmI5Smrgnlrt",
+    "id" : "59FDamxhk7qmI5Smrgnlrt",
+    "is_local" : false,
+    "is_playable" : true,
+    "name" : "Dancing On The Inside",
+    "popularity" : 38,
+    "preview_url" : "https://p.scdn.co/mp3-preview/00b823caa5e9b7d199f8e1d8c6690cdf0a4efd54?cid=774b29d4f13844c495f206cafdad9c86",
+    "track_number" : 1,
+    "type" : "track",
+    "uri" : "spotify:track:59FDamxhk7qmI5Smrgnlrt"
+  }, {
+    "album" : {
+      "album_type" : "single",
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
+        },
+        "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
+        "id" : "1S2S00lgLYLGHWA44qGEUs",
+        "name" : "Gen Hoshino",
+        "type" : "artist",
+        "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
+      } ],
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/2ejyLOljyWuPWtSCHaxIue"
+      },
+      "href" : "https://api.spotify.com/v1/albums/2ejyLOljyWuPWtSCHaxIue",
+      "id" : "2ejyLOljyWuPWtSCHaxIue",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/ab67616d0000b273cc9f2db3f78d7deda694ef9a",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/ab67616d00001e02cc9f2db3f78d7deda694ef9a",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/ab67616d00004851cc9f2db3f78d7deda694ef9a",
+        "width" : 64
+      } ],
+      "name" : "Same Thing",
+      "release_date" : "2019-10-14",
+      "release_date_precision" : "day",
+      "total_tracks" : 4,
+      "type" : "album",
+      "uri" : "spotify:album:2ejyLOljyWuPWtSCHaxIue"
+    },
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
+      },
+      "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
+      "id" : "1S2S00lgLYLGHWA44qGEUs",
+      "name" : "Gen Hoshino",
+      "type" : "artist",
+      "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
+    }, {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/0mP8A1qIoufScrsxq18Cw6"
+      },
+      "href" : "https://api.spotify.com/v1/artists/0mP8A1qIoufScrsxq18Cw6",
+      "id" : "0mP8A1qIoufScrsxq18Cw6",
+      "name" : "PUNPEE",
+      "type" : "artist",
+      "uri" : "spotify:artist:0mP8A1qIoufScrsxq18Cw6"
+    } ],
+    "disc_number" : 1,
+    "duration_ms" : 230600,
+    "explicit" : false,
+    "external_ids" : {
+      "isrc" : "JPVI01903471"
+    },
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/track/1HU8n15qhw1py9JjLoHCaE"
+    },
+    "href" : "https://api.spotify.com/v1/tracks/1HU8n15qhw1py9JjLoHCaE",
+    "id" : "1HU8n15qhw1py9JjLoHCaE",
+    "is_local" : false,
+    "is_playable" : true,
+    "name" : "Sarashi-mono (feat. PUNPEE)",
+    "popularity" : 38,
+    "preview_url" : "https://p.scdn.co/mp3-preview/089b848cdda7620c4c3e7194fcbe3ba3d74815a0?cid=774b29d4f13844c495f206cafdad9c86",
+    "track_number" : 2,
+    "type" : "track",
+    "uri" : "spotify:track:1HU8n15qhw1py9JjLoHCaE"
+  }, {
+    "album" : {
+      "album_type" : "single",
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
+        },
+        "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
+        "id" : "1S2S00lgLYLGHWA44qGEUs",
+        "name" : "Gen Hoshino",
+        "type" : "artist",
+        "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
+      } ],
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/2ejyLOljyWuPWtSCHaxIue"
+      },
+      "href" : "https://api.spotify.com/v1/albums/2ejyLOljyWuPWtSCHaxIue",
+      "id" : "2ejyLOljyWuPWtSCHaxIue",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/ab67616d0000b273cc9f2db3f78d7deda694ef9a",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/ab67616d00001e02cc9f2db3f78d7deda694ef9a",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/ab67616d00004851cc9f2db3f78d7deda694ef9a",
+        "width" : 64
+      } ],
+      "name" : "Same Thing",
+      "release_date" : "2019-10-14",
+      "release_date_precision" : "day",
+      "total_tracks" : 4,
+      "type" : "album",
+      "uri" : "spotify:album:2ejyLOljyWuPWtSCHaxIue"
+    },
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
+      },
+      "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
+      "id" : "1S2S00lgLYLGHWA44qGEUs",
+      "name" : "Gen Hoshino",
+      "type" : "artist",
+      "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
+    }, {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/0Wkm45quqfx3NepJpXDvwE"
+      },
+      "href" : "https://api.spotify.com/v1/artists/0Wkm45quqfx3NepJpXDvwE",
+      "id" : "0Wkm45quqfx3NepJpXDvwE",
+      "name" : "Superorganism",
+      "type" : "artist",
+      "uri" : "spotify:artist:0Wkm45quqfx3NepJpXDvwE"
+    } ],
+    "disc_number" : 1,
+    "duration_ms" : 200133,
+    "explicit" : false,
+    "external_ids" : {
+      "isrc" : "JPVI01903470"
+    },
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/track/3deGeTEWAMMPDMzKUFP39q"
+    },
+    "href" : "https://api.spotify.com/v1/tracks/3deGeTEWAMMPDMzKUFP39q",
+    "id" : "3deGeTEWAMMPDMzKUFP39q",
+    "is_local" : false,
+    "is_playable" : true,
+    "name" : "Same Thing (feat. Superorganism)",
+    "popularity" : 38,
+    "preview_url" : "https://p.scdn.co/mp3-preview/b0d49008c2abecf4ff8a57f3221f0d5237437195?cid=774b29d4f13844c495f206cafdad9c86",
+    "track_number" : 1,
+    "type" : "track",
+    "uri" : "spotify:track:3deGeTEWAMMPDMzKUFP39q"
+  }, {
+    "album" : {
+      "album_type" : "album",
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
+        },
+        "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
+        "id" : "1S2S00lgLYLGHWA44qGEUs",
+        "name" : "Gen Hoshino",
+        "type" : "artist",
+        "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
+      } ],
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/7oFLY1YL5bBI32UHsmQO6q"
+      },
+      "href" : "https://api.spotify.com/v1/albums/7oFLY1YL5bBI32UHsmQO6q",
+      "id" : "7oFLY1YL5bBI32UHsmQO6q",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/ab67616d0000b27302a856097c809fb56c23cfb2",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/ab67616d00001e0202a856097c809fb56c23cfb2",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/ab67616d0000485102a856097c809fb56c23cfb2",
+        "width" : 64
+      } ],
+      "name" : "POP VIRUS",
+      "release_date" : "2018-12-19",
+      "release_date_precision" : "day",
+      "total_tracks" : 14,
+      "type" : "album",
+      "uri" : "spotify:album:7oFLY1YL5bBI32UHsmQO6q"
+    },
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
+      },
+      "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
+      "id" : "1S2S00lgLYLGHWA44qGEUs",
+      "name" : "Gen Hoshino",
+      "type" : "artist",
+      "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
+    } ],
+    "disc_number" : 1,
+    "duration_ms" : 182000,
+    "explicit" : false,
+    "external_ids" : {
+      "isrc" : "JPVI01820191"
+    },
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/track/6hDBkm6B8HF9B4oATW28YN"
+    },
+    "href" : "https://api.spotify.com/v1/tracks/6hDBkm6B8HF9B4oATW28YN",
+    "id" : "6hDBkm6B8HF9B4oATW28YN",
+    "is_local" : false,
+    "is_playable" : true,
+    "name" : "Pop Virus",
+    "popularity" : 46,
+    "preview_url" : "https://p.scdn.co/mp3-preview/8f24db20db9886e0b4bc0a239f38cb5ca0b5abea?cid=774b29d4f13844c495f206cafdad9c86",
+    "track_number" : 1,
+    "type" : "track",
+    "uri" : "spotify:track:6hDBkm6B8HF9B4oATW28YN"
+  }, {
+    "album" : {
+      "album_type" : "single",
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
+        },
+        "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
+        "id" : "1S2S00lgLYLGHWA44qGEUs",
+        "name" : "Gen Hoshino",
+        "type" : "artist",
+        "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
+      } ],
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/1oJznhV4m2H2PeeNkCnKbR"
+      },
+      "href" : "https://api.spotify.com/v1/albums/1oJznhV4m2H2PeeNkCnKbR",
+      "id" : "1oJznhV4m2H2PeeNkCnKbR",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/ab67616d0000b27388fa8c939bc74f28d2a95d43",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/ab67616d00001e0288fa8c939bc74f28d2a95d43",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/ab67616d0000485188fa8c939bc74f28d2a95d43",
+        "width" : 64
+      } ],
+      "name" : "Family Song",
+      "release_date" : "2017-08-16",
+      "release_date_precision" : "day",
+      "total_tracks" : 4,
+      "type" : "album",
+      "uri" : "spotify:album:1oJznhV4m2H2PeeNkCnKbR"
+    },
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
+      },
+      "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
+      "id" : "1S2S00lgLYLGHWA44qGEUs",
+      "name" : "Gen Hoshino",
+      "type" : "artist",
+      "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
+    } ],
+    "disc_number" : 1,
+    "duration_ms" : 324000,
+    "explicit" : false,
+    "external_ids" : {
+      "isrc" : "JPVI01721000"
+    },
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/track/3Ms2WsIGHExju0gpucrWxv"
+    },
+    "href" : "https://api.spotify.com/v1/tracks/3Ms2WsIGHExju0gpucrWxv",
+    "id" : "3Ms2WsIGHExju0gpucrWxv",
+    "is_local" : false,
+    "is_playable" : true,
+    "name" : "Family Song",
+    "popularity" : 33,
+    "preview_url" : "https://p.scdn.co/mp3-preview/00276fb8495ac59e91ea0085a494f8888a6b0ff0?cid=774b29d4f13844c495f206cafdad9c86",
+    "track_number" : 1,
+    "type" : "track",
+    "uri" : "spotify:track:3Ms2WsIGHExju0gpucrWxv"
+  }, {
+    "album" : {
+      "album_type" : "single",
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
+        },
+        "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
+        "id" : "1S2S00lgLYLGHWA44qGEUs",
+        "name" : "Gen Hoshino",
+        "type" : "artist",
+        "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
+      } ],
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/0dQHVhTZlbT2S7vq6pM0t7"
+      },
+      "href" : "https://api.spotify.com/v1/albums/0dQHVhTZlbT2S7vq6pM0t7",
+      "id" : "0dQHVhTZlbT2S7vq6pM0t7",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/ab67616d0000b273128cb14e20a95fb5e953787c",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/ab67616d00001e02128cb14e20a95fb5e953787c",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/ab67616d00004851128cb14e20a95fb5e953787c",
+        "width" : 64
+      } ],
+      "name" : "Koi",
+      "release_date" : "2016-10-05",
+      "release_date_precision" : "day",
+      "total_tracks" : 4,
+      "type" : "album",
+      "uri" : "spotify:album:0dQHVhTZlbT2S7vq6pM0t7"
+    },
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
+      },
+      "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
+      "id" : "1S2S00lgLYLGHWA44qGEUs",
+      "name" : "Gen Hoshino",
+      "type" : "artist",
+      "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
+    } ],
+    "disc_number" : 1,
+    "duration_ms" : 253333,
+    "explicit" : false,
+    "external_ids" : {
+      "isrc" : "JPVI01627330"
+    },
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/track/1vNwRQj10QOLTOTyQYvD0s"
+    },
+    "href" : "https://api.spotify.com/v1/tracks/1vNwRQj10QOLTOTyQYvD0s",
+    "id" : "1vNwRQj10QOLTOTyQYvD0s",
+    "is_local" : false,
+    "is_playable" : true,
+    "name" : "Koi",
+    "popularity" : 37,
+    "preview_url" : "https://p.scdn.co/mp3-preview/0d5c0d9eb3e71c913680b71fb89654a9c3165ab3?cid=774b29d4f13844c495f206cafdad9c86",
+    "track_number" : 1,
+    "type" : "track",
+    "uri" : "spotify:track:1vNwRQj10QOLTOTyQYvD0s"
+  } ]
+}
