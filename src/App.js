@@ -1,14 +1,8 @@
 import React, {Component} from 'react';
 import './App.css';
-import fetchArtistInfo from './fetchArtistInfo.js';
 const getColors = require('get-image-colors');
 
-
-//const artistInfo = require('./json/artistInfo.json');
-const tracks = require('./json/topTracks.json');
-const albums = require('./json/albums.json');
-
-const artistInfo = fetchArtistInfo('4Kg3vBPMPfnYrnZo2A4czS');
+const artistID = '4Kg3vBPMPfnYrnZo2A4czS'
 
 // to collect all colors pass object down from app -> albums -> album -> image
 // and add colors to object within color getter/ .then
@@ -86,11 +80,48 @@ class Track extends Component {
 }
 
 class ArtistProfile extends Component {
+	
+	constructor(props) {
+		super(props);
+		
+		this.state = {
+			isLoaded: false,
+			data: null
+		}
+	}
+	
+	componentDidMount() {
+		const headers = { 'Authorization': 'Bearer BQAKlSGcIZKvNgYmT6L_m-H3b4Ny0cjTWNWZOv_n2LgLLfgpdaEsjJWoJiGCdEm7wz2-IgrBob8u0owvQv5zL9RXW-uz_XYBXcEy8RSl5aP5YgFjdR1YKY3z8eiM8LZ6hzM1hQHe' }
+		fetch('https://api.spotify.com/v1/artists/4Kg3vBPMPfnYrnZo2A4czS')
+			.then(response => response.json())
+			.then(stuff => this.setState({ 
+				isLoaded: true,
+				data : stuff 
+				}));
+	}
+
 
 	render () {
-		let {data, topTracks} = this.props;
-		topTracks = topTracks.tracks;
+		const {isLoaded, data} = this.state
 		
+		if (isLoaded) {
+			return (
+			<header className="App-header">
+				<div className="Artist-image"><img src={data.images[0].url}/></div>
+				<div className="Artist-info">
+					<h1><a href={data.external_urls.spotify}>{data.name}</a></h1>
+				</div>
+			</header>
+			)
+		} else {
+			return (
+			<header className="App-header">
+					<h1>Loading...</h1>
+			</header>
+			)
+		}
+		
+		/*
 		return (
 		<header className="App-header">
 			<div className="Artist-image"><Image src={data.images[0].url}/></div>
@@ -109,6 +140,7 @@ class ArtistProfile extends Component {
 			</div>
 		</header>
 		)
+		*/
 	}
 }
 
@@ -128,7 +160,7 @@ class Album extends Component {
 }
 
 class Albums extends Component {
-	//prob should seperate albums and singles at some point
+
 	state = {
 		visible: true
 	}
@@ -164,11 +196,18 @@ class Albums extends Component {
 }
 
 function App() {
-	
+	/*
 	return (
 		<div className="App">
 			<ArtistProfile data={artistInfo} topTracks={tracks}/>
 			<Albums albums={albums}/>
+		</div>
+	);
+	*/
+	
+		return (
+		<div className="App">
+			<ArtistProfile/>
 		</div>
 	);
 }
