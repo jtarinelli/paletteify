@@ -1,691 +1,673 @@
 {
   "tracks" : [ {
     "album" : {
-      "album_type" : "album",
+      "album_type" : "single",
       "artists" : [ {
         "external_urls" : {
-          "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
+          "spotify" : "https://open.spotify.com/artist/4Kg3vBPMPfnYrnZo2A4czS"
         },
-        "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
-        "id" : "1S2S00lgLYLGHWA44qGEUs",
-        "name" : "Gen Hoshino",
+        "href" : "https://api.spotify.com/v1/artists/4Kg3vBPMPfnYrnZo2A4czS",
+        "id" : "4Kg3vBPMPfnYrnZo2A4czS",
+        "name" : "Shouta Aoi",
         "type" : "artist",
-        "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
+        "uri" : "spotify:artist:4Kg3vBPMPfnYrnZo2A4czS"
       } ],
       "external_urls" : {
-        "spotify" : "https://open.spotify.com/album/7oFLY1YL5bBI32UHsmQO6q"
+        "spotify" : "https://open.spotify.com/album/0bmlDcrjOsJmhRfql5o8az"
       },
-      "href" : "https://api.spotify.com/v1/albums/7oFLY1YL5bBI32UHsmQO6q",
-      "id" : "7oFLY1YL5bBI32UHsmQO6q",
+      "href" : "https://api.spotify.com/v1/albums/0bmlDcrjOsJmhRfql5o8az",
+      "id" : "0bmlDcrjOsJmhRfql5o8az",
       "images" : [ {
         "height" : 640,
-        "url" : "https://i.scdn.co/image/ab67616d0000b27302a856097c809fb56c23cfb2",
+        "url" : "https://i.scdn.co/image/ab67616d0000b2731e97d7dd7489cd9ab7835bd8",
         "width" : 640
       }, {
         "height" : 300,
-        "url" : "https://i.scdn.co/image/ab67616d00001e0202a856097c809fb56c23cfb2",
+        "url" : "https://i.scdn.co/image/ab67616d00001e021e97d7dd7489cd9ab7835bd8",
         "width" : 300
       }, {
         "height" : 64,
-        "url" : "https://i.scdn.co/image/ab67616d0000485102a856097c809fb56c23cfb2",
+        "url" : "https://i.scdn.co/image/ab67616d000048511e97d7dd7489cd9ab7835bd8",
         "width" : 64
       } ],
-      "name" : "POP VIRUS",
-      "release_date" : "2018-12-19",
+      "name" : "BAD END",
+      "release_date" : "2020-04-29",
       "release_date_precision" : "day",
-      "total_tracks" : 14,
+      "total_tracks" : 3,
       "type" : "album",
-      "uri" : "spotify:album:7oFLY1YL5bBI32UHsmQO6q"
+      "uri" : "spotify:album:0bmlDcrjOsJmhRfql5o8az"
     },
     "artists" : [ {
       "external_urls" : {
-        "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
+        "spotify" : "https://open.spotify.com/artist/4Kg3vBPMPfnYrnZo2A4czS"
       },
-      "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
-      "id" : "1S2S00lgLYLGHWA44qGEUs",
-      "name" : "Gen Hoshino",
+      "href" : "https://api.spotify.com/v1/artists/4Kg3vBPMPfnYrnZo2A4czS",
+      "id" : "4Kg3vBPMPfnYrnZo2A4czS",
+      "name" : "Shouta Aoi",
       "type" : "artist",
-      "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
+      "uri" : "spotify:artist:4Kg3vBPMPfnYrnZo2A4czS"
     } ],
     "disc_number" : 1,
-    "duration_ms" : 280666,
+    "duration_ms" : 207448,
     "explicit" : false,
     "external_ids" : {
-      "isrc" : "JPVI01885660"
+      "isrc" : "JPKI02012178"
     },
     "external_urls" : {
-      "spotify" : "https://open.spotify.com/track/30QnX1bcrFYqWQNKfWclr8"
+      "spotify" : "https://open.spotify.com/track/1lZ9jdDEHj7d0KC0mBlyRg"
     },
-    "href" : "https://api.spotify.com/v1/tracks/30QnX1bcrFYqWQNKfWclr8",
-    "id" : "30QnX1bcrFYqWQNKfWclr8",
+    "href" : "https://api.spotify.com/v1/tracks/1lZ9jdDEHj7d0KC0mBlyRg",
+    "id" : "1lZ9jdDEHj7d0KC0mBlyRg",
     "is_local" : false,
     "is_playable" : true,
-    "name" : "Idea",
-    "popularity" : 42,
-    "preview_url" : "https://p.scdn.co/mp3-preview/0b1c45fdc77c1737e9f599d809760d123f341a96?cid=774b29d4f13844c495f206cafdad9c86",
-    "track_number" : 11,
+    "name" : "BAD END",
+    "popularity" : 44,
+    "preview_url" : "https://p.scdn.co/mp3-preview/065ebe516eaac12534d720e4d6813e53e923547a?cid=774b29d4f13844c495f206cafdad9c86",
+    "track_number" : 1,
     "type" : "track",
-    "uri" : "spotify:track:30QnX1bcrFYqWQNKfWclr8"
+    "uri" : "spotify:track:1lZ9jdDEHj7d0KC0mBlyRg"
   }, {
     "album" : {
-      "album_type" : "album",
+      "album_type" : "single",
       "artists" : [ {
         "external_urls" : {
-          "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
+          "spotify" : "https://open.spotify.com/artist/4Kg3vBPMPfnYrnZo2A4czS"
         },
-        "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
-        "id" : "1S2S00lgLYLGHWA44qGEUs",
-        "name" : "Gen Hoshino",
+        "href" : "https://api.spotify.com/v1/artists/4Kg3vBPMPfnYrnZo2A4czS",
+        "id" : "4Kg3vBPMPfnYrnZo2A4czS",
+        "name" : "Shouta Aoi",
         "type" : "artist",
-        "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
+        "uri" : "spotify:artist:4Kg3vBPMPfnYrnZo2A4czS"
       } ],
       "external_urls" : {
-        "spotify" : "https://open.spotify.com/album/7oFLY1YL5bBI32UHsmQO6q"
+        "spotify" : "https://open.spotify.com/album/6WsLrwKo6T68Unqf7cJ9J3"
       },
-      "href" : "https://api.spotify.com/v1/albums/7oFLY1YL5bBI32UHsmQO6q",
-      "id" : "7oFLY1YL5bBI32UHsmQO6q",
+      "href" : "https://api.spotify.com/v1/albums/6WsLrwKo6T68Unqf7cJ9J3",
+      "id" : "6WsLrwKo6T68Unqf7cJ9J3",
       "images" : [ {
         "height" : 640,
-        "url" : "https://i.scdn.co/image/ab67616d0000b27302a856097c809fb56c23cfb2",
+        "url" : "https://i.scdn.co/image/ab67616d0000b2735b56a1eb6854550d88de2af1",
         "width" : 640
       }, {
         "height" : 300,
-        "url" : "https://i.scdn.co/image/ab67616d00001e0202a856097c809fb56c23cfb2",
+        "url" : "https://i.scdn.co/image/ab67616d00001e025b56a1eb6854550d88de2af1",
         "width" : 300
       }, {
         "height" : 64,
-        "url" : "https://i.scdn.co/image/ab67616d0000485102a856097c809fb56c23cfb2",
+        "url" : "https://i.scdn.co/image/ab67616d000048515b56a1eb6854550d88de2af1",
         "width" : 64
       } ],
-      "name" : "POP VIRUS",
-      "release_date" : "2018-12-19",
+      "name" : "Tone",
+      "release_date" : "2019-04-10",
       "release_date_precision" : "day",
-      "total_tracks" : 14,
+      "total_tracks" : 3,
       "type" : "album",
-      "uri" : "spotify:album:7oFLY1YL5bBI32UHsmQO6q"
+      "uri" : "spotify:album:6WsLrwKo6T68Unqf7cJ9J3"
     },
     "artists" : [ {
       "external_urls" : {
-        "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
+        "spotify" : "https://open.spotify.com/artist/4Kg3vBPMPfnYrnZo2A4czS"
       },
-      "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
-      "id" : "1S2S00lgLYLGHWA44qGEUs",
-      "name" : "Gen Hoshino",
+      "href" : "https://api.spotify.com/v1/artists/4Kg3vBPMPfnYrnZo2A4czS",
+      "id" : "4Kg3vBPMPfnYrnZo2A4czS",
+      "name" : "Shouta Aoi",
       "type" : "artist",
-      "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
+      "uri" : "spotify:artist:4Kg3vBPMPfnYrnZo2A4czS"
     } ],
     "disc_number" : 1,
-    "duration_ms" : 251266,
+    "duration_ms" : 248682,
     "explicit" : false,
     "external_ids" : {
-      "isrc" : "JPVI01820201"
+      "isrc" : "JPKI01911220"
     },
     "external_urls" : {
-      "spotify" : "https://open.spotify.com/track/4nmjL1mUKOAfAbo9QG9tSE"
+      "spotify" : "https://open.spotify.com/track/5WnGiM6qXGDlOuopqbNqtj"
     },
-    "href" : "https://api.spotify.com/v1/tracks/4nmjL1mUKOAfAbo9QG9tSE",
-    "id" : "4nmjL1mUKOAfAbo9QG9tSE",
+    "href" : "https://api.spotify.com/v1/tracks/5WnGiM6qXGDlOuopqbNqtj",
+    "id" : "5WnGiM6qXGDlOuopqbNqtj",
     "is_local" : false,
     "is_playable" : true,
-    "name" : "Koi",
-    "popularity" : 48,
-    "preview_url" : "https://p.scdn.co/mp3-preview/1136e84c4841e243cb136a2f75ed874393b7ab24?cid=774b29d4f13844c495f206cafdad9c86",
+    "name" : "Tone",
+    "popularity" : 32,
+    "preview_url" : "https://p.scdn.co/mp3-preview/acd6d2233a8a463bc06e8b9a2eef35803390f7bd?cid=774b29d4f13844c495f206cafdad9c86",
+    "track_number" : 1,
+    "type" : "track",
+    "uri" : "spotify:track:5WnGiM6qXGDlOuopqbNqtj"
+  }, {
+    "album" : {
+      "album_type" : "single",
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/4Kg3vBPMPfnYrnZo2A4czS"
+        },
+        "href" : "https://api.spotify.com/v1/artists/4Kg3vBPMPfnYrnZo2A4czS",
+        "id" : "4Kg3vBPMPfnYrnZo2A4czS",
+        "name" : "Shouta Aoi",
+        "type" : "artist",
+        "uri" : "spotify:artist:4Kg3vBPMPfnYrnZo2A4czS"
+      } ],
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/0bmlDcrjOsJmhRfql5o8az"
+      },
+      "href" : "https://api.spotify.com/v1/albums/0bmlDcrjOsJmhRfql5o8az",
+      "id" : "0bmlDcrjOsJmhRfql5o8az",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/ab67616d0000b2731e97d7dd7489cd9ab7835bd8",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/ab67616d00001e021e97d7dd7489cd9ab7835bd8",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/ab67616d000048511e97d7dd7489cd9ab7835bd8",
+        "width" : 64
+      } ],
+      "name" : "BAD END",
+      "release_date" : "2020-04-29",
+      "release_date_precision" : "day",
+      "total_tracks" : 3,
+      "type" : "album",
+      "uri" : "spotify:album:0bmlDcrjOsJmhRfql5o8az"
+    },
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/4Kg3vBPMPfnYrnZo2A4czS"
+      },
+      "href" : "https://api.spotify.com/v1/artists/4Kg3vBPMPfnYrnZo2A4czS",
+      "id" : "4Kg3vBPMPfnYrnZo2A4czS",
+      "name" : "Shouta Aoi",
+      "type" : "artist",
+      "uri" : "spotify:artist:4Kg3vBPMPfnYrnZo2A4czS"
+    } ],
+    "disc_number" : 1,
+    "duration_ms" : 250550,
+    "explicit" : false,
+    "external_ids" : {
+      "isrc" : "JPKI02012179"
+    },
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/track/1gN3Jysf1V64Qy9cB126PQ"
+    },
+    "href" : "https://api.spotify.com/v1/tracks/1gN3Jysf1V64Qy9cB126PQ",
+    "id" : "1gN3Jysf1V64Qy9cB126PQ",
+    "is_local" : false,
+    "is_playable" : true,
+    "name" : "Existence",
+    "popularity" : 28,
+    "preview_url" : "https://p.scdn.co/mp3-preview/69fbe9d5478358517ff7802d8e929a94db9576bb?cid=774b29d4f13844c495f206cafdad9c86",
     "track_number" : 2,
     "type" : "track",
-    "uri" : "spotify:track:4nmjL1mUKOAfAbo9QG9tSE"
+    "uri" : "spotify:track:1gN3Jysf1V64Qy9cB126PQ"
+  }, {
+    "album" : {
+      "album_type" : "single",
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/4Kg3vBPMPfnYrnZo2A4czS"
+        },
+        "href" : "https://api.spotify.com/v1/artists/4Kg3vBPMPfnYrnZo2A4czS",
+        "id" : "4Kg3vBPMPfnYrnZo2A4czS",
+        "name" : "Shouta Aoi",
+        "type" : "artist",
+        "uri" : "spotify:artist:4Kg3vBPMPfnYrnZo2A4czS"
+      } ],
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/7KhxpxBgFD81RsseM6r7mk"
+      },
+      "href" : "https://api.spotify.com/v1/albums/7KhxpxBgFD81RsseM6r7mk",
+      "id" : "7KhxpxBgFD81RsseM6r7mk",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/ab67616d0000b2736b0ddaff5aae2f4eb0e0b228",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/ab67616d00001e026b0ddaff5aae2f4eb0e0b228",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/ab67616d000048516b0ddaff5aae2f4eb0e0b228",
+        "width" : 64
+      } ],
+      "name" : "Eclipse",
+      "release_date" : "2018-05-09",
+      "release_date_precision" : "day",
+      "total_tracks" : 3,
+      "type" : "album",
+      "uri" : "spotify:album:7KhxpxBgFD81RsseM6r7mk"
+    },
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/4Kg3vBPMPfnYrnZo2A4czS"
+      },
+      "href" : "https://api.spotify.com/v1/artists/4Kg3vBPMPfnYrnZo2A4czS",
+      "id" : "4Kg3vBPMPfnYrnZo2A4czS",
+      "name" : "Shouta Aoi",
+      "type" : "artist",
+      "uri" : "spotify:artist:4Kg3vBPMPfnYrnZo2A4czS"
+    } ],
+    "disc_number" : 1,
+    "duration_ms" : 268413,
+    "explicit" : false,
+    "external_ids" : {
+      "isrc" : "JPKI01813986"
+    },
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/track/7mijyfIOav7iwaqanw8cyZ"
+    },
+    "href" : "https://api.spotify.com/v1/tracks/7mijyfIOav7iwaqanw8cyZ",
+    "id" : "7mijyfIOav7iwaqanw8cyZ",
+    "is_local" : false,
+    "is_playable" : true,
+    "name" : "Eclipse",
+    "popularity" : 27,
+    "preview_url" : "https://p.scdn.co/mp3-preview/cbd05754e4b7b0ca42236561f7326b9ce593c916?cid=774b29d4f13844c495f206cafdad9c86",
+    "track_number" : 1,
+    "type" : "track",
+    "uri" : "spotify:track:7mijyfIOav7iwaqanw8cyZ"
+  }, {
+    "album" : {
+      "album_type" : "single",
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/4Kg3vBPMPfnYrnZo2A4czS"
+        },
+        "href" : "https://api.spotify.com/v1/artists/4Kg3vBPMPfnYrnZo2A4czS",
+        "id" : "4Kg3vBPMPfnYrnZo2A4czS",
+        "name" : "Shouta Aoi",
+        "type" : "artist",
+        "uri" : "spotify:artist:4Kg3vBPMPfnYrnZo2A4czS"
+      } ],
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/3NNsJkVquchcLxTimQpYpr"
+      },
+      "href" : "https://api.spotify.com/v1/albums/3NNsJkVquchcLxTimQpYpr",
+      "id" : "3NNsJkVquchcLxTimQpYpr",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/ab67616d0000b2735302bea5b9fe8c1a22b3fa40",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/ab67616d00001e025302bea5b9fe8c1a22b3fa40",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/ab67616d000048515302bea5b9fe8c1a22b3fa40",
+        "width" : 64
+      } ],
+      "name" : "Harmony",
+      "release_date" : "2019-10-02",
+      "release_date_precision" : "day",
+      "total_tracks" : 3,
+      "type" : "album",
+      "uri" : "spotify:album:3NNsJkVquchcLxTimQpYpr"
+    },
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/4Kg3vBPMPfnYrnZo2A4czS"
+      },
+      "href" : "https://api.spotify.com/v1/artists/4Kg3vBPMPfnYrnZo2A4czS",
+      "id" : "4Kg3vBPMPfnYrnZo2A4czS",
+      "name" : "Shouta Aoi",
+      "type" : "artist",
+      "uri" : "spotify:artist:4Kg3vBPMPfnYrnZo2A4czS"
+    } ],
+    "disc_number" : 1,
+    "duration_ms" : 269461,
+    "explicit" : false,
+    "external_ids" : {
+      "isrc" : "JPKI01915362"
+    },
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/track/0sh6jQ1Yl3ObHlY5esp5fs"
+    },
+    "href" : "https://api.spotify.com/v1/tracks/0sh6jQ1Yl3ObHlY5esp5fs",
+    "id" : "0sh6jQ1Yl3ObHlY5esp5fs",
+    "is_local" : false,
+    "is_playable" : true,
+    "name" : "Harmony",
+    "popularity" : 26,
+    "preview_url" : "https://p.scdn.co/mp3-preview/309c13cce6fde1746c836ec9ffde131519574f8c?cid=774b29d4f13844c495f206cafdad9c86",
+    "track_number" : 1,
+    "type" : "track",
+    "uri" : "spotify:track:0sh6jQ1Yl3ObHlY5esp5fs"
   }, {
     "album" : {
       "album_type" : "album",
       "artists" : [ {
         "external_urls" : {
-          "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
+          "spotify" : "https://open.spotify.com/artist/4Kg3vBPMPfnYrnZo2A4czS"
         },
-        "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
-        "id" : "1S2S00lgLYLGHWA44qGEUs",
-        "name" : "Gen Hoshino",
+        "href" : "https://api.spotify.com/v1/artists/4Kg3vBPMPfnYrnZo2A4czS",
+        "id" : "4Kg3vBPMPfnYrnZo2A4czS",
+        "name" : "Shouta Aoi",
         "type" : "artist",
-        "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
+        "uri" : "spotify:artist:4Kg3vBPMPfnYrnZo2A4czS"
       } ],
       "external_urls" : {
-        "spotify" : "https://open.spotify.com/album/1vtIqjn25qHypqyoI21q8d"
+        "spotify" : "https://open.spotify.com/album/1Viks7fO4Sh6DrZVLgLlkz"
       },
-      "href" : "https://api.spotify.com/v1/albums/1vtIqjn25qHypqyoI21q8d",
-      "id" : "1vtIqjn25qHypqyoI21q8d",
+      "href" : "https://api.spotify.com/v1/albums/1Viks7fO4Sh6DrZVLgLlkz",
+      "id" : "1Viks7fO4Sh6DrZVLgLlkz",
       "images" : [ {
         "height" : 640,
-        "url" : "https://i.scdn.co/image/ab67616d0000b2735d947999f612f4a45915da1e",
+        "url" : "https://i.scdn.co/image/ab67616d0000b273e020caa86d7362c8f0495a81",
         "width" : 640
       }, {
         "height" : 300,
-        "url" : "https://i.scdn.co/image/ab67616d00001e025d947999f612f4a45915da1e",
+        "url" : "https://i.scdn.co/image/ab67616d00001e02e020caa86d7362c8f0495a81",
         "width" : 300
       }, {
         "height" : 64,
-        "url" : "https://i.scdn.co/image/ab67616d000048515d947999f612f4a45915da1e",
+        "url" : "https://i.scdn.co/image/ab67616d00004851e020caa86d7362c8f0495a81",
         "width" : 64
       } ],
-      "name" : "YELLOW DANCER",
-      "release_date" : "2015-12-02",
+      "name" : "0",
+      "release_date" : "2017-10-11",
       "release_date_precision" : "day",
-      "total_tracks" : 14,
+      "total_tracks" : 12,
       "type" : "album",
-      "uri" : "spotify:album:1vtIqjn25qHypqyoI21q8d"
+      "uri" : "spotify:album:1Viks7fO4Sh6DrZVLgLlkz"
     },
     "artists" : [ {
       "external_urls" : {
-        "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
+        "spotify" : "https://open.spotify.com/artist/4Kg3vBPMPfnYrnZo2A4czS"
       },
-      "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
-      "id" : "1S2S00lgLYLGHWA44qGEUs",
-      "name" : "Gen Hoshino",
+      "href" : "https://api.spotify.com/v1/artists/4Kg3vBPMPfnYrnZo2A4czS",
+      "id" : "4Kg3vBPMPfnYrnZo2A4czS",
+      "name" : "Shouta Aoi",
       "type" : "artist",
-      "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
+      "uri" : "spotify:artist:4Kg3vBPMPfnYrnZo2A4czS"
     } ],
     "disc_number" : 1,
-    "duration_ms" : 241466,
+    "duration_ms" : 237226,
     "explicit" : false,
     "external_ids" : {
-      "isrc" : "JPVI01513950"
+      "isrc" : "JPKI01716025"
     },
     "external_urls" : {
-      "spotify" : "https://open.spotify.com/track/7rIBp3U5Igzn44l7Z7mOtE"
+      "spotify" : "https://open.spotify.com/track/7rUNmIPJ2HkNcnayjXnDQW"
     },
-    "href" : "https://api.spotify.com/v1/tracks/7rIBp3U5Igzn44l7Z7mOtE",
-    "id" : "7rIBp3U5Igzn44l7Z7mOtE",
+    "href" : "https://api.spotify.com/v1/tracks/7rUNmIPJ2HkNcnayjXnDQW",
+    "id" : "7rUNmIPJ2HkNcnayjXnDQW",
     "is_local" : false,
     "is_playable" : true,
-    "name" : "SUN",
-    "popularity" : 41,
-    "preview_url" : "https://p.scdn.co/mp3-preview/aa5531b3d4214e504415f70a39e2a819664a1692?cid=774b29d4f13844c495f206cafdad9c86",
+    "name" : "零",
+    "popularity" : 25,
+    "preview_url" : "https://p.scdn.co/mp3-preview/5e5806626ed2ca7a97d6659cfa0d9f04403d8668?cid=774b29d4f13844c495f206cafdad9c86",
+    "track_number" : 1,
+    "type" : "track",
+    "uri" : "spotify:track:7rUNmIPJ2HkNcnayjXnDQW"
+  }, {
+    "album" : {
+      "album_type" : "single",
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/4Kg3vBPMPfnYrnZo2A4czS"
+        },
+        "href" : "https://api.spotify.com/v1/artists/4Kg3vBPMPfnYrnZo2A4czS",
+        "id" : "4Kg3vBPMPfnYrnZo2A4czS",
+        "name" : "Shouta Aoi",
+        "type" : "artist",
+        "uri" : "spotify:artist:4Kg3vBPMPfnYrnZo2A4czS"
+      } ],
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/0bmlDcrjOsJmhRfql5o8az"
+      },
+      "href" : "https://api.spotify.com/v1/albums/0bmlDcrjOsJmhRfql5o8az",
+      "id" : "0bmlDcrjOsJmhRfql5o8az",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/ab67616d0000b2731e97d7dd7489cd9ab7835bd8",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/ab67616d00001e021e97d7dd7489cd9ab7835bd8",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/ab67616d000048511e97d7dd7489cd9ab7835bd8",
+        "width" : 64
+      } ],
+      "name" : "BAD END",
+      "release_date" : "2020-04-29",
+      "release_date_precision" : "day",
+      "total_tracks" : 3,
+      "type" : "album",
+      "uri" : "spotify:album:0bmlDcrjOsJmhRfql5o8az"
+    },
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/4Kg3vBPMPfnYrnZo2A4czS"
+      },
+      "href" : "https://api.spotify.com/v1/artists/4Kg3vBPMPfnYrnZo2A4czS",
+      "id" : "4Kg3vBPMPfnYrnZo2A4czS",
+      "name" : "Shouta Aoi",
+      "type" : "artist",
+      "uri" : "spotify:artist:4Kg3vBPMPfnYrnZo2A4czS"
+    } ],
+    "disc_number" : 1,
+    "duration_ms" : 218040,
+    "explicit" : false,
+    "external_ids" : {
+      "isrc" : "JPKI02012180"
+    },
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/track/22bdJ9BAXdV4E2sVMxY980"
+    },
+    "href" : "https://api.spotify.com/v1/tracks/22bdJ9BAXdV4E2sVMxY980",
+    "id" : "22bdJ9BAXdV4E2sVMxY980",
+    "is_local" : false,
+    "is_playable" : true,
+    "name" : "Shake Shake! Together!",
+    "popularity" : 25,
+    "preview_url" : "https://p.scdn.co/mp3-preview/6c2b76dd3e72bfb2e04512ef321366be320c6c2f?cid=774b29d4f13844c495f206cafdad9c86",
     "track_number" : 3,
     "type" : "track",
-    "uri" : "spotify:track:7rIBp3U5Igzn44l7Z7mOtE"
+    "uri" : "spotify:track:22bdJ9BAXdV4E2sVMxY980"
   }, {
     "album" : {
       "album_type" : "single",
       "artists" : [ {
         "external_urls" : {
-          "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
+          "spotify" : "https://open.spotify.com/artist/4Kg3vBPMPfnYrnZo2A4czS"
         },
-        "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
-        "id" : "1S2S00lgLYLGHWA44qGEUs",
-        "name" : "Gen Hoshino",
+        "href" : "https://api.spotify.com/v1/artists/4Kg3vBPMPfnYrnZo2A4czS",
+        "id" : "4Kg3vBPMPfnYrnZo2A4czS",
+        "name" : "Shouta Aoi",
         "type" : "artist",
-        "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
+        "uri" : "spotify:artist:4Kg3vBPMPfnYrnZo2A4czS"
       } ],
       "external_urls" : {
-        "spotify" : "https://open.spotify.com/album/5VGCJPjawUCJhP4PG2IKtp"
+        "spotify" : "https://open.spotify.com/album/3NNsJkVquchcLxTimQpYpr"
       },
-      "href" : "https://api.spotify.com/v1/albums/5VGCJPjawUCJhP4PG2IKtp",
-      "id" : "5VGCJPjawUCJhP4PG2IKtp",
+      "href" : "https://api.spotify.com/v1/albums/3NNsJkVquchcLxTimQpYpr",
+      "id" : "3NNsJkVquchcLxTimQpYpr",
       "images" : [ {
         "height" : 640,
-        "url" : "https://i.scdn.co/image/ab67616d0000b2731e2d04a5ab3d84ff8b6c4f3b",
+        "url" : "https://i.scdn.co/image/ab67616d0000b2735302bea5b9fe8c1a22b3fa40",
         "width" : 640
       }, {
         "height" : 300,
-        "url" : "https://i.scdn.co/image/ab67616d00001e021e2d04a5ab3d84ff8b6c4f3b",
+        "url" : "https://i.scdn.co/image/ab67616d00001e025302bea5b9fe8c1a22b3fa40",
         "width" : 300
       }, {
         "height" : 64,
-        "url" : "https://i.scdn.co/image/ab67616d000048511e2d04a5ab3d84ff8b6c4f3b",
+        "url" : "https://i.scdn.co/image/ab67616d000048515302bea5b9fe8c1a22b3fa40",
         "width" : 64
       } ],
-      "name" : "Doraemon",
-      "release_date" : "2018-02-28",
+      "name" : "Harmony",
+      "release_date" : "2019-10-02",
       "release_date_precision" : "day",
-      "total_tracks" : 4,
+      "total_tracks" : 3,
       "type" : "album",
-      "uri" : "spotify:album:5VGCJPjawUCJhP4PG2IKtp"
+      "uri" : "spotify:album:3NNsJkVquchcLxTimQpYpr"
     },
     "artists" : [ {
       "external_urls" : {
-        "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
+        "spotify" : "https://open.spotify.com/artist/4Kg3vBPMPfnYrnZo2A4czS"
       },
-      "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
-      "id" : "1S2S00lgLYLGHWA44qGEUs",
-      "name" : "Gen Hoshino",
+      "href" : "https://api.spotify.com/v1/artists/4Kg3vBPMPfnYrnZo2A4czS",
+      "id" : "4Kg3vBPMPfnYrnZo2A4czS",
+      "name" : "Shouta Aoi",
       "type" : "artist",
-      "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
+      "uri" : "spotify:artist:4Kg3vBPMPfnYrnZo2A4czS"
     } ],
     "disc_number" : 1,
-    "duration_ms" : 239933,
+    "duration_ms" : 246371,
     "explicit" : false,
     "external_ids" : {
-      "isrc" : "JPVI01801800"
+      "isrc" : "JPKI01915364"
     },
     "external_urls" : {
-      "spotify" : "https://open.spotify.com/track/2pcuXnZhTirLXsfXGVFTv2"
+      "spotify" : "https://open.spotify.com/track/4SPXgqpidCk2k67dfAg8EN"
     },
-    "href" : "https://api.spotify.com/v1/tracks/2pcuXnZhTirLXsfXGVFTv2",
-    "id" : "2pcuXnZhTirLXsfXGVFTv2",
+    "href" : "https://api.spotify.com/v1/tracks/4SPXgqpidCk2k67dfAg8EN",
+    "id" : "4SPXgqpidCk2k67dfAg8EN",
     "is_local" : false,
     "is_playable" : true,
-    "name" : "Doraemon",
-    "popularity" : 40,
-    "preview_url" : "https://p.scdn.co/mp3-preview/c3bd47814215483d0b8691ab88ef07b67ff01ba3?cid=774b29d4f13844c495f206cafdad9c86",
-    "track_number" : 1,
+    "name" : "Fake of Fake",
+    "popularity" : 24,
+    "preview_url" : "https://p.scdn.co/mp3-preview/db6175a80f4847a895a443ef77d790769f15d052?cid=774b29d4f13844c495f206cafdad9c86",
+    "track_number" : 3,
     "type" : "track",
-    "uri" : "spotify:track:2pcuXnZhTirLXsfXGVFTv2"
-  }, {
-    "album" : {
-      "album_type" : "single",
-      "artists" : [ {
-        "external_urls" : {
-          "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
-        },
-        "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
-        "id" : "1S2S00lgLYLGHWA44qGEUs",
-        "name" : "Gen Hoshino",
-        "type" : "artist",
-        "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
-      } ],
-      "external_urls" : {
-        "spotify" : "https://open.spotify.com/album/5cJKQHjMY2k19tGNS2QdCe"
-      },
-      "href" : "https://api.spotify.com/v1/albums/5cJKQHjMY2k19tGNS2QdCe",
-      "id" : "5cJKQHjMY2k19tGNS2QdCe",
-      "images" : [ {
-        "height" : 640,
-        "url" : "https://i.scdn.co/image/ab67616d0000b2736ccbca3e545541dc74449999",
-        "width" : 640
-      }, {
-        "height" : 300,
-        "url" : "https://i.scdn.co/image/ab67616d00001e026ccbca3e545541dc74449999",
-        "width" : 300
-      }, {
-        "height" : 64,
-        "url" : "https://i.scdn.co/image/ab67616d000048516ccbca3e545541dc74449999",
-        "width" : 64
-      } ],
-      "name" : "Dancing On The Inside",
-      "release_date" : "2020-05-08",
-      "release_date_precision" : "day",
-      "total_tracks" : 1,
-      "type" : "album",
-      "uri" : "spotify:album:5cJKQHjMY2k19tGNS2QdCe"
-    },
-    "artists" : [ {
-      "external_urls" : {
-        "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
-      },
-      "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
-      "id" : "1S2S00lgLYLGHWA44qGEUs",
-      "name" : "Gen Hoshino",
-      "type" : "artist",
-      "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
-    } ],
-    "disc_number" : 1,
-    "duration_ms" : 57600,
-    "explicit" : false,
-    "external_ids" : {
-      "isrc" : "JPVI02001134"
-    },
-    "external_urls" : {
-      "spotify" : "https://open.spotify.com/track/59FDamxhk7qmI5Smrgnlrt"
-    },
-    "href" : "https://api.spotify.com/v1/tracks/59FDamxhk7qmI5Smrgnlrt",
-    "id" : "59FDamxhk7qmI5Smrgnlrt",
-    "is_local" : false,
-    "is_playable" : true,
-    "name" : "Dancing On The Inside",
-    "popularity" : 38,
-    "preview_url" : "https://p.scdn.co/mp3-preview/00b823caa5e9b7d199f8e1d8c6690cdf0a4efd54?cid=774b29d4f13844c495f206cafdad9c86",
-    "track_number" : 1,
-    "type" : "track",
-    "uri" : "spotify:track:59FDamxhk7qmI5Smrgnlrt"
-  }, {
-    "album" : {
-      "album_type" : "single",
-      "artists" : [ {
-        "external_urls" : {
-          "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
-        },
-        "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
-        "id" : "1S2S00lgLYLGHWA44qGEUs",
-        "name" : "Gen Hoshino",
-        "type" : "artist",
-        "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
-      } ],
-      "external_urls" : {
-        "spotify" : "https://open.spotify.com/album/2ejyLOljyWuPWtSCHaxIue"
-      },
-      "href" : "https://api.spotify.com/v1/albums/2ejyLOljyWuPWtSCHaxIue",
-      "id" : "2ejyLOljyWuPWtSCHaxIue",
-      "images" : [ {
-        "height" : 640,
-        "url" : "https://i.scdn.co/image/ab67616d0000b273cc9f2db3f78d7deda694ef9a",
-        "width" : 640
-      }, {
-        "height" : 300,
-        "url" : "https://i.scdn.co/image/ab67616d00001e02cc9f2db3f78d7deda694ef9a",
-        "width" : 300
-      }, {
-        "height" : 64,
-        "url" : "https://i.scdn.co/image/ab67616d00004851cc9f2db3f78d7deda694ef9a",
-        "width" : 64
-      } ],
-      "name" : "Same Thing",
-      "release_date" : "2019-10-14",
-      "release_date_precision" : "day",
-      "total_tracks" : 4,
-      "type" : "album",
-      "uri" : "spotify:album:2ejyLOljyWuPWtSCHaxIue"
-    },
-    "artists" : [ {
-      "external_urls" : {
-        "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
-      },
-      "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
-      "id" : "1S2S00lgLYLGHWA44qGEUs",
-      "name" : "Gen Hoshino",
-      "type" : "artist",
-      "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
-    }, {
-      "external_urls" : {
-        "spotify" : "https://open.spotify.com/artist/0mP8A1qIoufScrsxq18Cw6"
-      },
-      "href" : "https://api.spotify.com/v1/artists/0mP8A1qIoufScrsxq18Cw6",
-      "id" : "0mP8A1qIoufScrsxq18Cw6",
-      "name" : "PUNPEE",
-      "type" : "artist",
-      "uri" : "spotify:artist:0mP8A1qIoufScrsxq18Cw6"
-    } ],
-    "disc_number" : 1,
-    "duration_ms" : 230600,
-    "explicit" : false,
-    "external_ids" : {
-      "isrc" : "JPVI01903471"
-    },
-    "external_urls" : {
-      "spotify" : "https://open.spotify.com/track/1HU8n15qhw1py9JjLoHCaE"
-    },
-    "href" : "https://api.spotify.com/v1/tracks/1HU8n15qhw1py9JjLoHCaE",
-    "id" : "1HU8n15qhw1py9JjLoHCaE",
-    "is_local" : false,
-    "is_playable" : true,
-    "name" : "Sarashi-mono (feat. PUNPEE)",
-    "popularity" : 38,
-    "preview_url" : "https://p.scdn.co/mp3-preview/089b848cdda7620c4c3e7194fcbe3ba3d74815a0?cid=774b29d4f13844c495f206cafdad9c86",
-    "track_number" : 2,
-    "type" : "track",
-    "uri" : "spotify:track:1HU8n15qhw1py9JjLoHCaE"
-  }, {
-    "album" : {
-      "album_type" : "single",
-      "artists" : [ {
-        "external_urls" : {
-          "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
-        },
-        "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
-        "id" : "1S2S00lgLYLGHWA44qGEUs",
-        "name" : "Gen Hoshino",
-        "type" : "artist",
-        "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
-      } ],
-      "external_urls" : {
-        "spotify" : "https://open.spotify.com/album/2ejyLOljyWuPWtSCHaxIue"
-      },
-      "href" : "https://api.spotify.com/v1/albums/2ejyLOljyWuPWtSCHaxIue",
-      "id" : "2ejyLOljyWuPWtSCHaxIue",
-      "images" : [ {
-        "height" : 640,
-        "url" : "https://i.scdn.co/image/ab67616d0000b273cc9f2db3f78d7deda694ef9a",
-        "width" : 640
-      }, {
-        "height" : 300,
-        "url" : "https://i.scdn.co/image/ab67616d00001e02cc9f2db3f78d7deda694ef9a",
-        "width" : 300
-      }, {
-        "height" : 64,
-        "url" : "https://i.scdn.co/image/ab67616d00004851cc9f2db3f78d7deda694ef9a",
-        "width" : 64
-      } ],
-      "name" : "Same Thing",
-      "release_date" : "2019-10-14",
-      "release_date_precision" : "day",
-      "total_tracks" : 4,
-      "type" : "album",
-      "uri" : "spotify:album:2ejyLOljyWuPWtSCHaxIue"
-    },
-    "artists" : [ {
-      "external_urls" : {
-        "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
-      },
-      "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
-      "id" : "1S2S00lgLYLGHWA44qGEUs",
-      "name" : "Gen Hoshino",
-      "type" : "artist",
-      "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
-    }, {
-      "external_urls" : {
-        "spotify" : "https://open.spotify.com/artist/0Wkm45quqfx3NepJpXDvwE"
-      },
-      "href" : "https://api.spotify.com/v1/artists/0Wkm45quqfx3NepJpXDvwE",
-      "id" : "0Wkm45quqfx3NepJpXDvwE",
-      "name" : "Superorganism",
-      "type" : "artist",
-      "uri" : "spotify:artist:0Wkm45quqfx3NepJpXDvwE"
-    } ],
-    "disc_number" : 1,
-    "duration_ms" : 200133,
-    "explicit" : false,
-    "external_ids" : {
-      "isrc" : "JPVI01903470"
-    },
-    "external_urls" : {
-      "spotify" : "https://open.spotify.com/track/3deGeTEWAMMPDMzKUFP39q"
-    },
-    "href" : "https://api.spotify.com/v1/tracks/3deGeTEWAMMPDMzKUFP39q",
-    "id" : "3deGeTEWAMMPDMzKUFP39q",
-    "is_local" : false,
-    "is_playable" : true,
-    "name" : "Same Thing (feat. Superorganism)",
-    "popularity" : 38,
-    "preview_url" : "https://p.scdn.co/mp3-preview/b0d49008c2abecf4ff8a57f3221f0d5237437195?cid=774b29d4f13844c495f206cafdad9c86",
-    "track_number" : 1,
-    "type" : "track",
-    "uri" : "spotify:track:3deGeTEWAMMPDMzKUFP39q"
+    "uri" : "spotify:track:4SPXgqpidCk2k67dfAg8EN"
   }, {
     "album" : {
       "album_type" : "album",
       "artists" : [ {
         "external_urls" : {
-          "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
+          "spotify" : "https://open.spotify.com/artist/4Kg3vBPMPfnYrnZo2A4czS"
         },
-        "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
-        "id" : "1S2S00lgLYLGHWA44qGEUs",
-        "name" : "Gen Hoshino",
+        "href" : "https://api.spotify.com/v1/artists/4Kg3vBPMPfnYrnZo2A4czS",
+        "id" : "4Kg3vBPMPfnYrnZo2A4czS",
+        "name" : "Shouta Aoi",
         "type" : "artist",
-        "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
+        "uri" : "spotify:artist:4Kg3vBPMPfnYrnZo2A4czS"
       } ],
       "external_urls" : {
-        "spotify" : "https://open.spotify.com/album/7oFLY1YL5bBI32UHsmQO6q"
+        "spotify" : "https://open.spotify.com/album/1Viks7fO4Sh6DrZVLgLlkz"
       },
-      "href" : "https://api.spotify.com/v1/albums/7oFLY1YL5bBI32UHsmQO6q",
-      "id" : "7oFLY1YL5bBI32UHsmQO6q",
+      "href" : "https://api.spotify.com/v1/albums/1Viks7fO4Sh6DrZVLgLlkz",
+      "id" : "1Viks7fO4Sh6DrZVLgLlkz",
       "images" : [ {
         "height" : 640,
-        "url" : "https://i.scdn.co/image/ab67616d0000b27302a856097c809fb56c23cfb2",
+        "url" : "https://i.scdn.co/image/ab67616d0000b273e020caa86d7362c8f0495a81",
         "width" : 640
       }, {
         "height" : 300,
-        "url" : "https://i.scdn.co/image/ab67616d00001e0202a856097c809fb56c23cfb2",
+        "url" : "https://i.scdn.co/image/ab67616d00001e02e020caa86d7362c8f0495a81",
         "width" : 300
       }, {
         "height" : 64,
-        "url" : "https://i.scdn.co/image/ab67616d0000485102a856097c809fb56c23cfb2",
+        "url" : "https://i.scdn.co/image/ab67616d00004851e020caa86d7362c8f0495a81",
         "width" : 64
       } ],
-      "name" : "POP VIRUS",
-      "release_date" : "2018-12-19",
+      "name" : "0",
+      "release_date" : "2017-10-11",
       "release_date_precision" : "day",
-      "total_tracks" : 14,
+      "total_tracks" : 12,
       "type" : "album",
-      "uri" : "spotify:album:7oFLY1YL5bBI32UHsmQO6q"
+      "uri" : "spotify:album:1Viks7fO4Sh6DrZVLgLlkz"
     },
     "artists" : [ {
       "external_urls" : {
-        "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
+        "spotify" : "https://open.spotify.com/artist/4Kg3vBPMPfnYrnZo2A4czS"
       },
-      "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
-      "id" : "1S2S00lgLYLGHWA44qGEUs",
-      "name" : "Gen Hoshino",
+      "href" : "https://api.spotify.com/v1/artists/4Kg3vBPMPfnYrnZo2A4czS",
+      "id" : "4Kg3vBPMPfnYrnZo2A4czS",
+      "name" : "Shouta Aoi",
       "type" : "artist",
-      "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
+      "uri" : "spotify:artist:4Kg3vBPMPfnYrnZo2A4czS"
     } ],
     "disc_number" : 1,
-    "duration_ms" : 182000,
+    "duration_ms" : 246386,
     "explicit" : false,
     "external_ids" : {
-      "isrc" : "JPVI01820191"
+      "isrc" : "JPKI01716033"
     },
     "external_urls" : {
-      "spotify" : "https://open.spotify.com/track/6hDBkm6B8HF9B4oATW28YN"
+      "spotify" : "https://open.spotify.com/track/7uqATaRLtxeu2hE3anfhx8"
     },
-    "href" : "https://api.spotify.com/v1/tracks/6hDBkm6B8HF9B4oATW28YN",
-    "id" : "6hDBkm6B8HF9B4oATW28YN",
+    "href" : "https://api.spotify.com/v1/tracks/7uqATaRLtxeu2hE3anfhx8",
+    "id" : "7uqATaRLtxeu2hE3anfhx8",
     "is_local" : false,
     "is_playable" : true,
-    "name" : "Pop Virus",
-    "popularity" : 46,
-    "preview_url" : "https://p.scdn.co/mp3-preview/8f24db20db9886e0b4bc0a239f38cb5ca0b5abea?cid=774b29d4f13844c495f206cafdad9c86",
-    "track_number" : 1,
+    "name" : "SMILE SMILE SMILE",
+    "popularity" : 23,
+    "preview_url" : "https://p.scdn.co/mp3-preview/39a45d0cd6023b3b44fe89e2958046edda583e29?cid=774b29d4f13844c495f206cafdad9c86",
+    "track_number" : 12,
     "type" : "track",
-    "uri" : "spotify:track:6hDBkm6B8HF9B4oATW28YN"
+    "uri" : "spotify:track:7uqATaRLtxeu2hE3anfhx8"
   }, {
     "album" : {
-      "album_type" : "single",
+      "album_type" : "album",
       "artists" : [ {
         "external_urls" : {
-          "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
+          "spotify" : "https://open.spotify.com/artist/4Kg3vBPMPfnYrnZo2A4czS"
         },
-        "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
-        "id" : "1S2S00lgLYLGHWA44qGEUs",
-        "name" : "Gen Hoshino",
+        "href" : "https://api.spotify.com/v1/artists/4Kg3vBPMPfnYrnZo2A4czS",
+        "id" : "4Kg3vBPMPfnYrnZo2A4czS",
+        "name" : "Shouta Aoi",
         "type" : "artist",
-        "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
+        "uri" : "spotify:artist:4Kg3vBPMPfnYrnZo2A4czS"
       } ],
       "external_urls" : {
-        "spotify" : "https://open.spotify.com/album/1oJznhV4m2H2PeeNkCnKbR"
+        "spotify" : "https://open.spotify.com/album/1Viks7fO4Sh6DrZVLgLlkz"
       },
-      "href" : "https://api.spotify.com/v1/albums/1oJznhV4m2H2PeeNkCnKbR",
-      "id" : "1oJznhV4m2H2PeeNkCnKbR",
+      "href" : "https://api.spotify.com/v1/albums/1Viks7fO4Sh6DrZVLgLlkz",
+      "id" : "1Viks7fO4Sh6DrZVLgLlkz",
       "images" : [ {
         "height" : 640,
-        "url" : "https://i.scdn.co/image/ab67616d0000b27388fa8c939bc74f28d2a95d43",
+        "url" : "https://i.scdn.co/image/ab67616d0000b273e020caa86d7362c8f0495a81",
         "width" : 640
       }, {
         "height" : 300,
-        "url" : "https://i.scdn.co/image/ab67616d00001e0288fa8c939bc74f28d2a95d43",
+        "url" : "https://i.scdn.co/image/ab67616d00001e02e020caa86d7362c8f0495a81",
         "width" : 300
       }, {
         "height" : 64,
-        "url" : "https://i.scdn.co/image/ab67616d0000485188fa8c939bc74f28d2a95d43",
+        "url" : "https://i.scdn.co/image/ab67616d00004851e020caa86d7362c8f0495a81",
         "width" : 64
       } ],
-      "name" : "Family Song",
-      "release_date" : "2017-08-16",
+      "name" : "0",
+      "release_date" : "2017-10-11",
       "release_date_precision" : "day",
-      "total_tracks" : 4,
+      "total_tracks" : 12,
       "type" : "album",
-      "uri" : "spotify:album:1oJznhV4m2H2PeeNkCnKbR"
+      "uri" : "spotify:album:1Viks7fO4Sh6DrZVLgLlkz"
     },
     "artists" : [ {
       "external_urls" : {
-        "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
+        "spotify" : "https://open.spotify.com/artist/4Kg3vBPMPfnYrnZo2A4czS"
       },
-      "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
-      "id" : "1S2S00lgLYLGHWA44qGEUs",
-      "name" : "Gen Hoshino",
+      "href" : "https://api.spotify.com/v1/artists/4Kg3vBPMPfnYrnZo2A4czS",
+      "id" : "4Kg3vBPMPfnYrnZo2A4czS",
+      "name" : "Shouta Aoi",
       "type" : "artist",
-      "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
+      "uri" : "spotify:artist:4Kg3vBPMPfnYrnZo2A4czS"
     } ],
     "disc_number" : 1,
-    "duration_ms" : 324000,
+    "duration_ms" : 252840,
     "explicit" : false,
     "external_ids" : {
-      "isrc" : "JPVI01721000"
+      "isrc" : "JPKI01620969"
     },
     "external_urls" : {
-      "spotify" : "https://open.spotify.com/track/3Ms2WsIGHExju0gpucrWxv"
+      "spotify" : "https://open.spotify.com/track/3PxmMv0xcVYqNqhWoiDUIW"
     },
-    "href" : "https://api.spotify.com/v1/tracks/3Ms2WsIGHExju0gpucrWxv",
-    "id" : "3Ms2WsIGHExju0gpucrWxv",
+    "href" : "https://api.spotify.com/v1/tracks/3PxmMv0xcVYqNqhWoiDUIW",
+    "id" : "3PxmMv0xcVYqNqhWoiDUIW",
     "is_local" : false,
     "is_playable" : true,
-    "name" : "Family Song",
-    "popularity" : 33,
-    "preview_url" : "https://p.scdn.co/mp3-preview/00276fb8495ac59e91ea0085a494f8888a6b0ff0?cid=774b29d4f13844c495f206cafdad9c86",
-    "track_number" : 1,
+    "name" : "flower",
+    "popularity" : 21,
+    "preview_url" : "https://p.scdn.co/mp3-preview/17bcfad6cf6f01d30ce3c4d8a1df7c5ee7047d67?cid=774b29d4f13844c495f206cafdad9c86",
+    "track_number" : 7,
     "type" : "track",
-    "uri" : "spotify:track:3Ms2WsIGHExju0gpucrWxv"
-  }, {
-    "album" : {
-      "album_type" : "single",
-      "artists" : [ {
-        "external_urls" : {
-          "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
-        },
-        "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
-        "id" : "1S2S00lgLYLGHWA44qGEUs",
-        "name" : "Gen Hoshino",
-        "type" : "artist",
-        "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
-      } ],
-      "external_urls" : {
-        "spotify" : "https://open.spotify.com/album/0dQHVhTZlbT2S7vq6pM0t7"
-      },
-      "href" : "https://api.spotify.com/v1/albums/0dQHVhTZlbT2S7vq6pM0t7",
-      "id" : "0dQHVhTZlbT2S7vq6pM0t7",
-      "images" : [ {
-        "height" : 640,
-        "url" : "https://i.scdn.co/image/ab67616d0000b273128cb14e20a95fb5e953787c",
-        "width" : 640
-      }, {
-        "height" : 300,
-        "url" : "https://i.scdn.co/image/ab67616d00001e02128cb14e20a95fb5e953787c",
-        "width" : 300
-      }, {
-        "height" : 64,
-        "url" : "https://i.scdn.co/image/ab67616d00004851128cb14e20a95fb5e953787c",
-        "width" : 64
-      } ],
-      "name" : "Koi",
-      "release_date" : "2016-10-05",
-      "release_date_precision" : "day",
-      "total_tracks" : 4,
-      "type" : "album",
-      "uri" : "spotify:album:0dQHVhTZlbT2S7vq6pM0t7"
-    },
-    "artists" : [ {
-      "external_urls" : {
-        "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
-      },
-      "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
-      "id" : "1S2S00lgLYLGHWA44qGEUs",
-      "name" : "Gen Hoshino",
-      "type" : "artist",
-      "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
-    } ],
-    "disc_number" : 1,
-    "duration_ms" : 253333,
-    "explicit" : false,
-    "external_ids" : {
-      "isrc" : "JPVI01627330"
-    },
-    "external_urls" : {
-      "spotify" : "https://open.spotify.com/track/1vNwRQj10QOLTOTyQYvD0s"
-    },
-    "href" : "https://api.spotify.com/v1/tracks/1vNwRQj10QOLTOTyQYvD0s",
-    "id" : "1vNwRQj10QOLTOTyQYvD0s",
-    "is_local" : false,
-    "is_playable" : true,
-    "name" : "Koi",
-    "popularity" : 37,
-    "preview_url" : "https://p.scdn.co/mp3-preview/0d5c0d9eb3e71c913680b71fb89654a9c3165ab3?cid=774b29d4f13844c495f206cafdad9c86",
-    "track_number" : 1,
-    "type" : "track",
-    "uri" : "spotify:track:1vNwRQj10QOLTOTyQYvD0s"
+    "uri" : "spotify:track:3PxmMv0xcVYqNqhWoiDUIW"
   } ]
 }

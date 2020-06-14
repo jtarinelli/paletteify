@@ -1,10 +1,10 @@
 const https = require('https');
 fs = require('fs');
-const token = 'BQAzGkehCUzz6xKRJjrlt3FXmdfpP_7pe6BjianmmL3IAjQhrxtJAHhyK6ZbqbBEJoiBFM6bMxRWbO61q-0IR2K3wa__jOdAe3mfuO0CZtTTo_Jl0vtJ82MXxJ0BWGjIYKJepuwj'
-const artistID = '1S2S00lgLYLGHWA44qGEUs'
+const token = 'BQDXLqCIRzilN2dZ3okbjdgZPoWHw5t2yEiAvXZa0k6W78nAGF9Yjw53XYl1riay9HeUrkMOgcj90v9ARiDUqfcxtN4o9PMDbtGE6IgDBLJITpTm3A1XvfJNR5BoUQQt1ljD3tO5'
+const artistID = '4Kg3vBPMPfnYrnZo2A4czS'
 
 // 0 = artist info, 1 = top tracks, 2 = albums
-var i = 2;
+var i = 0;
 
 const artistInfo = {
 	hostname: 'api.spotify.com',
@@ -36,22 +36,20 @@ const albums = {
 const requests = [artistInfo, topTracks, albums];
 var files = ["json/artistInfo.json", "json/topTracks.json", "json/albums.json"];
 
-//for (i=0; i<requests.length; i++) {	
-	 const req = https.request(requests[i], (res) => {
+const makeRequest = function(request, outFile) {
+	 const req = https.request(request, (res) => {
 		//console.log('statusCode:', res.statusCode);
 		//console.log('headers:', res.headers);
 		
 		let result = "";
-		console.log(i,files[i]);
 
 		res.on('data', (d) => {
 			result += d;
 		});
 		
 		res.on('end', () => {		
-			fs.writeFile(files[i], result, function (err) {
+			fs.writeFile(outFile, result, function (err) {
 				if (err) return console.log(err);
-				console.log('Written to file');
 			});
 			
 		});
@@ -62,4 +60,8 @@ var files = ["json/artistInfo.json", "json/topTracks.json", "json/albums.json"];
 	});
 
 	req.end();
-//}
+}
+
+for(i=0; i<requests.length; i++) {
+	makeRequest(requests[i], files[i]);
+}

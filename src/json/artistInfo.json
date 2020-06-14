@@ -1,29 +1,29 @@
 {
   "external_urls" : {
-    "spotify" : "https://open.spotify.com/artist/1S2S00lgLYLGHWA44qGEUs"
+    "spotify" : "https://open.spotify.com/artist/4Kg3vBPMPfnYrnZo2A4czS"
   },
   "followers" : {
     "href" : null,
-    "total" : 468947
+    "total" : 11951
   },
-  "genres" : [ "j-acoustic", "j-pop", "j-rock", "japanese singer-songwriter" ],
-  "href" : "https://api.spotify.com/v1/artists/1S2S00lgLYLGHWA44qGEUs",
-  "id" : "1S2S00lgLYLGHWA44qGEUs",
+  "genres" : [ ],
+  "href" : "https://api.spotify.com/v1/artists/4Kg3vBPMPfnYrnZo2A4czS",
+  "id" : "4Kg3vBPMPfnYrnZo2A4czS",
   "images" : [ {
     "height" : 640,
-    "url" : "https://i.scdn.co/image/b269cd2e132764eb978e6891c2d07ced861aa0c2",
+    "url" : "https://i.scdn.co/image/38ebbf1aa1e521d8526ac54a5edf09a417e2e702",
     "width" : 640
   }, {
     "height" : 320,
-    "url" : "https://i.scdn.co/image/93c24ea5da8e99c944fa2f5dc7009c161964ae44",
+    "url" : "https://i.scdn.co/image/d08b8d2b47150d451b052c4a5d95bd1bca01583e",
     "width" : 320
   }, {
     "height" : 160,
-    "url" : "https://i.scdn.co/image/6693468c4570b110b2746d1e188cb3accfe19187",
+    "url" : "https://i.scdn.co/image/81c24c1448eb199db5a22b0db4f72779d1acbf71",
     "width" : 160
   } ],
-  "name" : "Gen Hoshino",
-  "popularity" : 65,
+  "name" : "Shouta Aoi",
+  "popularity" : 40,
   "type" : "artist",
-  "uri" : "spotify:artist:1S2S00lgLYLGHWA44qGEUs"
+  "uri" : "spotify:artist:4Kg3vBPMPfnYrnZo2A4czS"
 }
