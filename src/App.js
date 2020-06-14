@@ -22,15 +22,26 @@ const artistInfo = fetchArtistInfo('4Kg3vBPMPfnYrnZo2A4czS');
 
 class Image extends Component {
 	
-	state = {
-		loaded: false,
-		bgStyle: {
-			backgroundColor: "white"
-		},
-		imageColors: []
+	constructor(props) {
+		super(props);
+		
+		this.state = {
+			colorsLoaded: false,
+			bgStyle: {
+				backgroundColor: "white"
+			},
+			imageColors: []
+		}
 	}
 	
-	fetchColors (imageURL) {
+	componentDidMount() {
+		const {src} = this.props
+			if (this.state.colorsLoaded === false) {
+				this.fetchColors(src)
+			}	
+	}
+	
+	fetchColors(imageURL) {
 		let currentObject = this;
 
 		var promise = getColors(imageURL);
@@ -38,7 +49,7 @@ class Image extends Component {
 			var colors = result.map(color => color.hex());
 			
 			currentObject.setState({
-				loaded: true,
+				colorsLoaded: true,
 				bgStyle: {
 					backgroundColor: colors[0]
 				},
@@ -48,10 +59,7 @@ class Image extends Component {
 	}
 	
 	render() {
-		let {src} = this.props
-		if (this.state.loaded === false) {
-			this.fetchColors(src)
-		}
+		const {src} = this.props
 		
 		return (
 			<div className="Background" style = {this.state.bgStyle}>
