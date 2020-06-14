@@ -1,16 +1,20 @@
 import React, {Component} from 'react';
 import './App.css';
-const getColors = require('get-image-colors')
+import fetchArtistInfo from './fetchArtistInfo.js';
+const getColors = require('get-image-colors');
 
+
+//const artistInfo = require('./json/artistInfo.json');
 const tracks = require('./json/topTracks.json');
-const artistInfo = require('./json/artistInfo.json');
 const albums = require('./json/albums.json');
+
+const artistInfo = fetchArtistInfo('4Kg3vBPMPfnYrnZo2A4czS');
 
 // to collect all colors pass object down from app -> albums -> album -> image
 // and add colors to object within color getter/ .then
 // idk how to still associate them with the album tho, wish there were dictionaries
 
-// to do: colors section (list em all/maybe graph on color wheel
+// to do on front end: colors section (list em all/maybe graph on color wheel
 // play snippets of top songs
 // make collapsable clicky things buttons
 // add image alts
@@ -152,7 +156,7 @@ class Albums extends Component {
 }
 
 function App() {
-
+	
 	return (
 		<div className="App">
 			<ArtistProfile data={artistInfo} topTracks={tracks}/>
