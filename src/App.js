@@ -1,24 +1,35 @@
 import React, {Component} from 'react';
 import './App.css';
 const getColors = require('get-image-colors');
+//const chroma = require('chroma-js');
 
-const artistID = '4Kg3vBPMPfnYrnZo2A4czS';
-const token = 'BQCSAFCeMiSoigmNMvGxm9DpADZ15kDXISjTznD8SFDK8ZpVFcQ-qG5CYEy3jSVw7QeA3sWk6ZF06vJ8gdQMohNpgBPt-zXiDc-ADObIIAF4f7huh8JfYZn9RF-Ug2YeppJbUuoO';
+const artistID = '4Kg3vBPMPfnYrnZo2A4czS'; //'4Kg3vBPMPfnYrnZo2A4czS';
+const token = 'BQDRCn-nDLCC2O0czyB0FjlmrnTcgyxAiDu2QaGxnZfuu9ic3W7_RElb2upFtpgUH99y765O-FeKatzrhwZ1iJhA3U0Rpylby6oO3YptoXAItwe8o2T52IrM0kCxd_-tVjUhDvX3MuL50eDI';
+const country = "JP";
+const headers = { 'Authorization': 'Bearer '.concat(token) }
 
 // to collect all colors pass object down from app -> albums -> album -> image
 // and add colors to object within color getter/ .then
 // idk how to still associate them with the album tho, wish there were dictionaries
 
 // to do:
-// colors section (list em all/maybe graph on color wheel
+// colors section (list em all/maybe graph on color wheel)
 // play snippets of top songs
-// make collapsable clicky things buttons
-// add image alts
+// add image alts (4 some reason not really working)
 // add all 5(?) colors on hover
-// add error handling to http calls
 // automatically get token (need to login??)
 // load more albums button
 // fix top tracks for long song titles
+// make seperate api calls for each section of albums (cause some ppl have a lot of albums)
+// factor out makeResponse function (binding? idk)
+
+function handleErrors(response) {
+	// idk if this should be a method or not
+    if (!response.ok) {
+        throw Error(response.status);
+    }
+    return response;
+}
 
 class Image extends Component {
 	
@@ -36,10 +47,7 @@ class Image extends Component {
 	}
 	
 	componentDidMount() {
-		const {src} = this.props
-			if (this.state.colorsLoaded === false) {
-				this.fetchColors(src)
-			}	
+		this.fetchColors(this.props.src)
 	}
 
 	fetchColors(imageURL) {
@@ -47,8 +55,10 @@ class Image extends Component {
 
 		var promise = getColors(imageURL);
 		promise.then(function(result) {
-			var colors = result.map(color => color.hex());
-			
+			// sort by saturation 
+			result.sort((a,b) => b.hsl()[1] - a.hsl()[1]);
+			let colors = result.map(color => color.hex());
+
 			currentObject.setState({
 				colorsLoaded: true,
 				bgStyle: {
@@ -60,11 +70,11 @@ class Image extends Component {
 	}
 	
 	render() {
-		const {src} = this.props
+		const {src, alt} = this.props
 		
 		return (
 			<div className="Background" style = {this.state.bgStyle}>
-				<img src={src} />
+				<img src={src} alt={alt} />
 			</div>
 		)
 	}
@@ -74,7 +84,7 @@ class Track extends Component {
 	
 	render () {
 		
-		const{name, image, url} = this.props
+		const{name, url} = this.props
 		
 		return (
 		<div className="Track">
@@ -93,23 +103,28 @@ class TopTracks extends Component {
 		
 		this.state = {
 			isLoaded: false,
-			data: null
+			data: null,
+			error: false
 		}
 	}
 	
 	componentDidMount() {
-		const headers = { 'Authorization': 'Bearer '.concat(token) }
-		fetch('https://api.spotify.com/v1/artists/'.concat(artistID).concat('/top-tracks?country=US'), {headers})
+		fetch('https://api.spotify.com/v1/artists/'.concat(artistID).concat('/top-tracks?country='.concat(country)), {headers})
+			.then(handleErrors)
 			.then(response => response.json())
 			.then(stuff => this.setState({ 
 				isLoaded: true,
 				data: stuff 
-				}));
+				}))
+			.catch(error => this.setState ({
+				error: true
+			}));
 	}
+
 
 	render() {
 		
-		const {isLoaded, data} = this.state;
+		const {isLoaded, data, error} = this.state;
 		
 		if (isLoaded) {
 			return (
@@ -125,6 +140,13 @@ class TopTracks extends Component {
 							)
 						)}
 					</ol>
+				</div>
+			)
+		} else if (error) {
+			return (
+				<div>
+					<p>Top Tracks</p>
+					<p>Error</p>
 				</div>
 			)
 		} else {
@@ -145,33 +167,44 @@ class ArtistProfile extends Component {
 		
 		this.state = {
 			isLoaded: false,
-			data: null
+			data: null,
+			error: false
 		}
 	}
 	
 	componentDidMount() {
-		const headers = { 'Authorization': 'Bearer '.concat(token) }
 		fetch('https://api.spotify.com/v1/artists/'.concat(artistID), {headers})
+			.then(handleErrors)
 			.then(response => response.json())
 			.then(stuff => this.setState({ 
 				isLoaded: true,
 				data: stuff 
-				}));
+				}))
+			.catch(error => this.setState({
+				error: true
+			}));
 	}
 
 
 	render () {
-		const {isLoaded, data} = this.state;
+		const {isLoaded, data, error} = this.state;
 		
 		if (isLoaded) {
 			return (
 			<header className="App-header">
-			<div className="Artist-image"><Image src={data.images[0].url}/></div>
+			<div className="Artist-image"><Image src={data.images[0].url} alt={data.name}/></div>
 			<div className="Artist-info">
 				<h1><a href={data.external_urls.spotify}>{data.name}</a></h1>
 				<TopTracks />
 			</div>
 		</header>
+			)
+		} else if (error) {
+			return (
+			<header className="App-header Loading">
+					<h1>Error</h1>
+					<p>Open console for status code</p>
+			</header>
 			)
 		} else {
 			return (
@@ -191,7 +224,7 @@ class Album extends Component {
 		
 		return (
 			<a href = {url}>
-			<Image src={image} />
+			<Image src={image} alt={name}/>
 				<p>{name}</p>
 			</a>
 		)
@@ -249,43 +282,50 @@ class AlbumsSingles extends Component {
 		
 		this.state = {
 			isLoaded: false,
-			data: null
+			data: null,
+			error: false
 		}
 	}
 	
 	componentDidMount() {
-		const headers = { 'Authorization': 'Bearer '.concat(token) }
-		fetch('https://api.spotify.com/v1/artists/'.concat(artistID).concat('/albums?market=US'), {headers})
+		fetch('https://api.spotify.com/v1/artists/'.concat(artistID).concat('/albums?market='.concat(country)), {headers})
+			.then(handleErrors)
 			.then(response => response.json())
 			.then(stuff => this.setState({ 
 				isLoaded: true,
 				data: stuff
-				}));
+				}))
+			.catch(error => this.setState({
+				error: true
+			}));
 	}
 	
 	render() {
 		
-		const {isLoaded, data} = this.state;
+		const {isLoaded, data, error} = this.state;
 		
 		if (isLoaded) {
-			
-			console.log(data.items.filter((album) => (album.album_group === "album")));
-			
 			const albums = data.items.filter((album) => (album.album_group === "album"));
 			const singles = data.items.filter((album) => (album.album_group === "single"));
 			const appears = data.items.filter((album) => (album.album_group === "appears_on"));
 			
 			return (
 				<section className = "Albums-Singles" >
-					{albums.length > 0 ? <AlbumsSection albums={albums} title="Albums"/> : null}
-					{singles.length > 0 ? <AlbumsSection albums={singles} title="Singles and EPs"/> : null}
-					{appears.length > 0 ? <AlbumsSection albums={appears} title="Featured On"/> : null}
+					{albums.length > 0 && <AlbumsSection albums={albums} title="Albums"/>}
+					{singles.length > 0 && <AlbumsSection albums={singles} title="Singles and EPs"/>}
+					{appears.length > 0 && <AlbumsSection albums={appears} title="Featured On"/>}
+				</section>
+			)
+		} else if (error) {
+			return (
+				<section className = "Albums-Singles" >
+						<h1>Error</h1>
 				</section>
 			)
 		} else {
 			return (
 				<section className = "Albums-Singles" >
-						<p>Loading...</p>
+						<h1>Loading...</h1>
 				</section>
 			)
 

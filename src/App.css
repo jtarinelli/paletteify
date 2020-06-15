@@ -13,10 +13,9 @@
 	text-decoration-color:  #41bee0;
 }
 
-.App button.h1-button {
+.App .h1-button {
 	color: #282c34;
 	font-size: calc(10px + 2vmin);
-	text-decoration: none;
 	overflow: visible;
 	width: auto;
 	background: none;
@@ -50,6 +49,7 @@
 .App .Loading {
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
 }
 
 .Background {
