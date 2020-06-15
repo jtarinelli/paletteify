@@ -7,8 +7,29 @@
 	text-decoration: none;
 }
 
-.App-link:hover, .App a:hover {
+.App-link:hover, 
+.App a:hover {
 	text-decoration: underline;
+	text-decoration-color:  #41bee0;
+}
+
+.App button.h1-button {
+	color: #282c34;
+	font-size: calc(10px + 2vmin);
+	text-decoration: none;
+	overflow: visible;
+	width: auto;
+	background: none;
+	margin: 0;
+	padding: 0;
+	border: none;
+	cursor: pointer;
+}
+
+.App .h1-button:hover,
+.App .h1-button:focus,{
+	text-decoration: underline;
+	text-decoration-color:  #41bee0;
 }
 
 .App img {
@@ -24,6 +45,11 @@
 
 .App .hidden {
 	display: none;
+}
+
+.App .Loading {
+	justify-content: center;
+	align-items: center;
 }
 
 .Background {
@@ -69,11 +95,6 @@
 	margin-bottom: 0px;
 	padding-top: 0px;
 	padding-bottom: 7%;
-}
-
-.Albums-Singles h1 {
-	color: #282c34;
-	font-size: calc(10px + 3vmin);
 }
 
 .Albums {

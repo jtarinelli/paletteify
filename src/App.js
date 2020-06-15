@@ -2,18 +2,23 @@ import React, {Component} from 'react';
 import './App.css';
 const getColors = require('get-image-colors');
 
-const artistID = '4Kg3vBPMPfnYrnZo2A4czS'
+const artistID = '4Kg3vBPMPfnYrnZo2A4czS';
+const token = 'BQCSAFCeMiSoigmNMvGxm9DpADZ15kDXISjTznD8SFDK8ZpVFcQ-qG5CYEy3jSVw7QeA3sWk6ZF06vJ8gdQMohNpgBPt-zXiDc-ADObIIAF4f7huh8JfYZn9RF-Ug2YeppJbUuoO';
 
 // to collect all colors pass object down from app -> albums -> album -> image
 // and add colors to object within color getter/ .then
 // idk how to still associate them with the album tho, wish there were dictionaries
 
-// to do on front end: colors section (list em all/maybe graph on color wheel
+// to do:
+// colors section (list em all/maybe graph on color wheel
 // play snippets of top songs
 // make collapsable clicky things buttons
 // add image alts
 // add all 5(?) colors on hover
-// semi-backend: seperate albums/singles/featured on (?)
+// add error handling to http calls
+// automatically get token (need to login??)
+// load more albums button
+// fix top tracks for long song titles
 
 class Image extends Component {
 	
@@ -93,8 +98,8 @@ class TopTracks extends Component {
 	}
 	
 	componentDidMount() {
-		const headers = { 'Authorization': 'Bearer BQAKlSGcIZKvNgYmT6L_m-H3b4Ny0cjTWNWZOv_n2LgLLfgpdaEsjJWoJiGCdEm7wz2-IgrBob8u0owvQv5zL9RXW-uz_XYBXcEy8RSl5aP5YgFjdR1YKY3z8eiM8LZ6hzM1hQHe' }
-		fetch('https://api.spotify.com/v1/artists/4Kg3vBPMPfnYrnZo2A4czS/top-tracks?country=US')
+		const headers = { 'Authorization': 'Bearer '.concat(token) }
+		fetch('https://api.spotify.com/v1/artists/'.concat(artistID).concat('/top-tracks?country=US'), {headers})
 			.then(response => response.json())
 			.then(stuff => this.setState({ 
 				isLoaded: true,
@@ -112,10 +117,11 @@ class TopTracks extends Component {
 					<p>Top Tracks</p>
 					<ol className="Top-tracks">
 						{data.tracks.map(
-							(track, i) => (<li key = {i}><Track 
-							name = {track.name}
-							url = {track.external_urls.spotify}
-							/></li>
+							(track, i) => (
+								<li key = {i}><Track 
+								name = {track.name}
+								url = {track.external_urls.spotify}
+								/></li>
 							)
 						)}
 					</ol>
@@ -144,8 +150,8 @@ class ArtistProfile extends Component {
 	}
 	
 	componentDidMount() {
-		const headers = { 'Authorization': 'Bearer BQAKlSGcIZKvNgYmT6L_m-H3b4Ny0cjTWNWZOv_n2LgLLfgpdaEsjJWoJiGCdEm7wz2-IgrBob8u0owvQv5zL9RXW-uz_XYBXcEy8RSl5aP5YgFjdR1YKY3z8eiM8LZ6hzM1hQHe' }
-		fetch('https://api.spotify.com/v1/artists/4Kg3vBPMPfnYrnZo2A4czS')
+		const headers = { 'Authorization': 'Bearer '.concat(token) }
+		fetch('https://api.spotify.com/v1/artists/'.concat(artistID), {headers})
 			.then(response => response.json())
 			.then(stuff => this.setState({ 
 				isLoaded: true,
@@ -192,27 +198,14 @@ class Album extends Component {
 	}
 }
 
-class Albums extends Component {
+class AlbumsSection extends Component {
 	
 	constructor(props) {
 		super(props);
 		
 		this.state = {
-			isLoaded: false,
-			data: null,
 			visible: true
 		}
-	}
-	
-	componentDidMount() {
-		const headers = { 'Authorization': 'Bearer BQAKlSGcIZKvNgYmT6L_m-H3b4Ny0cjTWNWZOv_n2LgLLfgpdaEsjJWoJiGCdEm7wz2-IgrBob8u0owvQv5zL9RXW-uz_XYBXcEy8RSl5aP5YgFjdR1YKY3z8eiM8LZ6hzM1hQHe' }
-		fetch('https://api.spotify.com/v1/artists/4Kg3vBPMPfnYrnZo2A4czS/albums?market=US')
-			.then(response => response.json())
-			.then(stuff => this.setState({ 
-				isLoaded: true,
-				data: stuff,
-				visible: true
-				}));
 	}
 	
 	toggle = () => {
@@ -221,33 +214,78 @@ class Albums extends Component {
 		}));
 	}
 	
+	
 	render() {
 		
-		const {isLoaded, data, visible} = this.state
+		const {albums, title} = this.props;
+		const {visible} = this.state;
 		
-		if (isLoaded) {
-			return (
-				<section className = "Albums-Singles" >
-					<a><h1 onClick={this.toggle}>Albums and Singles</h1></a>
-					<div className = {"Albums " + (visible ? 'visible' : 'hidden')}>
-						{data.items.map(
-							(album, i) => (<div className="Album" key={i}><Album 
+
+		return (
+			<div>
+				<a><button onClick={this.toggle} className="h1-button"><h1>{title}</h1></button></a>
+				<div className = {"Albums " + (visible ? 'visible' : 'hidden')}>
+					{albums.map(
+						(album, i) => (
+							<div className="Album" key={i}>
+							<Album 
 							name = {album.name}
 							image = {album.images[1].url}
 							url = {album.external_urls.spotify}
-							/></div>
-							)
-						)}
-					</div>
+							/>
+							</div>
+						)
+					)}
+				</div>
+			</div>
+		) 
+	}
+}
+
+class AlbumsSingles extends Component {
+	
+	constructor(props) {
+		super(props);
+		
+		this.state = {
+			isLoaded: false,
+			data: null
+		}
+	}
+	
+	componentDidMount() {
+		const headers = { 'Authorization': 'Bearer '.concat(token) }
+		fetch('https://api.spotify.com/v1/artists/'.concat(artistID).concat('/albums?market=US'), {headers})
+			.then(response => response.json())
+			.then(stuff => this.setState({ 
+				isLoaded: true,
+				data: stuff
+				}));
+	}
+	
+	render() {
+		
+		const {isLoaded, data} = this.state;
+		
+		if (isLoaded) {
+			
+			console.log(data.items.filter((album) => (album.album_group === "album")));
+			
+			const albums = data.items.filter((album) => (album.album_group === "album"));
+			const singles = data.items.filter((album) => (album.album_group === "single"));
+			const appears = data.items.filter((album) => (album.album_group === "appears_on"));
+			
+			return (
+				<section className = "Albums-Singles" >
+					{albums.length > 0 ? <AlbumsSection albums={albums} title="Albums"/> : null}
+					{singles.length > 0 ? <AlbumsSection albums={singles} title="Singles and EPs"/> : null}
+					{appears.length > 0 ? <AlbumsSection albums={appears} title="Featured On"/> : null}
 				</section>
 			)
 		} else {
 			return (
 				<section className = "Albums-Singles" >
-					<a><h1 onClick={this.toggle}>Albums and Singles</h1></a>
-					<div className = {"Albums " + (visible ? 'visible' : 'hidden')}>
 						<p>Loading...</p>
-					</div>
 				</section>
 			)
 
@@ -259,7 +297,7 @@ function App() {
 	return (
 		<div className="App">
 			<ArtistProfile/>
-			<Albums/>
+			<AlbumsSingles/>
 		</div>
 	);
 }
