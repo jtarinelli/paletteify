@@ -1,3 +1,6 @@
+/* decide if everything gets .App or not 
+	reconsider where to use pixels, %, vm, etc*/
+
 .App {
 	text-align: center;
 }
@@ -13,7 +16,12 @@
 	text-decoration-color:  #41bee0;
 }
 
-.App .h1-button {
+.App h2 {
+	color: #282c34;
+	font-size: calc(10px + 3vmin);
+}
+
+.App .h2-button {
 	color: #282c34;
 	font-size: calc(10px + 2vmin);
 	overflow: visible;
@@ -46,7 +54,7 @@
 	display: none;
 }
 
-.App .Loading {
+.Loading {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
@@ -103,10 +111,6 @@
 	justify-content: center;
 	align-items: baseline;
 	font-size: calc(10px + 2vmin);;
-		-webkit-transition: 0.75s;
-	-moz-transition: 0.75s;
-	-o-transition: 0.75s;
-	transition: 0.75s;
 }
 
 .Album {
@@ -115,7 +119,21 @@
 }
 
 .Album img {
-	/* non square images get a little distorted */
+	/* non square images get a little distorted 
+	full size is 300x300*/
 	height: 300px;
 	width: 300px;
+}
+
+.Colors {
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+.Dot {
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
+	display: inline-block;
+	margin: 1%;
 }

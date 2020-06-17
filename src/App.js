@@ -4,29 +4,28 @@ const getColors = require('get-image-colors');
 //const chroma = require('chroma-js');
 
 const artistID = '4Kg3vBPMPfnYrnZo2A4czS'; //'4Kg3vBPMPfnYrnZo2A4czS';
-const token = 'BQDRCn-nDLCC2O0czyB0FjlmrnTcgyxAiDu2QaGxnZfuu9ic3W7_RElb2upFtpgUH99y765O-FeKatzrhwZ1iJhA3U0Rpylby6oO3YptoXAItwe8o2T52IrM0kCxd_-tVjUhDvX3MuL50eDI';
+const token = 'BQAg-MGucyWcr8IM7QsNARhVRA7M3judXv9c3sfOgSUHiuPRm3ENMPS4XjhjrPf6xI7bdp7W_UH4LedhoDCbmAqRALNeQw4KvNFda7tsgrtBZwDE4BzUXZOSOlX3Qw5PiobhhMmazaHnpSbB';
 const country = "JP";
 const headers = { 'Authorization': 'Bearer '.concat(token) }
 
-// to collect all colors pass object down from app -> albums -> album -> image
-// and add colors to object within color getter/ .then
-// idk how to still associate them with the album tho, wish there were dictionaries
-
-// to do:
-// colors section (list em all/maybe graph on color wheel)
-// play snippets of top songs
-// add image alts (4 some reason not really working)
-// add all 5(?) colors on hover
-// automatically get token (need to login??)
-// load more albums button
-// fix top tracks for long song titles
-// make seperate api calls for each section of albums (cause some ppl have a lot of albums)
-// factor out makeResponse function (binding? idk)
+/* to do:
+** break up components into their own files
+** figure out why i can't initialize some album sections to be open and other closed
+** store colors along with albums (just name or include other info/whole object??)
+** play snippets of top songs
+** add all 5(?) colors on hover
+** automatically get token (need to login??)
+** load more albums button
+** fix top tracks for long song titles
+** factor out makeResponse function if possible (binding? make a component? idk)
+** show error code/status message on error (go on api page and figure out how to get the messages)
+** make pages with router (login page, search page, user?/artist/playlists pages with the id in the url)
+*/
 
 function handleErrors(response) {
-	// idk if this should be a method or not
+	// idk if this should be a method or not? where do i put this
     if (!response.ok) {
-        throw Error(response.status);
+        throw Error(response);
     }
     return response;
 }
@@ -52,6 +51,7 @@ class Image extends Component {
 
 	fetchColors(imageURL) {
 		let currentObject = this;
+		const passUpColors = this.props.grabColors;
 
 		var promise = getColors(imageURL);
 		promise.then(function(result) {
@@ -66,6 +66,11 @@ class Image extends Component {
 				},
 				imageColors: colors
 			})
+			
+			// callback to pass colors to parent (album) if it exists
+			if (passUpColors != null) {
+				passUpColors(colors);
+			}
 		})
 	}
 	
@@ -121,12 +126,11 @@ class TopTracks extends Component {
 			}));
 	}
 
-
 	render() {
 		
 		const {isLoaded, data, error} = this.state;
 		
-		if (isLoaded) {
+		if (isLoaded && !error) {
 			return (
 				<div>
 					<p>Top Tracks</p>
@@ -142,25 +146,18 @@ class TopTracks extends Component {
 					</ol>
 				</div>
 			)
-		} else if (error) {
-			return (
-				<div>
-					<p>Top Tracks</p>
-					<p>Error</p>
-				</div>
-			)
 		} else {
 			return (
 				<div>
 					<p>Top Tracks</p>
-					<p>...</p>
+					<p>{error ? "Error" : "..."}</p>
 				</div>
 			)
-		}
+		} 
 	}
 }
 
-class ArtistProfile extends Component {
+class Header extends Component {
 	
 	constructor(props) {
 		super(props);
@@ -185,11 +182,10 @@ class ArtistProfile extends Component {
 			}));
 	}
 
-
 	render () {
 		const {isLoaded, data, error} = this.state;
 		
-		if (isLoaded) {
+		if (isLoaded && !error) {
 			return (
 			<header className="App-header">
 			<div className="Artist-image"><Image src={data.images[0].url} alt={data.name}/></div>
@@ -199,24 +195,25 @@ class ArtistProfile extends Component {
 			</div>
 		</header>
 			)
-		} else if (error) {
-			return (
-			<header className="App-header Loading">
-					<h1>Error</h1>
-					<p>Open console for status code</p>
-			</header>
-			)
+			
 		} else {
 			return (
 			<header className="App-header Loading">
-					<h1>Loading...</h1>
+				<h1>{error ? "Error" : "Loading..."}</h1>
+					{error && <p>Open console for status code</p>}
 			</header>
 			)
-		}
+		} 
+		
 	}
 }
 
 class Album extends Component {
+	
+	grabColors = (imageColors) => {
+		let passUpColors = this.props.grabColors;
+		passUpColors(imageColors);
+	}
 	
 	render() {
 	
@@ -224,7 +221,7 @@ class Album extends Component {
 		
 		return (
 			<a href = {url}>
-			<Image src={image} alt={name}/>
+			<Image src={image} alt={name} grabColors={this.grabColors}/>
 				<p>{name}</p>
 			</a>
 		)
@@ -237,58 +234,23 @@ class AlbumsSection extends Component {
 		super(props);
 		
 		this.state = {
-			visible: true
+			visible: this.props.visible, 
+			isLoaded: false,
+			data: null,
+			colors: null,
+			error: false
 		}
 	}
 	
-	toggle = () => {
+	toggleVisible = () => {
 		this.setState(prevState => ({
 			visible: !prevState.visible
 		}));
 	}
 	
-	
-	render() {
-		
-		const {albums, title} = this.props;
-		const {visible} = this.state;
-		
-
-		return (
-			<div>
-				<a><button onClick={this.toggle} className="h1-button"><h1>{title}</h1></button></a>
-				<div className = {"Albums " + (visible ? 'visible' : 'hidden')}>
-					{albums.map(
-						(album, i) => (
-							<div className="Album" key={i}>
-							<Album 
-							name = {album.name}
-							image = {album.images[1].url}
-							url = {album.external_urls.spotify}
-							/>
-							</div>
-						)
-					)}
-				</div>
-			</div>
-		) 
-	}
-}
-
-class AlbumsSingles extends Component {
-	
-	constructor(props) {
-		super(props);
-		
-		this.state = {
-			isLoaded: false,
-			data: null,
-			error: false
-		}
-	}
-	
 	componentDidMount() {
-		fetch('https://api.spotify.com/v1/artists/'.concat(artistID).concat('/albums?market='.concat(country)), {headers})
+		const group = this.props.group;
+		fetch('https://api.spotify.com/v1/artists/'.concat(artistID).concat('/albums?include_groups='.concat(group).concat('&market=').concat(country)), {headers})
 			.then(handleErrors)
 			.then(response => response.json())
 			.then(stuff => this.setState({ 
@@ -300,44 +262,190 @@ class AlbumsSingles extends Component {
 			}));
 	}
 	
+	grabColors = (albumColors) => {
+		let passUpColors = this.props.grabColors;
+		let prevColors = this.state.colors;
+		let albumsCount = this.state.data.items.length;
+		
+		if (prevColors === null) {
+			this.setState({
+				colors: albumColors
+			})
+		} else {
+			this.setState({
+				colors: prevColors.concat(albumColors)
+			})
+		}
+			
+		// when all album colors are collected, send them up to AlbumsSingles
+		if (this.state.colors.length === albumsCount * 5) {
+			passUpColors(this.state.colors); 
+		}
+	}
+	
+	render() {
+		const {title} = this.props;
+		const {visible, isLoaded, data, error} = this.state;
+		console.log(this.props);
+		
+		if (isLoaded && data.items.length === 0) {
+			return null;
+		} else if (isLoaded && !error) {
+			return (
+				<div>
+					<button onClick={this.toggleVisible} className="h2-button"><h2>{title}</h2></button>
+					<div className = {"Albums " + (visible ? 'visible' : 'hidden')}>
+						{data.items.map(
+							(album, i) => (
+								<div className="Album" key={i}>
+								<Album 
+								name = {album.name}
+								image = {album.images[1].url}
+								url = {album.external_urls.spotify}
+								grabColors = {this.grabColors}
+								/>
+								</div>
+							)
+						)}
+					</div>
+				</div>
+			) 
+		} else {
+			return (
+				<div>
+					<button onClick={this.toggleVisible} className="h2-button"><h2>{title}</h2></button>
+					<div className = {"Albums " + (visible ? 'visible' : 'hidden')}>
+						<p>{error ? "Error" : "Loading..."}</p>
+					</div>
+				</div>
+			) 
+		} 
+	}
+}
+
+class AlbumsSingles extends Component {
+	
+	constructor(props) {
+		super(props);
+		this.state = ({
+			colors: null,
+			sectionsLoaded: 0,
+		})
+	}
+					
+	grabColors = (albumsColors) => {
+		let passUpColors = this.props.grabColors;
+		let prevColors = this.state.colors;
+		let prevSectionsLoaded = this.state.sectionsLoaded;
+		
+		if (prevColors === null) {
+			this.setState({
+				colors: albumsColors,
+				sectionsLoaded: 1
+			})
+		} else {
+			this.setState({
+				colors: prevColors.concat(albumsColors),
+				sectionsLoaded: prevSectionsLoaded + 1
+			})
+		}
+			
+		if (this.state.sectionsLoaded === 2) { //change to a variable
+			passUpColors(this.state.colors);
+		}
+
+	}
+	
 	render() {
 		
-		const {isLoaded, data, error} = this.state;
-		
-		if (isLoaded) {
-			const albums = data.items.filter((album) => (album.album_group === "album"));
-			const singles = data.items.filter((album) => (album.album_group === "single"));
-			const appears = data.items.filter((album) => (album.album_group === "appears_on"));
-			
-			return (
-				<section className = "Albums-Singles" >
-					{albums.length > 0 && <AlbumsSection albums={albums} title="Albums"/>}
-					{singles.length > 0 && <AlbumsSection albums={singles} title="Singles and EPs"/>}
-					{appears.length > 0 && <AlbumsSection albums={appears} title="Featured On"/>}
+		return (
+			<section className = "Albums-Singles">
+					<AlbumsSection group="album" title="Albums" visible = "true" grabColors={this.grabColors}/>
+					<AlbumsSection group="single" title="Singles and EPs" visible = "false" grabColors={this.grabColors}/>
+					{/*<AlbumsSection group="appears_on" title="Appears On" visible = "false" grabColors={this.grabColors}/>*/}
 				</section>
-			)
-		} else if (error) {
+		)
+	
+	}
+}
+
+class Dot extends Component {
+	
+	render() {
+		const {bgColor} = this.props;
+		
+		return (
+			<div className="Dot" style={{"backgroundColor": bgColor}}></div>
+		)
+	}
+	
+}
+
+class Colors extends Component {
+	
+	render() {
+		let {colors} = this.props
+
+		if (colors === null) {
 			return (
-				<section className = "Albums-Singles" >
-						<h1>Error</h1>
+				<section className="Colors">
+					<h2>Colors</h2>
+					<p>Collecting colors...</p>
 				</section>
 			)
 		} else {
 			return (
-				<section className = "Albums-Singles" >
-						<h1>Loading...</h1>
+				<section className="Colors">
+					<h2>Colors</h2>
+					{colors.map(
+						(color, i) => (<Dot 
+							key = {i}
+							bgColor = {color}
+							/>
+						)
+					)}
 				</section>
 			)
-
 		}
+		
+	}	
+	
+}
+
+class Body extends Component {
+	
+	constructor(props) {
+		super(props);
+		this.state = ({
+			colors: null
+		})
+	}
+	
+	grabColors = (allColors) => {
+		this.setState({
+			colors: allColors
+		})
+	}
+	
+	render() {
+		let allColors = this.state.colors;
+	
+		return (
+			<div className="Body">
+				<AlbumsSingles grabColors={this.grabColors}/>
+				<Colors colors={allColors}/>
+			</div>
+		)
+			
 	}
 }
 
 function App() {
+	
 	return (
 		<div className="App">
-			<ArtistProfile/>
-			<AlbumsSingles/>
+			<Header/>
+			<Body/>
 		</div>
 	);
 }
