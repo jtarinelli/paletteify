@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Track from './Track.js';
 
 class TopTracks extends Component {
 	
@@ -39,10 +38,11 @@ class TopTracks extends Component {
 					<ol className="Top-tracks">
 						{data.tracks.map(
 							(track, i) => (
-								<li key = {i}><Track 
-								name = {track.name}
-								url = {track.external_urls.spotify}
-								/></li>
+								<li className="Track">
+									<a href = {track.url}>
+										<p>{track.name}</p>
+									</a>
+								</li>
 							)
 						)}
 					</ol>
