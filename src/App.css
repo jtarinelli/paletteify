@@ -54,7 +54,7 @@
 	display: none;
 }
 
-.Loading {
+.App .Loading {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;

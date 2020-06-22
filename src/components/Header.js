@@ -10,7 +10,8 @@ class Header extends Component {
 		this.state = {
 			isLoaded: false,
 			data: null,
-			error: false
+			error: false,
+			errorCode: null
 		}
 	}
 	
@@ -25,12 +26,13 @@ class Header extends Component {
 				data: stuff 
 				}))
 			.catch(error => this.setState({
-				error: true
+				error: true,
+				errorCode: error.message
 			}));
 	}
 
 	render () {
-		const {isLoaded, data, error} = this.state;
+		const {isLoaded, data, error, errorCode} = this.state;
 		const {artistID, country, headers, handleErrors, colorOptions} = this.props;
 		
 		if (isLoaded && !error) {
@@ -47,8 +49,8 @@ class Header extends Component {
 		} else {
 			return (
 			<header className="App-header Loading">
-				<h1>{error ? "Error" : "Loading..."}</h1>
-					{error && <p>Open console for status code</p>}
+				{error ? <h1>Error: {errorCode}</h1> : <h1>"Loading..."</h1>}
+					{error && <p><a href="https://developer.spotify.com/documentation/web-api/">Status code info here</a></p>}
 			</header>
 			)
 		} 
