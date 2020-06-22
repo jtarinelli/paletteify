@@ -27,21 +27,36 @@ class Image extends Component {
 
 		var promise = getColors(imageURL, options);
 		promise.then(function(result) {
-			// sort by saturation 
-			result.sort((a,b) => b.hsl()[1] - a.hsl()[1]);
-			let colors = result.map(color => color.hex());
+			// build string that goes into backgroundImage to make diagonal stripes
+			let gradientString = "linear-gradient(to top right, ";
+			let stripeWidth = 424 / result.length;
+			
+			// vertical stripes version
+			/*
+			gradientString = "linear-gradient(to right, ";
+			stripeWidth = 300 / result.length;
+			*/
+			
+			for (var i = 0; i < result.length; i++) {
+				gradientString += result[i].hex() + " " + stripeWidth*i + "px," + result[i].hex() + " " + stripeWidth*(i+1) + "px";
+				if (i < result.length - 1) {
+					gradientString += ",";
+				}
+			}
+			
+			gradientString += ")";
 
 			currentObject.setState({
 				colorsLoaded: true,
 				bgStyle: {
-					backgroundColor: colors[0]
+					backgroundImage: gradientString
 				},
-				imageColors: colors
+				imageColors: result
 			})
 
 			// callback to pass colors to parent (album) if it exists
 			if (passUpColors != null) {
-				passUpColors(colors);
+				passUpColors(result);
 			}
 		})
 	}
@@ -52,6 +67,7 @@ class Image extends Component {
 		return (
 			<div className="Background" style = {this.state.bgStyle}>
 				<img src={src} alt={alt} />
+				<span style={{backgroundColor: "black", width:"50%", height: "100px"}}></span>
 			</div>
 		)
 	}
