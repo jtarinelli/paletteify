@@ -10,10 +10,15 @@ class Colors extends Component {
 			return (
 				<section className="Colors">
 					<h2>Colors</h2>
-					<p>Collecting colors...</p>
+					<p>...</p>
 				</section>
 			)
 		} else {
+			// sort by hue
+			//colors.sort((a,b) => a.hsl()[0] - b.hsl()[0]);
+			// sort by lightness
+			colors.sort((a,b) => b.hsl()[2] - a.hsl()[2]);
+			
 			return (
 				<section className="Colors">
 					<h2>Colors</h2>

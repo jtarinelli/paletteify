@@ -7,7 +7,7 @@ class AlbumsSection extends Component {
 		super(props);
 		
 		this.state = {
-			visible: this.props.visible, // why doesn't this work >:(
+			visible: this.props.visible, 
 			isLoaded: false,
 			data: null,
 			colors: null,
@@ -59,7 +59,7 @@ class AlbumsSection extends Component {
 	
 	render() {
 		const {title, colorOptions} = this.props;
-		const {visible, isLoaded, data, error} = this.state;
+		let {visible, isLoaded, data, error} = this.state;
 		
 		if (isLoaded && data.items.length === 0) {
 			return null;

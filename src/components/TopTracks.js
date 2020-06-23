@@ -38,8 +38,8 @@ class TopTracks extends Component {
 					<ol className="Top-tracks">
 						{data.tracks.map(
 							(track, i) => (
-								<li className="Track">
-									<a href = {track.url}>
+								<li className="Track" key = {i}>
+									<a href ={track.external_urls.spotify}>
 										<p>{track.name}</p>
 									</a>
 								</li>

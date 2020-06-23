@@ -9,7 +9,7 @@ class Album extends Component {
 	}
 	
 	render() {
-		const {name, image, url, colorOptions} = this.props
+		const {name, image, url, colorOptions} = this.props;
 		
 		return (
 			<a href = {url}>

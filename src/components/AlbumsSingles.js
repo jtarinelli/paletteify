@@ -7,7 +7,7 @@ class AlbumsSingles extends Component {
 		super(props);
 		this.state = ({
 			colors: null,
-			sectionsLoaded: 0,
+			sectionsLoaded: 0
 		})
 	}
 					
@@ -28,7 +28,7 @@ class AlbumsSingles extends Component {
 			})
 		}
 			
-		if (this.state.sectionsLoaded === 2) { //change to a variable
+		if (this.state.sectionsLoaded === 3) { //change to a variable
 			passUpColors(this.state.colors);
 		}
 
@@ -39,9 +39,9 @@ class AlbumsSingles extends Component {
 		
 		return (
 			<section className = "Albums-Singles">
-					<AlbumsSection group="album" title="Albums" visible = "true" grabColors={this.grabColors} artistID={artistID} country={country} headers={headers} handleErrors={handleErrors} colorOptions={colorOptions} numColors={numColors}/>
-					<AlbumsSection group="single" title="Singles and EPs" visible = "false" grabColors={this.grabColors} artistID={artistID} country={country} headers={headers} handleErrors={handleErrors} colorOptions={colorOptions} numColors={numColors}/>
-					{/*<AlbumsSection group="appears_on" title="Appears On" visible = "false" grabColors={this.grabColors} artistID={artistID} country={country} headers={headers} handleErrors={handleErrors} colorOptions={colorOptions} numColors={numColors}/>*/}
+					<AlbumsSection group="album" title="Albums" visible = {true} grabColors={this.grabColors} artistID={artistID} country={country} headers={headers} handleErrors={handleErrors} colorOptions={colorOptions} numColors={numColors}/>
+					<AlbumsSection group="single" title="Singles and EPs" visible = {false} grabColors={this.grabColors} artistID={artistID} country={country} headers={headers} handleErrors={handleErrors} colorOptions={colorOptions} numColors={numColors}/>
+					<AlbumsSection group="appears_on" title="Appears On" visible = {false} grabColors={this.grabColors} artistID={artistID} country={country} headers={headers} handleErrors={handleErrors} colorOptions={colorOptions} numColors={numColors}/>
 				</section>
 		)
 	
