@@ -7,20 +7,21 @@ import Colors from './components/Colors.js';
 
 //const chroma = require('chroma-js');
 
-const artistID = '1iR65pQAV4ssTTf9JRNr9Z'; //'4Kg3vBPMPfnYrnZo2A4czS';
-const token = 'BQD1HICUV8sj4t0hTIATa0dY3vkUHVzGYG4x2CU4zf2JIL4G3hao3KLs2pWKtg16R9KnFbmqfASs3UAB8zxxGZQi6SbOX5in_XpjaLwPBsIseMdusZEDG6WJ4FduvNmYbFt_Z5IT6JT7SAee';
+const artistID = '4Kg3vBPMPfnYrnZo2A4czS'; //'4Kg3vBPMPfnYrnZo2A4czS';
+const token = 'BQCnS1wFdNOIPNibqCyzs2j8WkMf3FHuKA59PKScBpG_yBszLf1KmtovPVypNuRBW3AdDZC1XlNHLyGWU4qzHSJv1Vclctge5oxvkdBn-Aq5hvj-K8zSv2s0tmU3VLBhf_5OQeSEmVXLuuCg';
 const country = "US";
 const headers = { 'Authorization': 'Bearer '.concat(token) }
-const numColors = 5; //for whatever reason 8 returns an array of seven and 
+/*
+const numColors = 7; //for whatever reason 8 returns an array of seven and 
 					 //anything above that returns an array 1 smaller than specified here
 const colorOptions = {count: numColors};
+*/
 
 /* to do:
-** maybe get rid of track and album components and do same thing in toptracks/albumsection
+** make options changable from site/ui
 ** find a better way to pass global variables around to all the components
 ** store colors along with albums (just name or include other info/whole object??)
 ** play snippets of top songs
-** add all 5(?) colors on hover
 ** automatically get token (need to login??)
 ** load more albums button
 ** fix top tracks for long song titles/in general
@@ -38,12 +39,55 @@ function handleErrors(response) {
     return response;
 }
 
+class ColorOptions extends Component {
+	
+	constructor(props) {
+		super(props);
+		
+		this.state = {
+			visible: false,
+			numColors: 1
+		}
+	}
+	
+	toggleVisible = () => {
+		this.setState(prevState => ({
+			visible: !prevState.visible
+		}));
+	}
+	
+	updateNumColors = (num) => {
+		this.setState({
+			numColors: num
+		})
+		this.props.grabNumColors(num);
+	}
+	
+	render() {
+		let {visible} = this.state;
+		
+		return (
+			<div className="Dropdown">
+				<button className="h2-button" onClick={this.toggleVisible}>Number of Colors</button>
+				<ul className={"Dropdown-content " + (visible ? 'visible' : 'hidden')}>
+					<li><button className="Dropdown-option" onClick={() => this.updateNumColors(1)}>One</button></li>
+					<li><button className="Dropdown-option" onClick={() => this.updateNumColors(3)}>Three</button></li>
+					<li><button className="Dropdown-option" onClick={() => this.updateNumColors(5)}>Five</button></li>
+				</ul>
+			</div>
+		)
+	}
+	
+}
+
 class Body extends Component {
 	
 	constructor(props) {
 		super(props);
 		this.state = ({
-			colors: null
+			colors: null,
+			numColors: 5,
+			colorOptions: {count: 5}
 		})
 	}
 	
@@ -53,12 +97,21 @@ class Body extends Component {
 		})
 	}
 	
+	grabNumColors = (num) => {
+		this.setState({
+			numColors: num,
+			colorOptions: {count: num}
+		})
+	}
+	
 	render() {
 		let allColors = this.state.colors;
-		const {artistID, country, headers, handleErrors, colorOptions} = this.props;
+		const {artistID, country, headers, handleErrors} = this.props;
+		let {numColors, colorOptions} = this.state;
 	
 		return (
 			<div className="Body">
+				<ColorOptions grabNumColors={this.grabNumColors}/>
 				<AlbumsSingles grabColors={this.grabColors} artistID={artistID} country={country} headers={headers} handleErrors={handleErrors} colorOptions={colorOptions} numColors={numColors}/>
 				<Colors colors={allColors}/>
 			</div>
@@ -70,8 +123,8 @@ class Body extends Component {
 function App() {
 	return (
 		<div className="App">
-			<Header artistID={artistID} country={country} headers={headers} handleErrors={handleErrors} colorOptions={colorOptions}/>
-			<Body artistID={artistID} country={country} headers={headers} handleErrors={handleErrors} colorOptions={colorOptions}/>
+			<Header artistID={artistID} country={country} headers={headers} handleErrors={handleErrors} colorOptions={{count: 5}}/>
+			<Body artistID={artistID} country={country} headers={headers} handleErrors={handleErrors}/>
 		</div>
 	);
 }

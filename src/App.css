@@ -33,17 +33,16 @@
 	cursor: pointer;
 }
 
-.App .h1-button:hover,
-.App .h1-button:focus,{
+.App button.h2-button:hover {
 	text-decoration: underline;
 	text-decoration-color:  #41bee0;
 }
 
 .App img {
-	-webkit-transition: 0.7s;
-	-moz-transition: 0.7s;
-	-o-transition: 0.7s;
-	transition: 0.7s;
+	-webkit-transition: 0.65s;
+	-moz-transition: 0.65s;
+	-o-transition: 0.65s;
+	transition: 0.65s;
 }
 
 .App img:hover {
@@ -103,6 +102,31 @@
 	margin-bottom: 0px;
 	padding-top: 0px;
 	padding-bottom: 7%;
+}
+
+.Dropdown {
+	width: auto;
+}
+
+.Dropdown-content {
+	list-style-type: none;
+	padding: 0;
+}
+
+.Dropdown-option {
+	color: #282c34;
+	font-size: 18px;
+	overflow: visible;
+	width: auto;
+	background: none;
+	margin: 0;
+	padding: 0;
+	border: none;
+	cursor: pointer;
+}
+
+.Dropdown-option:hover {
+	background: #eee;
 }
 
 .Albums {
