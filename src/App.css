@@ -43,10 +43,12 @@
 	-moz-transition: 0.65s;
 	-o-transition: 0.65s;
 	transition: 0.65s;
+	opacity: 0;
 }
 
 .App .Disappears:hover {
-	opacity: 0;
+	/*opacity: 0;*/
+	opacity: 1;
 }
 
 .App .hidden {
@@ -60,7 +62,7 @@
 }
 
 .Background {
-	height: 100%;
+	height: 300px;
 }
 
 .App-header {
@@ -104,8 +106,24 @@
 	padding-bottom: 7%;
 }
 
+.Options {
+	/* messy but the right idea: want it less obtrusive, now it acts weird when over another link */
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+	width: fit-content;
+	position: sticky;
+	top: 0px;
+	background: white;
+	padding: 10px;
+	z-index: 1000; /*maybe not a good idea :P */
+}
+
 .Dropdown {
+	display: inline-flex;
 	width: auto;
+	margin-left: 15px;
+	margin-right: 15px;
 }
 
 .Dropdown-content {
@@ -122,14 +140,14 @@
 	overflow: visible;
 	width: auto;
 	background: none;
-	margin: 0;
-	padding: 10px;
+	margin: 0px 10px;
 	border: none;
 	cursor: pointer;
 }
 
 .Dropdown-option:hover {
-	background: #eee;
+	text-decoration: underline;
+	text-decoration-color:  #41bee0;
 }
 
 .Albums {

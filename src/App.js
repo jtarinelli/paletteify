@@ -8,8 +8,8 @@ import Dropdown from './components/Dropdown.js';
 
 //const chroma = require('chroma-js');
 
-const artistID = '1S2S00lgLYLGHWA44qGEUs'; //'4Kg3vBPMPfnYrnZo2A4czS';
-const token = 'BQB-kzGF_lwnNB-x1qcyMcO6EScaeaKjkKvPpa3YUAAII5A6N3aFvh498husah9qi_DdpSoDI2mWjooWF2CfQa0b4ubG-22xK4VM64OlXB6WDVDNm63hi7qV-8L3J_HrK7XCRc9B2ttGgpWR';
+const artistID = '4Kg3vBPMPfnYrnZo2A4czS'; //'4Kg3vBPMPfnYrnZo2A4czS';
+const token = 'BQBNOfNuXpZKmLAkjfuY_tqTeRH6yFfItc-sQFuEOPUZlyl88avglGCo_xU2YA3l4fjfoVbLZntZAz843V5MMA0T5oyffh41POlzlTojXyqo7Kh-2xL4VP6ySXJ4P5CLRgRa6xxB9muwB_BW';
 const country = "US";
 const headers = { 'Authorization': 'Bearer '.concat(token) }
 
@@ -53,7 +53,6 @@ class Options extends Component {
 	}
 	
 	updateNumColors = (num) => {
-		
 		this.props.grabNumColors(num);
 	}
 	
@@ -62,16 +61,16 @@ class Options extends Component {
 	}
 	
 	render() {
-		let colorLabels = ["One","Two","Three","Four","Five","Six","Seven"];
+		let colorLabels = [1,2,3,4,5,6,7];
 		let colorParams = [1,2,3,4,5,6,7];
 		
-		let displayLabels = ["Vertical Stripes", "Diagonal Stripes", "Target"];
+		let displayLabels = ["Vertical", "Diagonal", "Target"];
 		let displayParams = [0,1,2];
 		
 		return (
 			<div className="Options">
-				<Dropdown title="Number of Colors" labels={colorLabels} params={colorParams} funct={this.updateNumColors}/>
-				<Dropdown title="Color Display" labels={displayLabels} params={displayParams} funct={this.updateDisplay}/>
+				<Dropdown title="#" labels={colorLabels} params={colorParams} funct={this.updateNumColors} tooltip="Number of colors"/>
+				<Dropdown title="//" labels={displayLabels} params={displayParams} funct={this.updateDisplay} tooltip="Colors display mode"/>
 			</div>
 		)
 		

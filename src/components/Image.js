@@ -40,10 +40,12 @@ constructor(props) {
 			// vertical stripes
 			gradientString = "linear-gradient(to right, ";
 			stripeWidth = 300 / colors.length;
+		
 		} else if (option === 1) {
 			// diagonal stripes
-			gradientString = "linear-gradient(to top left, ";
+			gradientString = "linear-gradient(to bottom left, ";
 			stripeWidth = 424 / colors.length;
+		
 		} else if (option === 2) {
 			// target/ radial gradient
 			colors.push("white");
