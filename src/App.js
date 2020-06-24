@@ -7,18 +7,14 @@ import Colors from './components/Colors.js';
 
 //const chroma = require('chroma-js');
 
-const artistID = '4Kg3vBPMPfnYrnZo2A4czS'; //'4Kg3vBPMPfnYrnZo2A4czS';
-const token = 'BQCnS1wFdNOIPNibqCyzs2j8WkMf3FHuKA59PKScBpG_yBszLf1KmtovPVypNuRBW3AdDZC1XlNHLyGWU4qzHSJv1Vclctge5oxvkdBn-Aq5hvj-K8zSv2s0tmU3VLBhf_5OQeSEmVXLuuCg';
+const artistID = '1S2S00lgLYLGHWA44qGEUs'; //'4Kg3vBPMPfnYrnZo2A4czS';
+const token = 'BQB-kzGF_lwnNB-x1qcyMcO6EScaeaKjkKvPpa3YUAAII5A6N3aFvh498husah9qi_DdpSoDI2mWjooWF2CfQa0b4ubG-22xK4VM64OlXB6WDVDNm63hi7qV-8L3J_HrK7XCRc9B2ttGgpWR';
 const country = "US";
 const headers = { 'Authorization': 'Bearer '.concat(token) }
-/*
-const numColors = 7; //for whatever reason 8 returns an array of seven and 
-					 //anything above that returns an array 1 smaller than specified here
-const colorOptions = {count: numColors};
-*/
 
 /* to do:
-** make options changable from site/ui
+** make all options changable from site/ui
+** make dropdown prettier/put it somewhere better, would like it to open horizontally
 ** find a better way to pass global variables around to all the components
 ** store colors along with albums (just name or include other info/whole object??)
 ** play snippets of top songs
@@ -39,13 +35,48 @@ function handleErrors(response) {
     return response;
 }
 
-class ColorOptions extends Component {
+class Dropdown extends Component {
 	
 	constructor(props) {
 		super(props);
 		
 		this.state = {
-			visible: false,
+			visible: false
+		}
+	}
+	
+	toggleVisible = () => {
+		this.setState(prevState => ({
+			visible: !prevState.visible
+		}));
+	}
+	
+	render() {
+		let {visible} = this.state;
+		const {title, labels, params, funct} = this.props;
+		
+		return (
+			<div className="Dropdown">
+				<button className="h2-button" onClick={this.toggleVisible}>{title}</button>
+				<ul className={"Dropdown-content " + (visible ? 'visible' : 'hidden')}>
+					{labels.map((label, i) => (
+						<li key={i}><button className="Dropdown-option" onClick={() => funct(params[i])}>{label}</button></li>
+					))}
+				</ul>
+			</div>
+		)
+	}
+	
+}
+
+class Options extends Component {
+	
+	constructor(props) {
+		super(props);
+		
+		this.updateNumColors = this.updateNumColors.bind(this);
+		
+		this.state = {
 			numColors: 1
 		}
 	}
@@ -64,18 +95,13 @@ class ColorOptions extends Component {
 	}
 	
 	render() {
-		let {visible} = this.state;
+		let labels = ["One","Three","Five"];
+		let params = [1,3,5];
 		
 		return (
-			<div className="Dropdown">
-				<button className="h2-button" onClick={this.toggleVisible}>Number of Colors</button>
-				<ul className={"Dropdown-content " + (visible ? 'visible' : 'hidden')}>
-					<li><button className="Dropdown-option" onClick={() => this.updateNumColors(1)}>One</button></li>
-					<li><button className="Dropdown-option" onClick={() => this.updateNumColors(3)}>Three</button></li>
-					<li><button className="Dropdown-option" onClick={() => this.updateNumColors(5)}>Five</button></li>
-				</ul>
-			</div>
+			<Dropdown title="Number of Colors" labels={labels} params={params} funct={this.updateNumColors}/>
 		)
+		
 	}
 	
 }
@@ -111,7 +137,7 @@ class Body extends Component {
 	
 		return (
 			<div className="Body">
-				<ColorOptions grabNumColors={this.grabNumColors}/>
+				<Options grabNumColors={this.grabNumColors}/>
 				<AlbumsSingles grabColors={this.grabColors} artistID={artistID} country={country} headers={headers} handleErrors={handleErrors} colorOptions={colorOptions} numColors={numColors}/>
 				<Colors colors={allColors}/>
 			</div>

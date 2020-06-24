@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import TopTracks from './TopTracks.js';
-import Image from './Image.js';
 
 class Header extends Component {
 	
@@ -33,12 +32,12 @@ class Header extends Component {
 
 	render () {
 		const {isLoaded, data, error, errorCode} = this.state;
-		const {artistID, country, headers, handleErrors, colorOptions} = this.props;
+		const {artistID, country, headers, handleErrors} = this.props;
 		
 		if (isLoaded && !error) {
 			return (
 			<header className="App-header">
-			<div className="Artist-image"><Image src={data.images[0].url} alt={data.name} options={colorOptions}/></div>
+			<div className="Artist-image"><img src={data.images[0].url} alt={data.name}/></div>
 			<div className="Artist-info">
 				<h1><a href={data.external_urls.spotify}>{data.name}</a></h1>
 				<TopTracks artistID={artistID} country={country} headers={headers} handleErrors={handleErrors}/>
