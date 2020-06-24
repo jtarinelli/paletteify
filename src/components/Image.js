@@ -9,7 +9,7 @@ constructor(props) {
 		this.state = {
 			colorsLoaded: false,
 			bgStyle: {
-				backgroundColor: "white"
+				backgroundImage: "white"
 			},
 			imageColors: []
 		}
@@ -21,51 +21,67 @@ constructor(props) {
 	}
 	
 	componentDidUpdate(prevProps) {
-		if(this.props.options !== prevProps.options) {
+		if (this.props.options !== prevProps.options) {
 			this.fetchColors(this.props.src);
 		}
+		
+		if (this.props.display !== prevProps.display) {
+			this.displayMode(this.state.imageColors, this.props.display);
+		}
+	}
+	
+	displayMode(colors, option) {
+		//result.reverse(); //optional 
+		
+		let gradientString = "";
+		let stripeWidth = 0;
+		
+		if (option === 0) {
+			// vertical stripes
+			gradientString = "linear-gradient(to right, ";
+			stripeWidth = 300 / colors.length;
+		} else if (option === 1) {
+			// diagonal stripes
+			gradientString = "linear-gradient(to top left, ";
+			stripeWidth = 424 / colors.length;
+		} else if (option === 2) {
+			// target/ radial gradient
+			colors.push("white");
+			gradientString = "radial-gradient(circle, ";
+			stripeWidth = 170 / colors.length;
+		}
+		
+		for (var i = 0; i < colors.length; i++) {
+			gradientString += colors[i] + " " + stripeWidth*i + "px," + colors[i] + " " + stripeWidth*(i+1) + "px";
+			if (i < colors.length - 1) {
+				gradientString += ",";
+			}
+		}
+		
+		gradientString += ")";
+		
+		if (option === 2) {
+			colors.pop(); // for radial version only!
+		}
+		
+		this.setState({
+				bgStyle: {
+					backgroundImage: gradientString
+				}
+			})
 	}
 
 	fetchColors(imageURL) {
 		let currentObject = this;
 		let passUpColors = this.props.grabColors;
-		let {options} = this.props;
+		let {options, display} = this.props;
 
 		var promise = getColors(imageURL, options);
 		promise.then(function(result) {
-			//result.reverse(); //optional 
-			
-			// build string that goes into backgroundImage to make diagonal stripes
-			let gradientString = "linear-gradient(to top left, ";
-			let stripeWidth = 424 / result.length;
-			
-			// vertical stripes version
-			gradientString = "linear-gradient(to right, ";
-			stripeWidth = 300 / result.length;
-			
-			// radial gradient version
-			/*
-			result.push("white");
-			gradientString = "radial-gradient(circle, ";
-			stripeWidth = 170 / result.length;
-			*/
-			
-			for (var i = 0; i < result.length; i++) {
-				gradientString += result[i] + " " + stripeWidth*i + "px," + result[i] + " " + stripeWidth*(i+1) + "px";
-				if (i < result.length - 1) {
-					gradientString += ",";
-				}
-			}
-			
-			gradientString += ")";
-			
-			//result.pop(); // for radial version only!
+			currentObject.displayMode(result, display);
 
 			currentObject.setState({
 				colorsLoaded: true,
-				bgStyle: {
-					backgroundImage: gradientString
-				},
 				imageColors: result
 			})
 
@@ -78,11 +94,10 @@ constructor(props) {
 	
 	render() {
 		const {src, alt} = this.props;
-		console.log(this.props.options);
-		
+
 		return (
 			<div className="Background" style = {this.state.bgStyle}>
-				<img src={src} alt={alt} />
+				<img className="Disappears" src={src} alt={alt} />
 			</div>
 		)
 	}

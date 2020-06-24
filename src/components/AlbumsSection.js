@@ -35,6 +35,14 @@ class AlbumsSection extends Component {
 			}));
 	}
 	
+	componentDidUpdate(prevProps) {
+		if (this.props.colorOptions !== prevProps.colorOptions) {
+			this.setState({
+				colors: null
+			})
+		}
+	}
+	
 	grabColors = (albumColors) => {
 		let passUpColors = this.props.grabColors;
 		let numColors = this.props.numColors;
@@ -58,7 +66,7 @@ class AlbumsSection extends Component {
 	}
 	
 	render() {
-		const {title, colorOptions} = this.props;
+		const {title, colorOptions, display} = this.props;
 		let {visible, isLoaded, data, error} = this.state;
 		
 		if (isLoaded && data.items.length === 0) {
@@ -77,6 +85,7 @@ class AlbumsSection extends Component {
 								url = {album.external_urls.spotify}
 								grabColors = {this.grabColors}
 								colorOptions = {colorOptions}
+								display={display}
 								/>
 								</div>
 							)

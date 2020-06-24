@@ -4,6 +4,7 @@ import './App.css';
 import Header from './components/Header.js';
 import AlbumsSingles from './components/AlbumsSingles.js';
 import Colors from './components/Colors.js';
+import Dropdown from './components/Dropdown.js';
 
 //const chroma = require('chroma-js');
 
@@ -35,50 +36,14 @@ function handleErrors(response) {
     return response;
 }
 
-class Dropdown extends Component {
-	
-	constructor(props) {
-		super(props);
-		
-		this.state = {
-			visible: false
-		}
-	}
-	
-	toggleVisible = () => {
-		this.setState(prevState => ({
-			visible: !prevState.visible
-		}));
-	}
-	
-	render() {
-		let {visible} = this.state;
-		const {title, labels, params, funct} = this.props;
-		
-		return (
-			<div className="Dropdown">
-				<button className="h2-button" onClick={this.toggleVisible}>{title}</button>
-				<ul className={"Dropdown-content " + (visible ? 'visible' : 'hidden')}>
-					{labels.map((label, i) => (
-						<li key={i}><button className="Dropdown-option" onClick={() => funct(params[i])}>{label}</button></li>
-					))}
-				</ul>
-			</div>
-		)
-	}
-	
-}
-
 class Options extends Component {
 	
 	constructor(props) {
 		super(props);
-		
-		this.updateNumColors = this.updateNumColors.bind(this);
-		
-		this.state = {
-			numColors: 1
-		}
+		this.state = ({
+			numColors: 5,
+			display: 0
+		})
 	}
 	
 	toggleVisible = () => {
@@ -88,18 +53,26 @@ class Options extends Component {
 	}
 	
 	updateNumColors = (num) => {
-		this.setState({
-			numColors: num
-		})
+		
 		this.props.grabNumColors(num);
 	}
 	
+	updateDisplay = (option) => {
+		this.props.grabDisplay(option);
+	}
+	
 	render() {
-		let labels = ["One","Three","Five"];
-		let params = [1,3,5];
+		let colorLabels = ["One","Two","Three","Four","Five","Six","Seven"];
+		let colorParams = [1,2,3,4,5,6,7];
+		
+		let displayLabels = ["Vertical Stripes", "Diagonal Stripes", "Target"];
+		let displayParams = [0,1,2];
 		
 		return (
-			<Dropdown title="Number of Colors" labels={labels} params={params} funct={this.updateNumColors}/>
+			<div className="Options">
+				<Dropdown title="Number of Colors" labels={colorLabels} params={colorParams} funct={this.updateNumColors}/>
+				<Dropdown title="Color Display" labels={displayLabels} params={displayParams} funct={this.updateDisplay}/>
+			</div>
 		)
 		
 	}
@@ -113,7 +86,8 @@ class Body extends Component {
 		this.state = ({
 			colors: null,
 			numColors: 5,
-			colorOptions: {count: 5}
+			colorOptions: {count: 5},
+			display: 0
 		})
 	}
 	
@@ -130,15 +104,21 @@ class Body extends Component {
 		})
 	}
 	
+	grabDisplay = (option) => {
+		this.setState({
+			display: option
+		})
+	}
+	
 	render() {
 		let allColors = this.state.colors;
 		const {artistID, country, headers, handleErrors} = this.props;
-		let {numColors, colorOptions} = this.state;
+		let {numColors, colorOptions, display} = this.state;
 	
 		return (
 			<div className="Body">
-				<Options grabNumColors={this.grabNumColors}/>
-				<AlbumsSingles grabColors={this.grabColors} artistID={artistID} country={country} headers={headers} handleErrors={handleErrors} colorOptions={colorOptions} numColors={numColors}/>
+				<Options grabNumColors={this.grabNumColors} grabDisplay={this.grabDisplay}/>
+				<AlbumsSingles grabColors={this.grabColors} artistID={artistID} country={country} headers={headers} handleErrors={handleErrors} colorOptions={colorOptions} numColors={numColors} display={display}/>
 				<Colors colors={allColors}/>
 			</div>
 		)
