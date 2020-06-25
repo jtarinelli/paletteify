@@ -21,7 +21,7 @@ constructor(props) {
 	}
 	
 	componentDidUpdate(prevProps) {
-		if (this.props.options !== prevProps.options) {
+		if (this.props.numColors !== prevProps.numColors) {
 			this.fetchColors(this.props.src);
 		}
 		
@@ -76,7 +76,8 @@ constructor(props) {
 	fetchColors(imageURL) {
 		let currentObject = this;
 		let passUpColors = this.props.grabColors;
-		let {options, display} = this.props;
+		let {numColors, display} = this.props;
+		let options = {count: numColors}
 
 		var promise = getColors(imageURL, options);
 		promise.then(function(result) {

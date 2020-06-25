@@ -13,7 +13,7 @@ class TopTracks extends Component {
 	}
 	
 	componentDidMount() {
-		const {artistID, country, headers, handleErrors} = this.props;
+		const {artistID, country, headers, handleErrors} = this.props.requestInfo;
 		
 		fetch('https://api.spotify.com/v1/artists/'.concat(artistID).concat('/top-tracks?country='.concat(country)), {headers})
 			.then(handleErrors)

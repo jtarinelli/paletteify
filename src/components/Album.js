@@ -9,11 +9,11 @@ class Album extends Component {
 	}
 	
 	render() {
-		const {name, image, url, colorOptions, display} = this.props;
+		const {name, image, url, numColors, display} = this.props;
 		
 		return (
 			<a href = {url}>
-			<Image src={image} alt={name} grabColors={this.grabColors} options={colorOptions} display={display}/>
+			<Image src={image} alt={name} grabColors={this.grabColors} numColors={numColors} display={display}/>
 				<p>{name}</p>
 			</a>
 		)

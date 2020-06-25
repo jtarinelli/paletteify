@@ -7,14 +7,16 @@ import Colors from './components/Colors.js';
 import Dropdown from './components/Dropdown.js';
 
 //const chroma = require('chroma-js');
+const token = 'BQDEyYd2zBVg8t3b0vW21wGxeKq-aDvYfatHQ6q_VxLUrXfprByYlZK7MYU5cvQDOWM8biqBjV99o6l6XxBYZUDGxUxgVLJ3DGQuxkjQQV7bJqCHCevED5ugWVKGC4gy-yko-i8RdSkSRhbt';
 
-const artistID = '4Kg3vBPMPfnYrnZo2A4czS'; //'4Kg3vBPMPfnYrnZo2A4czS';
-const token = 'BQBNOfNuXpZKmLAkjfuY_tqTeRH6yFfItc-sQFuEOPUZlyl88avglGCo_xU2YA3l4fjfoVbLZntZAz843V5MMA0T5oyffh41POlzlTojXyqo7Kh-2xL4VP6ySXJ4P5CLRgRa6xxB9muwB_BW';
-const country = "US";
-const headers = { 'Authorization': 'Bearer '.concat(token) }
+const requestInfo = {
+	artistID: '4Kg3vBPMPfnYrnZo2A4czS',
+	country: "US",
+	headers: {'Authorization': 'Bearer '.concat(token)},
+	handleErrors: handleErrors
+}
 
 /* to do:
-** make all options changable from site/ui
 ** make dropdown prettier/put it somewhere better, would like it to open horizontally
 ** find a better way to pass global variables around to all the components
 ** store colors along with albums (just name or include other info/whole object??)
@@ -85,7 +87,6 @@ class Body extends Component {
 		this.state = ({
 			colors: null,
 			numColors: 5,
-			colorOptions: {count: 5},
 			display: 0
 		})
 	}
@@ -98,8 +99,7 @@ class Body extends Component {
 	
 	grabNumColors = (num) => {
 		this.setState({
-			numColors: num,
-			colorOptions: {count: num}
+			numColors: num
 		})
 	}
 	
@@ -111,13 +111,13 @@ class Body extends Component {
 	
 	render() {
 		let allColors = this.state.colors;
-		const {artistID, country, headers, handleErrors} = this.props;
-		let {numColors, colorOptions, display} = this.state;
+		const {requestInfo} = this.props;
+		let {numColors, display} = this.state;
 	
 		return (
 			<div className="Body">
 				<Options grabNumColors={this.grabNumColors} grabDisplay={this.grabDisplay}/>
-				<AlbumsSingles grabColors={this.grabColors} artistID={artistID} country={country} headers={headers} handleErrors={handleErrors} colorOptions={colorOptions} numColors={numColors} display={display}/>
+				<AlbumsSingles grabColors={this.grabColors} requestInfo={requestInfo} numColors={numColors} display={display}/>
 				<Colors colors={allColors}/>
 			</div>
 		)
@@ -128,8 +128,8 @@ class Body extends Component {
 function App() {
 	return (
 		<div className="App">
-			<Header artistID={artistID} country={country} headers={headers} handleErrors={handleErrors} colorOptions={{count: 5}}/>
-			<Body artistID={artistID} country={country} headers={headers} handleErrors={handleErrors}/>
+			<Header requestInfo={requestInfo}/>
+			<Body requestInfo={requestInfo}/>
 		</div>
 	);
 }

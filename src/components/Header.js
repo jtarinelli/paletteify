@@ -15,7 +15,7 @@ class Header extends Component {
 	}
 	
 	componentDidMount() {
-		const {artistID, country, headers, handleErrors} = this.props;
+		const {artistID, headers, handleErrors} = this.props.requestInfo;
 		
 		fetch('https://api.spotify.com/v1/artists/'.concat(artistID), {headers})
 			.then(handleErrors)
@@ -32,7 +32,7 @@ class Header extends Component {
 
 	render () {
 		const {isLoaded, data, error, errorCode} = this.state;
-		const {artistID, country, headers, handleErrors} = this.props;
+		const {requestInfo} = this.props;
 		
 		if (isLoaded && !error) {
 			return (
@@ -40,7 +40,7 @@ class Header extends Component {
 			<div className="Artist-image"><img src={data.images[0].url} alt={data.name}/></div>
 			<div className="Artist-info">
 				<h1><a href={data.external_urls.spotify}>{data.name}</a></h1>
-				<TopTracks artistID={artistID} country={country} headers={headers} handleErrors={handleErrors}/>
+				<TopTracks requestInfo={requestInfo}/>
 			</div>
 		</header>
 			)

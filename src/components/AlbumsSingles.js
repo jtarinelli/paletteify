@@ -43,13 +43,13 @@ class AlbumsSingles extends Component {
 	}
 	
 	render() {
-		const {artistID, country, headers, handleErrors, colorOptions, numColors, display} = this.props;
+		const {requestInfo, numColors, display} = this.props;
 		
 		return (
 			<section className = "Albums-Singles">
-					<AlbumsSection group="album" title="Albums" visible = {true} grabColors={this.grabColors} artistID={artistID} country={country} headers={headers} handleErrors={handleErrors} colorOptions={colorOptions} numColors={numColors} display={display}/>
-					<AlbumsSection group="single" title="Singles and EPs" visible = {false} grabColors={this.grabColors} artistID={artistID} country={country} headers={headers} handleErrors={handleErrors} colorOptions={colorOptions} numColors={numColors} display={display}/>
-					<AlbumsSection group="appears_on" title="Appears On" visible = {false} grabColors={this.grabColors} artistID={artistID} country={country} headers={headers} handleErrors={handleErrors} colorOptions={colorOptions} numColors={numColors} display={display}/>
+					<AlbumsSection group="album" title="Albums" visible = {true} grabColors={this.grabColors} requestInfo={requestInfo} numColors={numColors} display={display}/>
+					<AlbumsSection group="single" title="Singles and EPs" visible = {false} grabColors={this.grabColors} requestInfo={requestInfo} numColors={numColors} display={display}/>
+					<AlbumsSection group="appears_on" title="Appears On" visible = {false} grabColors={this.grabColors} requestInfo={requestInfo} numColors={numColors} display={display}/>
 				</section>
 		)
 	

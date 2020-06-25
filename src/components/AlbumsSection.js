@@ -22,7 +22,8 @@ class AlbumsSection extends Component {
 	}
 	
 	componentDidMount() {
-		const {group, artistID, country, headers, handleErrors} = this.props;
+		const {artistID, country, headers, handleErrors} = this.props.requestInfo;
+		const {group} = this.props;
 		fetch('https://api.spotify.com/v1/artists/'.concat(artistID).concat('/albums?include_groups='.concat(group).concat('&market=').concat(country)), {headers})
 			.then(handleErrors)
 			.then(response => response.json())
@@ -36,7 +37,7 @@ class AlbumsSection extends Component {
 	}
 	
 	componentDidUpdate(prevProps) {
-		if (this.props.colorOptions !== prevProps.colorOptions) {
+		if (this.props.numColors !== prevProps.numColors) {
 			this.setState({
 				colors: null
 			})
@@ -66,7 +67,7 @@ class AlbumsSection extends Component {
 	}
 	
 	render() {
-		const {title, colorOptions, display} = this.props;
+		const {title, numColors, display} = this.props;
 		let {visible, isLoaded, data, error} = this.state;
 		
 		if (isLoaded && data.items.length === 0) {
@@ -84,7 +85,7 @@ class AlbumsSection extends Component {
 								image = {album.images[1].url}
 								url = {album.external_urls.spotify}
 								grabColors = {this.grabColors}
-								colorOptions = {colorOptions}
+								numColors = {numColors}
 								display={display}
 								/>
 								</div>
