@@ -12,9 +12,10 @@ class AlbumsSingles extends Component {
 	}
 	
 	componentDidUpdate(prevProps) {
-		if (this.props.colorOptions !== prevProps.colorOptions) {
+		if (this.props.numColors !== prevProps.numColors) {
 			this.setState({
-				colors: null
+				colors: null,
+				sectionsLoaded: 0
 			})
 		}
 	}

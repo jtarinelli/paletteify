@@ -54,7 +54,7 @@ class TopTracks extends Component {
 			return (
 				<div>
 					<p>Top Tracks</p>
-					{error ? <p>Error:  {errorCode}</p> : <p>"..."</p>}
+					{error ? <p>Error:  {errorCode}</p> : <p>...</p>}
 				</div>
 			)
 		} 

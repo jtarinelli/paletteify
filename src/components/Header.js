@@ -48,7 +48,7 @@ class Header extends Component {
 		} else {
 			return (
 			<header className="App-header Loading">
-				{error ? <h1>Error: {errorCode}</h1> : <h1>"Loading..."</h1>}
+				{error ? <h1>Error: {errorCode}</h1> : <h1>Loading...</h1>}
 					{error && <p><a href="https://developer.spotify.com/documentation/web-api/">Status code info here</a></p>}
 			</header>
 			)

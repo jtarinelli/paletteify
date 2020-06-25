@@ -101,7 +101,7 @@ class AlbumsSection extends Component {
 				<div>
 					<button onClick={this.toggleVisible} className="h2-button"><h2>{title}</h2></button>
 					<div className = {"Albums " + (visible ? 'visible' : 'hidden')}>
-						{error ? <p>Error:  {errorCode}</p> : <p>"..."</p>}
+						{error ? <p>Error:  {errorCode}</p> : <p>...</p>}
 					</div>
 				</div>
 			) 
