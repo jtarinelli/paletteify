@@ -8,7 +8,8 @@ class TopTracks extends Component {
 		this.state = {
 			isLoaded: false,
 			data: null,
-			error: false
+			error: false,
+			errorCode: null
 		}
 	}
 	
@@ -23,13 +24,14 @@ class TopTracks extends Component {
 				data: stuff 
 				}))
 			.catch(error => this.setState ({
-				error: true
+				error: true,
+				errorCode: error.message
 			}));
 	}
 
 	render() {
 		
-		const {isLoaded, data, error} = this.state;
+		const {isLoaded, data, error, errorCode} = this.state;
 		
 		if (isLoaded && !error) {
 			return (
@@ -52,7 +54,7 @@ class TopTracks extends Component {
 			return (
 				<div>
 					<p>Top Tracks</p>
-					<p>{error ? "Error" : "..."}</p>
+					{error ? <p>Error:  {errorCode}</p> : <p>"..."</p>}
 				</div>
 			)
 		} 

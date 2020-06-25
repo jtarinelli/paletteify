@@ -11,7 +11,8 @@ class AlbumsSection extends Component {
 			isLoaded: false,
 			data: null,
 			colors: null,
-			error: false
+			error: false,
+			errorCode: null
 		}
 	}
 	
@@ -32,7 +33,8 @@ class AlbumsSection extends Component {
 				data: stuff
 				}))
 			.catch(error => this.setState({
-				error: true
+				error: true,
+				errorCode: error.message
 			}));
 	}
 	
@@ -68,7 +70,7 @@ class AlbumsSection extends Component {
 	
 	render() {
 		const {title, numColors, display} = this.props;
-		let {visible, isLoaded, data, error} = this.state;
+		let {visible, isLoaded, data, error, errorCode} = this.state;
 		
 		if (isLoaded && data.items.length === 0) {
 			return null;
@@ -99,7 +101,7 @@ class AlbumsSection extends Component {
 				<div>
 					<button onClick={this.toggleVisible} className="h2-button"><h2>{title}</h2></button>
 					<div className = {"Albums " + (visible ? 'visible' : 'hidden')}>
-						<p>{error ? "Error" : "Loading..."}</p>
+						{error ? <p>Error:  {errorCode}</p> : <p>"..."</p>}
 					</div>
 				</div>
 			) 
