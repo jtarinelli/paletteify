@@ -7,11 +7,11 @@ import Colors from './components/Colors.js';
 import Dropdown from './components/Dropdown.js';
 
 //const chroma = require('chroma-js');
-const token = 'BQAxPvrUdfJZn1I1meIby6PC2NqW8qA99SOfLKukWAR2wVvKQhD5Rn4Dh-DX7HSH_dQ4OsgEUuyoITCWVIRmIdb5YoI_3416eze1WItZhr-c1UUPzwesR2gcADOUUbTcN5Ppj4MMqj4PKiG_';
+const token = 'BQCyHzi9_W6M17WuGqK9bGa8Nc0d25fE_awxYz4tVKZ__KGy133y-KQXYzbQhud0jRXpe5hX0ZHxr7YlYjdg88ydCYkappKtn6vxUSDyk4tdzLyJDlq2u-Eo2h4KtMgFGq4vcER8x1AmDpnW';
 
 const requestInfo = {
 	artistID: '4Kg3vBPMPfnYrnZo2A4czS', //'4Kg3vBPMPfnYrnZo2A4czS'
-	country: "US",
+	country: "JP",
 	headers: {'Authorization': 'Bearer '.concat(token)},
 	handleErrors: handleErrors
 }
