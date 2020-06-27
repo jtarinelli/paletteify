@@ -7,17 +7,18 @@ import Colors from './components/Colors.js';
 import Dropdown from './components/Dropdown.js';
 
 //const chroma = require('chroma-js');
-const token = 'BQARX0r5e6kilHq1VkoQlQ3klhgQrsOaq2vAfuHKT6ZUmETXr2cQ4BVBgBAeBTl2njzuJjivB0rFeNmgZjqjvFikEv2lQFV77iUpJXIVImnb_SMo6RwVgrk9F6LG39hB7ap1vw4UaKpXHPXY';
+const token = 'BQAxPvrUdfJZn1I1meIby6PC2NqW8qA99SOfLKukWAR2wVvKQhD5Rn4Dh-DX7HSH_dQ4OsgEUuyoITCWVIRmIdb5YoI_3416eze1WItZhr-c1UUPzwesR2gcADOUUbTcN5Ppj4MMqj4PKiG_';
 
 const requestInfo = {
-	artistID: '1iR65pQAV4ssTTf9JRNr9X',
+	artistID: '4Kg3vBPMPfnYrnZo2A4czS', //'4Kg3vBPMPfnYrnZo2A4czS'
 	country: "US",
 	headers: {'Authorization': 'Bearer '.concat(token)},
 	handleErrors: handleErrors
 }
 
 /* to do:
-** stop colors from accumulating and reset everytime num of colors is changed
+** fix glitchiness when sorting by hue
+** add ui options for sorting colors
 ** make dropdown prettier, would like it to open on hover and not change size on open
 ** store colors along with albums (just name or include other info/whole object??)
 ** play snippets of top songs (might need to redo track component)
@@ -63,15 +64,14 @@ class AlbumOptions extends Component {
 	}
 	
 	render() {
-		let colorLabels = [1,2,3,4,5,6,7];
-		let colorParams = [1,2,3,4,5,6,7];
+		let numColors = [1,2,3,4,5,6,7];
 		
-		let displayLabels = ["Vertical", "Diagonal", "Target"];
+		let displayLabels = ["Diagonal", "Vertical", "Target"];
 		let displayParams = [0,1,2];
 		
 		return (
 			<div className="Options">
-				<Dropdown title="#" labels={colorLabels} params={colorParams} funct={this.updateNumColors} tooltip="Number of colors per album"/>
+				<Dropdown title="#" labels={numColors} params={numColors} funct={this.updateNumColors} tooltip="Number of colors per album"/>
 				<Dropdown title="//" labels={displayLabels} params={displayParams} funct={this.updateDisplay} tooltip="Album colors display style"/>
 			</div>
 		)

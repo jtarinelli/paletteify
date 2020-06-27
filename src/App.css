@@ -38,6 +38,23 @@
 	text-decoration-color:  #41bee0;
 }
 
+.App .p-button {
+	color: #282c34;
+	font-size: 14px;
+	overflow: visible;
+	width: auto;
+	background: none;
+	margin: 0;
+	padding: 0;
+	border: none;
+	cursor: pointer;
+}
+
+.App button.p-button:hover {
+	text-decoration: underline;
+	text-decoration-color:  #41bee0;
+}
+
 .App .Disappears {
 	-webkit-transition: 0.65s;
 	-moz-transition: 0.65s;
@@ -147,6 +164,11 @@
 .Dropdown-option:hover {
 	text-decoration: underline;
 	text-decoration-color:  #41bee0;
+}
+
+.Albums-Singles {
+	margin-left: 5%;
+	margin-right: 5%;
 }
 
 .Albums {

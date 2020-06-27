@@ -1,9 +1,18 @@
 import React, {Component} from 'react';
 import Dot from './Dot.js';
-
-// make bins depending on length of colors array (and maybe also screen width?? idk)
+import Dropdown from './Dropdown.js';
 
 class Colors extends Component {
+	
+	constructor(props) {
+		super(props);
+		this.updateNumBins = this.updateNumBins.bind(this);
+		this.state = ({
+			numBins: 15,
+			primarySort: 2,
+			secondarySort: 1
+		})
+	}
 	
 	sortColors = (colors, hsl, reverse) => {
 		if (reverse) {
@@ -13,20 +22,28 @@ class Colors extends Component {
 		}
 	}
 
-	makeBins = (colors, hsl) => {
-		this.sortColors(colors, hsl, false);
-		const numBins = 15; // make this an option?
+	makeBins = (colors, numBins, primarySort, secondarySort) => {
+		this.sortColors(colors, primarySort, false);
 		let bins = [[]];
 		let currentBin = bins[0];
 		
-		let max = colors[0].hsl()[hsl];
-		let min = colors[colors.length-1].hsl()[hsl];
+		if (primarySort === 0) { // if sorting by hue, need extra bin for hueless/pure gray
+			currentBin = [];
+			bins.push(currentBin);
+			numBins -= 1;
+		}
+		
+		let max = colors[0].hsl()[primarySort];
+		let min = colors[colors.length-1].hsl()[primarySort];
 		
 		let increment = (max-min) / numBins;
 		let threshold = max - increment;
 		
 		colors.forEach(color => {
-			if (color.hsl()[hsl] > threshold) {
+			if (primarySort === 0 && Number.isNaN(color.hsl()[0])) {
+				console.log(color.hsl());
+				bins[0].push(color);
+			} else if (color.hsl()[primarySort] > threshold) {
 				currentBin.push(color);
 			} else {
 				threshold -= increment;
@@ -38,8 +55,29 @@ class Colors extends Component {
 		return bins;
 	}
 	
+	updatePrimarySort(hsl) {
+		this.setState({
+			primarySort: hsl
+		})
+	}
+	
+	updateSecondarySort(hsl) {
+		this.setState({
+			secondarySort: hsl
+		})
+	}
+	
+	updateNumBins(num) {
+		this.setState({
+			numBins: num
+		})
+	}
+	
 	render() {
 		let {colors} = this.props;
+		let{numBins, primarySort, secondarySort} = this.state;
+		const numBinsOptions = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14];
+		const numBinsLabels = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
 
 		if (colors === null) {
 			return (
@@ -49,23 +87,34 @@ class Colors extends Component {
 				</section>
 			)
 		} else {
-			let bins = this.makeBins(colors, 2);
+			let bins = this.makeBins(colors, numBins, primarySort); 
 
 			bins.forEach(bin => {
-				this.sortColors(bin, 1, false);
+				this.sortColors(bin, secondarySort, false);
 			})
 			
 			return (
 				<section className="Colors">
 					<h2>Colors</h2>
-						<div className="Gradient"></div>
-						<div className="Dots">
-							{bins.map((bin, i) => (
-								<div className="Bin" key={i}>
-										{bin.map((color, j) => (<Dot key = {j} bgColor = {color}/>))}
-								</div>
-							))}
-						</div>
+					<Dropdown className="p-button" title="Number of Bins" labels={numBinsLabels} params={numBinsOptions} funct={this.updateNumBins}/>
+					<p>Primary Sort: 
+						<button className="p-button" onClick={() => this.updatePrimarySort(0)}>Hue</button>
+						<button className="p-button" onClick={() => this.updatePrimarySort(1)}>Saturation</button>
+						<button className="p-button" onClick={() => this.updatePrimarySort(2)}>Lightness</button>
+					</p> 
+					<p>Secondary Sort: 
+						<button className="p-button" onClick={() => this.updateSecondarySort(0)}>Hue</button>
+						<button className="p-button" onClick={() => this.updateSecondarySort(1)}>Saturation</button>
+						<button className="p-button" onClick={() => this.updateSecondarySort(2)}>Lightness</button>
+					</p> 
+					<div className="Gradient"></div>
+					<div className="Dots">
+						{bins.map((bin, i) => (
+							<div className="Bin" key={i}>
+									{bin.map((color, j) => (<Dot key = {j} bgColor = {color}/>))}
+							</div>
+						))}
+					</div>
 				</section>
 			)
 		}
