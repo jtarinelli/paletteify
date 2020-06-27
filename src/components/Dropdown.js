@@ -6,26 +6,28 @@ class Dropdown extends Component {
 		super(props);
 		
 		this.state = {
-			visible: false
+			visible: false || this.props.alwaysOpen
 		}
 	}
 	
 	toggleVisible = () => {
-		this.setState(prevState => ({
-			visible: !prevState.visible
-		}));
+		if (!this.props.alwaysOpen) {
+			this.setState(prevState => ({
+				visible: !prevState.visible
+			}));
+		}
 	}
 	
 	render() {
 		let {visible} = this.state;
-		const {title, labels, params, funct, tooltip} = this.props;
+		const {title, labels, params, funct, tooltip, className, alwaysOpen, selected} = this.props;
 		
 		return (
 			<div className="Dropdown">
-				<button className="h2-button" onClick={this.toggleVisible} title={tooltip}>{title}</button>
+				<button className={className} onClick={this.toggleVisible} title={tooltip}>{title}</button>
 				<ul className={"Dropdown-content " + (visible ? 'visible' : 'hidden')}>
 					{labels.map((label, i) => (
-						<li key={i}><button className="Dropdown-option" onClick={() => funct(params[i])}>{label}</button></li>
+						<li key={i}><button className={selected===params[i] ? "Dropdown-option Selected" : "Dropdown-option"} onClick={() => funct(params[i])}>{label}</button></li>
 					))}
 				</ul>
 			</div>

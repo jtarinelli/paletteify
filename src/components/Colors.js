@@ -7,6 +7,9 @@ class Colors extends Component {
 	constructor(props) {
 		super(props);
 		this.updateNumBins = this.updateNumBins.bind(this);
+		this.updatePrimarySort = this.updatePrimarySort.bind(this);
+		this.updateSecondarySort = this.updateSecondarySort.bind(this);
+		
 		this.state = ({
 			numBins: 15,
 			primarySort: 2,
@@ -78,6 +81,7 @@ class Colors extends Component {
 		let{numBins, primarySort, secondarySort} = this.state;
 		const numBinsOptions = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14];
 		const numBinsLabels = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+		const hsl = ["Hue", "Saturation", "Lightness"];
 
 		if (colors === null) {
 			return (
@@ -96,17 +100,9 @@ class Colors extends Component {
 			return (
 				<section className="Colors">
 					<h2>Colors</h2>
-					<Dropdown className="p-button" title="Number of Bins" labels={numBinsLabels} params={numBinsOptions} funct={this.updateNumBins}/>
-					<p>Primary Sort: 
-						<button className="p-button" onClick={() => this.updatePrimarySort(0)}>Hue</button>
-						<button className="p-button" onClick={() => this.updatePrimarySort(1)}>Saturation</button>
-						<button className="p-button" onClick={() => this.updatePrimarySort(2)}>Lightness</button>
-					</p> 
-					<p>Secondary Sort: 
-						<button className="p-button" onClick={() => this.updateSecondarySort(0)}>Hue</button>
-						<button className="p-button" onClick={() => this.updateSecondarySort(1)}>Saturation</button>
-						<button className="p-button" onClick={() => this.updateSecondarySort(2)}>Lightness</button>
-					</p> 
+					<Dropdown className="p-button" title="Number of Bins" labels={numBinsLabels} params={numBinsOptions} funct={this.updateNumBins} selected={numBins} alwaysOpen={true} /><br/>
+					<Dropdown className="p-button" title="Primary Sort" labels={hsl} params={[0,1,2]} funct={this.updatePrimarySort} selected={primarySort} alwaysOpen={true}/><br/>
+					<Dropdown className="p-button" title="Secondary Sort" labels={hsl} params={[0,1,2]} funct={this.updateSecondarySort} selected={secondarySort} alwaysOpen={true}/><br/>
 					<div className="Gradient"></div>
 					<div className="Dots">
 						{bins.map((bin, i) => (

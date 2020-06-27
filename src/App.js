@@ -18,7 +18,8 @@ const requestInfo = {
 
 /* to do:
 ** fix glitchiness when sorting by hue
-** add ui options for sorting colors
+** highlight selected option on dropdowns/radio buttons / generally clean up color options
+**** make numBins not a dropdown(prob form/textbox would be good?)
 ** make dropdown prettier, would like it to open on hover and not change size on open
 ** store colors along with albums (just name or include other info/whole object??)
 ** play snippets of top songs (might need to redo track component)
@@ -57,22 +58,30 @@ class AlbumOptions extends Component {
 	
 	updateNumColors = (num) => {
 		this.props.grabNumColors(num);
+		this.setState({
+			numColors: num
+		});
 	}
 	
 	updateDisplay = (option) => {
 		this.props.grabDisplay(option);
+		this.setState({
+			display: option
+		});
 	}
 	
 	render() {
-		let numColors = [1,2,3,4,5,6,7];
+		let numColorsOptions = [1,2,3,4,5,6,7];
 		
 		let displayLabels = ["Diagonal", "Vertical", "Target"];
 		let displayParams = [0,1,2];
 		
+		let {numColors, display} = this.state;
+		
 		return (
 			<div className="Options">
-				<Dropdown title="#" labels={numColors} params={numColors} funct={this.updateNumColors} tooltip="Number of colors per album"/>
-				<Dropdown title="//" labels={displayLabels} params={displayParams} funct={this.updateDisplay} tooltip="Album colors display style"/>
+				<Dropdown title="#" labels={numColorsOptions} params={numColorsOptions} funct={this.updateNumColors} tooltip="Number of colors per album" className="h2-button" selected={numColors}/>
+				<Dropdown title="//" labels={displayLabels} params={displayParams} funct={this.updateDisplay} tooltip="Album colors display style" className="h2-button" selected={display}/>
 			</div>
 		)
 		
