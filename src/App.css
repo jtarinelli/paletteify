@@ -130,21 +130,23 @@
 	width: fit-content;
 	position: sticky;
 	top: 0px;
-	background: white;
 	padding: 10px;
 	z-index: 1000; /*maybe not a good idea :P */
 }
 
 .Dropdown {
 	display: inline-flex;
-	width: auto;
+	width: fit-content;
 	margin-left: 15px;
 	margin-right: 15px;
+	padding: 10px 0px;
+	background: white;
 }
 
 .Dropdown-content {
 	list-style-type: none;
 	padding: 0;
+	margin: 0;
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: center;
@@ -171,6 +173,7 @@
 }
 
 .Albums-Singles {
+	margin-top: -90px; /* height of options box plus a little*/
 	margin-left: 5%;
 	margin-right: 5%;
 }
@@ -200,6 +203,10 @@
 	margin-left: 5%;
 	margin-right: 5%;
 	margin-bottom: 5%; /*prob not necessary once footer/something else is below*/
+}
+
+.Colors .Dropdown-content {
+	margin: auto;
 }
 
 .Sorting-options {

@@ -23,8 +23,8 @@ class Dropdown extends Component {
 		const {title, labels, params, funct, tooltip, className, alwaysOpen, selected} = this.props;
 		
 		return (
-			<div className="Dropdown">
-			{alwaysOpen ? <p>{title}</p> : <button className={className} onClick={this.toggleVisible} title={tooltip}>{title}</button>}
+			<div className="Dropdown" onMouseEnter={this.toggleVisible} onMouseLeave={this.toggleVisible}>
+			{alwaysOpen ? <p>{title}</p> : <button className={className}  title={tooltip}>{title}</button>}
 				<ul className={"Dropdown-content " + (visible ? 'visible' : 'hidden')}>
 					{labels.map((label, i) => (
 						<li key={i}><button className={selected===params[i] ? "Dropdown-option Selected" : "Dropdown-option"} onClick={() => funct(params[i])}>{label}</button></li>

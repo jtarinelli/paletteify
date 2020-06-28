@@ -6,7 +6,6 @@ import AlbumsSingles from './components/AlbumsSingles.js';
 import Colors from './components/Colors.js';
 import Dropdown from './components/Dropdown.js';
 
-//const chroma = require('chroma-js');
 const token = 'BQBpiT557M6U4f7VSeuDuvyHBPUYH1att_tTCj6ZoCjbizAadWOqXTkL_tfphQXvcJcmQG6Q-3GT47dk0mIbeMKphZ2qUt4gwKMsMmpnV9xu9-CXaE9GKl45XbXmoGZpYJ-tOXppxvwJ99Pd';
 
 const requestInfo = {

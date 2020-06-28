@@ -72,7 +72,7 @@ class Header extends Component {
 			<div className="Artist-image"><img src={data.images[0].url} alt={data.name}/></div>
 			<div className="Artist-info">
 				<h1><a href={data.external_urls.spotify}>{data.name}</a></h1>
-				<ArtistIDForm />
+					{/*<ArtistIDForm />*/}
 				<TopTracks requestInfo={requestInfo}/>
 			</div>
 		</header>
