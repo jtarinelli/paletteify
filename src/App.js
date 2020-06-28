@@ -7,18 +7,18 @@ import Colors from './components/Colors.js';
 import Dropdown from './components/Dropdown.js';
 
 //const chroma = require('chroma-js');
-const token = 'BQCyHzi9_W6M17WuGqK9bGa8Nc0d25fE_awxYz4tVKZ__KGy133y-KQXYzbQhud0jRXpe5hX0ZHxr7YlYjdg88ydCYkappKtn6vxUSDyk4tdzLyJDlq2u-Eo2h4KtMgFGq4vcER8x1AmDpnW';
+const token = 'BQBpiT557M6U4f7VSeuDuvyHBPUYH1att_tTCj6ZoCjbizAadWOqXTkL_tfphQXvcJcmQG6Q-3GT47dk0mIbeMKphZ2qUt4gwKMsMmpnV9xu9-CXaE9GKl45XbXmoGZpYJ-tOXppxvwJ99Pd';
 
 const requestInfo = {
 	artistID: '4Kg3vBPMPfnYrnZo2A4czS', //'4Kg3vBPMPfnYrnZo2A4czS'
-	country: "JP",
+	country: "US",
 	headers: {'Authorization': 'Bearer '.concat(token)},
 	handleErrors: handleErrors
 }
 
 /* to do:
+** maybe? change dropdown to actual html select element instead of all divs
 ** fix glitchiness when sorting by hue
-** highlight selected option on dropdowns/radio buttons / generally clean up color options
 **** make numBins not a dropdown(prob form/textbox would be good?)
 ** make dropdown prettier, would like it to open on hover and not change size on open
 ** store colors along with albums (just name or include other info/whole object??)
@@ -134,11 +134,42 @@ class Body extends Component {
 	}
 }
 
+class ArtistPage extends Component {
+	
+	constructor(props) {
+		super(props)
+		
+		this.state = ({
+			requestInfo: this.props.requestInfo
+		})
+	}
+	
+	grabArtistID = (id) => {
+		console.log("AAA");
+		this.setState({
+			requestInfo: {
+				artistID: id
+			}
+		});
+	}
+	
+	render() {
+		let {requestInfo} = this.state;
+		
+		return (
+			<div>
+				<Header requestInfo={requestInfo} grabArtistID={this.grabArtistID}/>
+				<Body requestInfo={requestInfo}/>
+			</div>
+		)
+	}
+}
+
 function App() {
+	
 	return (
 		<div className="App">
-			<Header requestInfo={requestInfo}/>
-			<Body requestInfo={requestInfo}/>
+			<ArtistPage requestInfo={requestInfo}/>
 		</div>
 	);
 }

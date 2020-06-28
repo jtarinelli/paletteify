@@ -1,6 +1,38 @@
 import React, {Component} from 'react';
 import TopTracks from './TopTracks.js';
 
+class ArtistIDForm extends Component {
+	constructor(props) {
+		super(props);
+
+		this.handleChange = this.handleChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+		
+		this.state = {value: ''};
+	}
+
+	handleChange(event) {
+		this.setState({value: event.target.value});
+	}
+
+	handleSubmit(event) {
+		console.log(this.state.value);
+		this.props.grabArtistID(this.state.value);
+		event.preventDefault();
+	}
+
+	render() {
+		return (
+			<form onSubmit={this.handleSubmit} className="ArtistIDForm">
+				<label>
+					ID: <input type="text" value={this.state.value} onChange={this.handleChange} />
+				</label>
+				<input type="submit" value=">>" />
+			</form>
+		);
+	}
+}
+
 class Header extends Component {
 	
 	constructor(props) {
@@ -40,6 +72,7 @@ class Header extends Component {
 			<div className="Artist-image"><img src={data.images[0].url} alt={data.name}/></div>
 			<div className="Artist-info">
 				<h1><a href={data.external_urls.spotify}>{data.name}</a></h1>
+				<ArtistIDForm />
 				<TopTracks requestInfo={requestInfo}/>
 			</div>
 		</header>
