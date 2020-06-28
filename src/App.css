@@ -111,15 +111,24 @@
 }
 
 .Top-tracks {
-	/* would like it if column wrap worked >:/ */
-	column-count: 2;
+	height: 50vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.Track {
+	max-width: 45%;
 }
 
 .Track p {
-	margin-top: 0px;
-	margin-bottom: 0px;
-	padding-top: 0px;
-	padding-bottom: 7%;
+	margin-top: 2px;
+	margin-bottom: 25px;
+	padding: 0;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .Options {

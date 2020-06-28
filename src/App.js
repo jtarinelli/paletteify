@@ -6,11 +6,11 @@ import AlbumsSingles from './components/AlbumsSingles.js';
 import Colors from './components/Colors.js';
 import Dropdown from './components/Dropdown.js';
 
-const token = 'BQBpiT557M6U4f7VSeuDuvyHBPUYH1att_tTCj6ZoCjbizAadWOqXTkL_tfphQXvcJcmQG6Q-3GT47dk0mIbeMKphZ2qUt4gwKMsMmpnV9xu9-CXaE9GKl45XbXmoGZpYJ-tOXppxvwJ99Pd';
+const token = 'BQDtg_NJDysmnRogjXPd--JzEtPfrHucH97KuG2WokOrWq_Fh_0_UxZfaK2KtjtPSfvfbFLsyTifoqqaNUddkrbsxRZr4Or8yLL9mSq0-rcPz0KJ_wz-IV3i_tlu1nn-o-062MBu6ZbqiaMs';
 
 const requestInfo = {
-	artistID: '4Kg3vBPMPfnYrnZo2A4czS', //'4Kg3vBPMPfnYrnZo2A4czS'
-	country: "US",
+	artistID: '1O2VCqaEfk91iBO0Sgchvb', //'4Kg3vBPMPfnYrnZo2A4czS'
+	country: "JP",
 	headers: {'Authorization': 'Bearer '.concat(token)},
 	handleErrors: handleErrors
 }
@@ -19,7 +19,6 @@ const requestInfo = {
 ** maybe? change dropdown to actual html select element instead of all divs
 ** fix glitchiness when sorting by hue
 **** make numBins not a dropdown(prob form/textbox would be good?)
-** make dropdown prettier, would like it to open on hover and not change size on open
 ** store colors along with albums (just name or include other info/whole object??)
 ** play snippets of top songs (might need to redo track component)
 ** automatically get token (need to login??)

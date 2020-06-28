@@ -37,7 +37,7 @@ class AlbumsSingles extends Component {
 			})
 		}
 			
-		if (this.state.sectionsLoaded === 3) { //change to a variable
+		if (this.state.sectionsLoaded === 2) { //change to a variable
 			passUpColors(this.state.colors);
 		}
 
@@ -50,7 +50,7 @@ class AlbumsSingles extends Component {
 			<section className = "Albums-Singles">
 					<AlbumsSection group="album" title="Albums" visible = {true} grabColors={this.grabColors} requestInfo={requestInfo} numColors={numColors} display={display}/>
 					<AlbumsSection group="single" title="Singles and EPs" visible = {false} grabColors={this.grabColors} requestInfo={requestInfo} numColors={numColors} display={display}/>
-					<AlbumsSection group="appears_on" title="Appears On" visible = {false} grabColors={this.grabColors} requestInfo={requestInfo} numColors={numColors} display={display}/>
+						{/*<AlbumsSection group="appears_on" title="Appears On" visible = {false} grabColors={this.grabColors} requestInfo={requestInfo} numColors={numColors} display={display}/>*/}
 				</section>
 		)
 	
