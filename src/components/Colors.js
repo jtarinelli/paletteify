@@ -12,7 +12,7 @@ class Colors extends Component {
 		
 		this.state = ({
 			numBins: 14,
-			primarySort: 2,
+			primarySort: 0,
 			secondarySort: 1
 		})
 	}
@@ -25,16 +25,25 @@ class Colors extends Component {
 		}
 	}
 
-	makeBins = (colors, numBins, primarySort, secondarySort) => {
-		this.sortColors(colors, primarySort, false);
+	makeBins = (colors, numBins, primarySort) => {
 		let bins = [[]];
 		let currentBin = bins[0];
 		
-		if (primarySort === 0) { // if sorting by hue, need extra bin for hueless/pure gray
+		if (primarySort === 0) {
+			bins[0] = colors.filter(color => {
+				return Number.isNaN(color.hsl()[0]); // new bin for hueless colors
+			})
+			
 			currentBin = [];
 			bins.push(currentBin);
 			numBins -= 1;
+			
+			colors = colors.filter(color => {
+				return !Number.isNaN(color.hsl()[0]);
+			})
 		}
+		
+		this.sortColors(colors, primarySort, false);
 		
 		let max = colors[0].hsl()[primarySort];
 		let min = colors[colors.length-1].hsl()[primarySort];
@@ -43,10 +52,7 @@ class Colors extends Component {
 		let threshold = max - increment;
 		
 		colors.forEach(color => {
-			if (primarySort === 0 && Number.isNaN(color.hsl()[0])) {
-				console.log(color.hsl());
-				bins[0].push(color);
-			} else if (color.hsl()[primarySort] > threshold) {
+			if (color.hsl()[primarySort] > threshold) {
 				currentBin.push(color);
 			} else {
 				threshold -= increment;
@@ -78,7 +84,7 @@ class Colors extends Component {
 	
 	render() {
 		let {colors} = this.props;
-		let{numBins, primarySort, secondarySort} = this.state;
+		let {numBins, primarySort, secondarySort} = this.state;
 		const numBinsOptions = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14];
 		const numBinsLabels = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
 		const hsl = ["Hue", "Saturation", "Lightness"];

@@ -158,7 +158,7 @@
 	margin: 0;
 	display: flex;
 	flex-flow: row wrap;
-	justify-content: center;
+	justify-content: flex-start;
 }
 
 .Dropdown-option {
@@ -212,6 +212,10 @@
 	margin-left: 5%;
 	margin-right: 5%;
 	margin-bottom: 5%; /*prob not necessary once footer/something else is below*/
+}
+
+.Colors .Dropdown {
+	padding: 0;
 }
 
 .Colors .Dropdown-content {

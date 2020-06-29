@@ -6,24 +6,22 @@ import AlbumsSingles from './components/AlbumsSingles.js';
 import Colors from './components/Colors.js';
 import Dropdown from './components/Dropdown.js';
 
-const token = 'BQDtg_NJDysmnRogjXPd--JzEtPfrHucH97KuG2WokOrWq_Fh_0_UxZfaK2KtjtPSfvfbFLsyTifoqqaNUddkrbsxRZr4Or8yLL9mSq0-rcPz0KJ_wz-IV3i_tlu1nn-o-062MBu6ZbqiaMs';
+const token = 'BQB6SJuYkfgaMiiY_TFMBZo6HvN5fCynWEASMa4vhLQtR_T6s9aNpJ-05pobze2YifC0518Nwa2Nw8TTJTYh2hUbFlsfUYmas8TqvMz_xd6cwQku--kgN2B4ECIb-eTUFXToMGgOcqeeFYdV';
 
 const requestInfo = {
-	artistID: '1O2VCqaEfk91iBO0Sgchvb', //'4Kg3vBPMPfnYrnZo2A4czS'
-	country: "JP",
+	artistID: '66CXWjxzNUsdJxJ2JdwvnR', //'4Kg3vBPMPfnYrnZo2A4czS'
+	country: "US",
 	headers: {'Authorization': 'Bearer '.concat(token)},
 	handleErrors: handleErrors
 }
 
 /* to do:
+** make toptracks work better with more than 2 columns
 ** maybe? change dropdown to actual html select element instead of all divs
-** fix glitchiness when sorting by hue
-**** make numBins not a dropdown(prob form/textbox would be good?)
-** store colors along with albums (just name or include other info/whole object??)
+** make numBins not a dropdown(prob form/textbox would be good? or actual dropdown w/ scrollbar)
 ** play snippets of top songs (might need to redo track component)
 ** automatically get token (need to login??)
 ** load more albums button
-** fix top tracks for long song titles/in general
 ** factor out makeResponse function if possible (binding? make a component? idk)
 ** show better message on error 
 **** it seems like when there's an error the api returns multiple objects, but idk how to get them
