@@ -67,6 +67,18 @@
 	opacity: 0;
 }
 
+.App .Appears {
+	-webkit-transition: 0.65s;
+	-moz-transition: 0.65s;
+	-o-transition: 0.65s;
+	transition: 0.65s;
+	opacity: 0;
+}
+
+.App .Appears:hover {
+	opacity: 1;
+}
+
 .App .hidden {
 	display: none;
 }
@@ -182,7 +194,7 @@
 }
 
 .Albums-Singles {
-	margin-top: -90px; /* height of options box plus a little*/
+	margin-top: -135px; /* height of options box plus a little*/
 	margin-left: 5%;
 	margin-right: 5%;
 }

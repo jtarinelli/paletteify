@@ -6,16 +6,17 @@ import AlbumsSingles from './components/AlbumsSingles.js';
 import Colors from './components/Colors.js';
 import Dropdown from './components/Dropdown.js';
 
-const token = 'BQB6SJuYkfgaMiiY_TFMBZo6HvN5fCynWEASMa4vhLQtR_T6s9aNpJ-05pobze2YifC0518Nwa2Nw8TTJTYh2hUbFlsfUYmas8TqvMz_xd6cwQku--kgN2B4ECIb-eTUFXToMGgOcqeeFYdV';
+const token = 'BQA2_Z8jk9FONe-hpN-IfhU8xN8jpLHSww8--WeH4D6MffzkCfRqX1NQThdvLSY-slWZTvX5iaK3Wc0YFjMyHoJzj-MVwK3fjsg60FaTF5eIUv9Tp4fR9IarV0r5sTsgwIQRBIKU4To_ZqV8';
 
 const requestInfo = {
-	artistID: '66CXWjxzNUsdJxJ2JdwvnR', //'4Kg3vBPMPfnYrnZo2A4czS'
+	artistID: '4tZwfgrHOc3mvqYlEYSvVi', //'4Kg3vBPMPfnYrnZo2A4czS'
 	country: "US",
 	headers: {'Authorization': 'Bearer '.concat(token)},
 	handleErrors: handleErrors
 }
 
 /* to do:
+** reduce repetition with update/grab functions for options
 ** make toptracks work better with more than 2 columns
 ** maybe? change dropdown to actual html select element instead of all divs
 ** make numBins not a dropdown(prob form/textbox would be good? or actual dropdown w/ scrollbar)
@@ -42,7 +43,8 @@ class AlbumOptions extends Component {
 		super(props);
 		this.state = ({
 			numColors: 5,
-			display: 0
+			display: 0,
+			onHover: "Disappears"
 		})
 	}
 	
@@ -66,18 +68,29 @@ class AlbumOptions extends Component {
 		});
 	}
 	
+	updateOnHover = (option) => {
+		this.props.grabOnHover(option);
+		this.setState({
+			onHover: option
+		});
+	}
+	
 	render() {
 		let numColorsOptions = [1,2,3,4,5,6,7];
 		
 		let displayLabels = ["Diagonal", "Vertical", "Target"];
 		let displayParams = [0,1,2];
 		
-		let {numColors, display} = this.state;
+		let onHoverLabels = ["Color Palette", "Album Art"];
+		let onHoverParams = ["Disappears", "Appears"];
+		
+		let {numColors, display, onHover} = this.state;
 		
 		return (
 			<div className="Options">
 				<Dropdown title="#" labels={numColorsOptions} params={numColorsOptions} funct={this.updateNumColors} tooltip="Number of colors per album" className="h2-button" selected={numColors}/>
 				<Dropdown title="//" labels={displayLabels} params={displayParams} funct={this.updateDisplay} tooltip="Album colors display style" className="h2-button" selected={display}/>
+				<Dropdown title="O" labels={onHoverLabels} params={onHoverParams} funct={this.updateOnHover} tooltip="Display on hover" className="h2-button" selected={onHover}/>
 			</div>
 		)
 		
@@ -92,7 +105,8 @@ class Body extends Component {
 		this.state = ({
 			colors: null,
 			numColors: 5,
-			display: 0
+			display: 0,
+			onHover: "Disappears"
 		})
 	}
 	
@@ -114,15 +128,21 @@ class Body extends Component {
 		})
 	}
 	
+	grabOnHover = (option) => {
+		this.setState({
+			onHover: option
+		})
+	}
+	
 	render() {
 		let allColors = this.state.colors;
 		const {requestInfo} = this.props;
-		let {numColors, display} = this.state;
+		let {numColors, display, onHover} = this.state;
 	
 		return (
 			<div className="Body">
-				<AlbumOptions grabNumColors={this.grabNumColors} grabDisplay={this.grabDisplay}/>
-				<AlbumsSingles grabColors={this.grabColors} requestInfo={requestInfo} numColors={numColors} display={display}/>
+				<AlbumOptions grabNumColors={this.grabNumColors} grabDisplay={this.grabDisplay} grabOnHover={this.grabOnHover}/>
+				<AlbumsSingles grabColors={this.grabColors} requestInfo={requestInfo} numColors={numColors} display={display} onHover={onHover}/>
 				<Colors colors={allColors}/>
 			</div>
 		)

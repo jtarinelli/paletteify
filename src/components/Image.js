@@ -96,11 +96,11 @@ constructor(props) {
 	}
 	
 	render() {
-		const {src, alt} = this.props;
+		const {src, alt, onHover} = this.props;
 
 		return (
 			<div className="Background" style = {this.state.bgStyle}>
-				<img className="Disappears" src={src} alt={alt} />
+				<img className={onHover} src={src} alt={alt} />
 			</div>
 		)
 	}

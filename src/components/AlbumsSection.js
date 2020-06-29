@@ -69,7 +69,7 @@ class AlbumsSection extends Component {
 	}
 	
 	render() {
-		const {title, numColors, display} = this.props;
+		const {title, numColors, display, onHover} = this.props;
 		let {visible, isLoaded, data, error, errorCode} = this.state;
 		
 		if (isLoaded && data.items.length === 0) {
@@ -89,6 +89,7 @@ class AlbumsSection extends Component {
 								grabColors = {this.grabColors}
 								numColors = {numColors}
 								display={display}
+								onHover={onHover}
 								/>
 								</div>
 							)
