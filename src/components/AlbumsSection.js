@@ -22,9 +22,10 @@ class AlbumsSection extends Component {
 		}));
 	}
 	
-	componentDidMount() {
+	makeRequest() {
 		const {artistID, country, headers, handleErrors} = this.props.requestInfo;
 		const {group} = this.props;
+		
 		fetch('https://api.spotify.com/v1/artists/'.concat(artistID).concat('/albums?include_groups='.concat(group).concat('&market=').concat(country)), {headers})
 			.then(handleErrors)
 			.then(response => response.json())
@@ -38,7 +39,22 @@ class AlbumsSection extends Component {
 			}));
 	}
 	
+	componentDidMount() {
+		this.makeRequest();
+	}
+	
 	componentDidUpdate(prevProps) {
+		if (this.props.requestInfo !== prevProps.requestInfo) {
+			this.makeRequest();
+			this.setState({
+				isLoaded: false,
+				data: null,
+				colors: null,
+				error: false,
+				errorCode: null
+			})
+		}
+		
 		if (this.props.numColors !== prevProps.numColors) {
 			this.setState({
 				colors: null

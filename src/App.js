@@ -1,6 +1,13 @@
 import React, {Component} from 'react';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams
+} from "react-router-dom";
 
+import './App.css';
 import Header from './components/Header.js';
 import Body from './components/Body.js';
 
@@ -28,49 +35,43 @@ function handleErrors(response) {
     return response;
 }
 
-class ArtistPage extends Component {
-		
-	constructor(props) {
-		super(props)
-		
-		this.state = ({
-			requestInfo: this.props.requestInfo
-		})
-	}
-	
-	grabArtistID = (id) => {
-		console.log("AAA");
-		this.setState({
-			requestInfo: {
-				artistID: id
-			}
-		});
-	}
-	
-	render() {
-		let {requestInfo} = this.state;
-		
-		return (
-			<div>
-				<Header requestInfo={requestInfo} grabArtistID={this.grabArtistID}/>
-				<Body requestInfo={requestInfo}/>
-			</div>
-		)
-	}
-}
-
-function App() {
-	
-	const requestInfo = {
-		artistID: '4Kg3vBPMPfnYrnZo2A4czS', //'4Kg3vBPMPfnYrnZo2A4czS'
+function ArtistPage() {
+	let {artistID} = useParams();
+	let requestInfo = {
+		artistID: artistID, //'4Kg3vBPMPfnYrnZo2A4czS'
 		country: "US",
 		headers: {'Authorization': 'Bearer '.concat(token)},
 		handleErrors: handleErrors
 	}
-	
+		
+	return (
+		<div>
+			<Header requestInfo={requestInfo}/>
+			<Body requestInfo={requestInfo}/>
+		</div>
+	)
+}
+
+function App() {
+		
 	return (
 		<div className="App">
-			<ArtistPage requestInfo={requestInfo}/>
+			<Router>
+				<ul>
+					<li>
+					<Link to="/netflix">Netflix</Link>
+					</li>
+					<li>
+					<Link to="/4Kg3vBPMPfnYrnZo2A4czS">Shouta</Link>
+					</li>
+					<li>
+					<Link to="1iR65pQAV4ssTTf9JRNr9X">Mamo</Link>
+					</li>
+				</ul>
+				<Switch>
+					<Route path="/:artistID" children={<ArtistPage/>} />
+				</Switch>
+			</Router>
 		</div>
 	);
 }
