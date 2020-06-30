@@ -155,6 +155,11 @@
 	z-index: 1000; /*maybe not a good idea :P */
 }
 
+.Options .Dropdown {
+	border-bottom: 2px #eee solid;
+	border-top-right-radius: 10px;
+}
+
 .Dropdown {
 	display: inline-flex;
 	width: fit-content;
@@ -166,7 +171,7 @@
 
 .Dropdown-content {
 	list-style-type: none;
-	padding: 0;
+	padding: 0px 5px;
 	margin: 0;
 	display: flex;
 	flex-flow: row wrap;
@@ -180,17 +185,21 @@
 	width: auto;
 	background: none;
 	margin: 0px 10px;
-	border: none;
+	margin-top: 5px;
+	border: 1px transparent solid;
 	cursor: pointer;
 }
 
 .Dropdown-option:hover {
-	text-decoration: underline;
-	text-decoration-color:  #41bee0;
+	border: 1px #41bee0 solid;
+	border-radius: 30px;
 }
 
 .Dropdown-content .Selected {
-	color: #41bee0;
+	color: white;
+    border: 1px #41bee0 solid;
+    border-radius: 30px;
+    background: #41bee0;
 }
 
 .Albums-Singles {
