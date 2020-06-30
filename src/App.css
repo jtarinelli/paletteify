@@ -79,18 +79,33 @@
 	opacity: 1;
 }
 
-.App .hidden {
+.App .hidden, .App .Menu.hidden {
 	display: none;
+}
+
+.App .Menu {
+	height: 100px;
+	font-size: 18px;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	margin: 0 20px;
+}
+
+.App .Menu input {
+	margin: 0 10px;
+	padding: 5px;
+}
+
+.App .Menu .p-button {
+	
 }
 
 .App .Loading {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-}
-
-.Background {
-	height: 300px;
 }
 
 .App-header {
@@ -226,6 +241,10 @@
 	full size is 300x300*/
 	height: 300px;
 	width: 300px;
+}
+
+.Background {
+	height: 300px;
 }
 
 .Colors {
