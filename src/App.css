@@ -1,5 +1,6 @@
 /* decide if everything gets .App or not 
-	reconsider where to use pixels, %, vm, etc*/
+	reconsider where to use pixels, %, vm, etc
+	simplify classes (18px font class?)*/
 
 .App {
 	text-align: center;
@@ -83,8 +84,8 @@
 	display: none;
 }
 
-.App .App-header .Menu: {
-	
+.App .Bigboi {
+	font-size: 15vmin;
 }
 
 .App .Menu {
@@ -97,13 +98,14 @@
 	margin: 0 20px;
 }
 
+.App .Menu label {
+	margin-left: 20px;
+}
+
 .App .Menu input {
 	margin: 0 10px;
 	padding: 5px;
-}
-
-.App .Menu .p-button {
-	color: #41bee0;
+	border: 2px #eee solid;
 }
 
 .App .Loading {
@@ -140,6 +142,13 @@
 	align-items: baseline;
 }
 
+.Playlist-description {
+	font-size: 18px;
+	max-height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .Playlist-body p, .Playlist-body li {
 	text-align: left;
 }
@@ -150,10 +159,14 @@
 
 .Playlist-body ul {
 	margin: 0;
-	padding-left: 20px;
+	padding: 5px 0px;
 	font-size: 18px;
 	color: #282c34;
-	list-style-type: circle;
+	list-style-type: none;
+}
+
+.Playlist-body li {
+	margin-bottom: 5px;
 }
 
 .Artist-image, .Artist-image img {
