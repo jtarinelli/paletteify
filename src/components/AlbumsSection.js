@@ -104,8 +104,8 @@ class AlbumsSection extends Component {
 								url = {album.external_urls.spotify}
 								grabColors = {this.grabColors}
 								numColors = {numColors}
-								display={display}
-								onHover={onHover}
+								display = {display}
+								onHover = {onHover}
 								/>
 								</div>
 							)

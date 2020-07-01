@@ -4,8 +4,9 @@ import {BrowserRouter as Router, Switch, Route, Link, useParams} from "react-rou
 import './App.css';
 import ArtistHeader from './components/ArtistHeader.js';
 import ArtistBody from './components/ArtistBody.js';
+import Album from './components/Album.js';
 
-const token = 'BQD8PBpEAJxO99Odv0mc7b1_XYZf9fkyipBIjKuRSfOsqV25xiR2WBtkNvU4IVOURAY10WZEdFni1my9xJAq1mMQNaJFS_OQqPEdI4c-wYp4LCPEOxThuU06c0Fhu0-Dx_4-2lIxJLNok9v7';
+const token = 'BQC1R4_UGVgM3MrtHdqaOvCzjFhEO4x2TIZxnXynAYGXtm0pKRgZrPg0cns7RZBe-XeLeRnfg6p9WRTSZPnhNC9acNZamC23MvMpWMcE9nv9c6dOuHiDz3qogwYt_hTTzRnHe3k1eEBngTBi';
 
 /* to do:
 ** make nice landing/search page and appearing menu bar
@@ -101,11 +102,13 @@ class PlaylistPage extends Component {
 	
 	constructor(props) {
 		super(props);
+		this.makeAlbums = this.makeAlbums.bind(this);
 		
 		this.state = {
 			isLoaded: false,
 			data: null,
 			albums: {},
+			colors: null,
 			error: false,
 			errorCode: null
 		}
@@ -134,8 +137,6 @@ class PlaylistPage extends Component {
 				}
 			}
 		})
-		
-		console.log(albums);
 	}
 	
 	makeRequest() {
@@ -145,8 +146,7 @@ class PlaylistPage extends Component {
 			.then(handleErrors)
 			.then(response => response.json())
 			.then(stuff => this.setState({ 
-				isLoaded: true,
-				data: stuff 
+				data: stuff
 				}))
 			.catch(error => this.setState({
 				error: true,
@@ -154,36 +154,62 @@ class PlaylistPage extends Component {
 			}));
 	}
 	
+	grabColors = (albumColors) => {
+		let numColors = 5;
+		let prevColors = this.state.colors;
+		let albumsCount = this.state.albums.length;
+		
+		if (prevColors === null) {
+			this.setState({
+				colors: albumColors
+			})
+		} else {
+			this.setState({
+				colors: prevColors.concat(albumColors)
+			})
+		}
+			
+		// when all album colors are collected, send them up to AlbumsSingles
+		/*
+		if (this.state.colors.length === albumsCount * numColors) {
+			passUpColors(this.state.colors); 
+		}
+		*/
+	}
+	
 	componentDidMount() {
 		this.makeRequest();
 	}
 
-	componentDidUpdate(prevProps) {
+	componentDidUpdate(prevProps, prevState) {
 		if (prevProps !== this.props) {
 			this.makeRequest();
 			this.setState({
 				isLoaded: false,
 				data: null,
+				albums: {},
 				error: false,
 				errorCode: null
+			})
+		} 
+		if (prevState.data !== this.state.data && this.state.isLoaded === false) {
+			this.makeAlbums();
+			this.setState({
+				isLoaded: true
 			})
 		}
 	}
 	
 	render () {
 		const {isLoaded, data, error, errorCode} = this.state;
+		const albums = Object.values(this.state.albums);
 		
 		if (isLoaded && !error) {
-			this.makeAlbums();
-			let {albums} = this.state;
-			albums = Object.values(albums);
-			console.log(albums);
-			
 			return (
 				<div>
 					<header className="App-header">
 						<div className="Playlist-image">
-							<img src={data.images.length > 1 ? data.images[1].url : data.images[0].url}/></div>
+							<img src={data.images.length > 1 ? data.images[1].url : data.images[0].url} alt={data.name}/></div>
 						<div className="Playlist-info">
 							<h1><a href={data.external_urls.spotify}>{data.name}</a></h1>
 							<p>{data.description}</p>
@@ -192,18 +218,29 @@ class PlaylistPage extends Component {
 					</header>
 					<div className="Playlist-body">
 						<button className="h2-button"><h2>Albums</h2></button>
-						{albums.map(
-							(album, i) => (
-								<div className="Album" key={i}>
-									<img src={album.image.url}/>
-									<p><a href={album.url}>{album.name}</a></p>
-									<p>{album.artists[0].name}</p>
-										{album.tracks.map((track, i) => (
-											<p>{track.name}</p>
-										))}
-								</div>
-							)
-						)}
+						<div className="Albums">
+							{albums.map(
+								(album, i) => (
+									<div className="Album" key={i}>
+										<Album 
+										name = {album.name}
+										image = {album.image.url}
+										url = {album.url}
+										grabColors = {this.grabColors}
+										numColors = {5}
+										display = {0}
+										onHover = "Disappears"
+										/>
+										<p><Link to={"/artist/" + album.artists[0].id}>{album.artists[0].name}</Link></p>
+										<ul>
+											{album.tracks.map((track, i) => (
+												<li key={i}><a href={track.url}>{track.name}</a></li>
+											))}
+										</ul>
+									</div>
+								)
+							)}
+						</div>
 					</div>
 				</div>
 			)
@@ -259,7 +296,7 @@ function App() {
 						<ArtistPage/>
 					</Route>
 					<Route path="/playlist/:playlistID">
-					{/*<SearchBoxes/>*/}
+						<SearchBoxes/>
 						<DoPlaylistPage/>
 					</Route>
 					<Route path="/">

@@ -140,6 +140,22 @@
 	align-items: baseline;
 }
 
+.Playlist-body p, .Playlist-body li {
+	text-align: left;
+}
+
+.Playlist-body p {
+	margin: 5px 0;
+}
+
+.Playlist-body ul {
+	margin: 0;
+	padding-left: 20px;
+	font-size: 18px;
+	color: #282c34;
+	list-style-type: circle;
+}
+
 .Artist-image, .Artist-image img {
 	height: 80vh;
 	width: auto;
