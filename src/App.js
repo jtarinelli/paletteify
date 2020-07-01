@@ -5,7 +5,7 @@ import './App.css';
 import ArtistHeader from './components/ArtistHeader.js';
 import ArtistBody from './components/ArtistBody.js';
 
-const token = 'BQASnlQWJsKRGY1OY7sw5umBl2ysXeuWX79ff1bbB1BXEHnUMk3QfS3t3LH-C115P3dRRY5v2Hf8X6px0wY10wPdsD05taDuH3Upo9gNWJVnktJZl3fXgFFBb4v_BKhWAI9uw274IDsC5gOu';
+const token = 'BQD8PBpEAJxO99Odv0mc7b1_XYZf9fkyipBIjKuRSfOsqV25xiR2WBtkNvU4IVOURAY10WZEdFni1my9xJAq1mMQNaJFS_OQqPEdI4c-wYp4LCPEOxThuU06c0Fhu0-Dx_4-2lIxJLNok9v7';
 
 /* to do:
 ** make nice landing/search page and appearing menu bar
@@ -178,7 +178,6 @@ class PlaylistPage extends Component {
 			let {albums} = this.state;
 			albums = Object.values(albums);
 			console.log(albums);
-			console.log(albums[0].name);
 			
 			return (
 				<div>
@@ -198,8 +197,10 @@ class PlaylistPage extends Component {
 								<div className="Album" key={i}>
 									<img src={album.image.url}/>
 									<p><a href={album.url}>{album.name}</a></p>
-									<p>{album.artists[0]}</p>
-									<p>{album.tracks[0].name}</p>
+									<p>{album.artists[0].name}</p>
+										{album.tracks.map((track, i) => (
+											<p>{track.name}</p>
+										))}
 								</div>
 							)
 						)}
