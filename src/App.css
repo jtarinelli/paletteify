@@ -83,6 +83,10 @@
 	display: none;
 }
 
+.App .App-header .Menu: {
+	
+}
+
 .App .Menu {
 	height: 100px;
 	font-size: 18px;
@@ -99,7 +103,7 @@
 }
 
 .App .Menu .p-button {
-	
+	color: #41bee0;
 }
 
 .App .Loading {
@@ -110,7 +114,7 @@
 
 .App-header {
 	background-color: #282c34;
-	height: 80vh;
+	max-height: 80vh;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -122,6 +126,18 @@
 
 .App-header a {
 	color: white;
+}
+
+.Playlist-image, .Playlist-image img {
+	height: 300px;
+	width: auto;
+}
+
+.Playlist-info {
+	width: 100%;
+	padding: 0vh 8vh;
+	flex-flow: column wrap;
+	align-items: baseline;
 }
 
 .Artist-image, .Artist-image img {

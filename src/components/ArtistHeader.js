@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import TopTracks from './TopTracks.js';
 
-class Header extends Component {
+class ArtistHeader extends Component {
 	
 	constructor(props) {
 		super(props);
@@ -14,7 +14,7 @@ class Header extends Component {
 		}
 	}
 	
-	makeRequest () {
+	makeRequest() {
 		const {artistID, headers, handleErrors} = this.props.requestInfo;
 		
 		fetch('https://api.spotify.com/v1/artists/'.concat(artistID), {headers})
@@ -53,12 +53,12 @@ class Header extends Component {
 		if (isLoaded && !error) {
 			return (
 			<header className="App-header">
-			<div className="Artist-image"><img src={data.images[0].url} alt={data.name}/></div>
-			<div className="Artist-info">
-				<h1><a href={data.external_urls.spotify}>{data.name}</a></h1>
-				<TopTracks requestInfo={requestInfo}/>
-			</div>
-		</header>
+				<div className="Artist-image"><img src={data.images[0].url} alt={data.name}/></div>
+				<div className="Artist-info">
+					<h1><a href={data.external_urls.spotify}>{data.name}</a></h1>
+					<TopTracks requestInfo={requestInfo}/>
+				</div>
+			</header>
 			)
 			
 		} else {
@@ -73,4 +73,4 @@ class Header extends Component {
 	}
 }
 
-export default Header;
+export default ArtistHeader;

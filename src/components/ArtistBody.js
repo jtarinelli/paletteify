@@ -3,7 +3,7 @@ import AlbumsSingles from './AlbumsSingles.js';
 import AlbumOptions from './AlbumOptions.js';
 import Colors from './Colors.js';
 
-class Body extends Component {
+class ArtistBody extends Component {
 	
 	constructor(props) {
 		super(props);
@@ -55,4 +55,4 @@ class Body extends Component {
 	}
 }
 
-export default Body;
+export default ArtistBody;
