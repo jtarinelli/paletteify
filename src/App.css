@@ -126,6 +126,21 @@
 	text-align: left;
 }
 
+.Cover {
+	background-color: #282c34;
+	/*
+	https://data.whicdn.com/images/152593249/original.jpg
+	https://upload.wikimedia.org/wikipedia/commons/f/fb/Julien_Alden_Weir_The_Bridge_Nocturne_aka_Nocturne_Queensboro_Bridge.jpg
+    background-image: linear-gradient(to top, rgba(0,0,0,.75), transparent), url(https://upload.wikimedia.org/wikipedia/commons/b/b1/Whistler-Nocturne_in_black_and_gold.jpg);
+	
+	*/
+	
+	background-image: linear-gradient(to top, rgba(0,0,0,.75), transparent), url(https://66.media.tumblr.com/3e327da01b83ec9222ef7e554810e494/tumblr_pb7bzgJi1g1vz5npso1_500.gifv);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
+
 .App-header a {
 	color: white;
 }

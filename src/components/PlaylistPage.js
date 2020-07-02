@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
+import AlbumOptions from './AlbumOptions.js';
 import Album from './Album.js';
+import Colors from './Colors.js';
 import {Link} from "react-router-dom";
 
 class PlaylistPage extends Component {
@@ -12,7 +14,11 @@ class PlaylistPage extends Component {
 			isLoaded: false,
 			data: null,
 			albums: {},
+			numColors: 5,
+			display: 0,
+			onHover: "Disappears",
 			colors: null,
+			colorsLoaded: false,
 			error: false,
 			errorCode: null,
 			visible: true
@@ -66,9 +72,9 @@ class PlaylistPage extends Component {
 	}
 	
 	grabColors = (albumColors) => {
-		let numColors = 5;
+		let numColors = this.state.numColors;
 		let prevColors = this.state.colors;
-		let albumsCount = this.state.albums.length;
+		let albumsCount = Object.keys(this.state.albums).length;		
 		
 		if (prevColors === null) {
 			this.setState({
@@ -80,12 +86,30 @@ class PlaylistPage extends Component {
 			})
 		}
 			
-		// when all album colors are collected, send them up to AlbumsSingles
-		/*
 		if (this.state.colors.length === albumsCount * numColors) {
-			passUpColors(this.state.colors); 
+			console.log(this.state.colors);
+			this.setState({
+				colorsLoaded: true
+			})
 		}
-		*/
+	}
+	
+	grabNumColors = (num) => {
+		this.setState({
+			numColors: num
+		})
+	}
+	
+	grabDisplay = (option) => {
+		this.setState({
+			display: option
+		})
+	}
+	
+	grabOnHover = (option) => {
+		this.setState({
+			onHover: option
+		})
 	}
 	
 	componentDidMount() {
@@ -112,12 +136,13 @@ class PlaylistPage extends Component {
 	}
 	
 	render () {
-		const {isLoaded, data, error, errorCode, visible} = this.state;
+		const {isLoaded, data, colors, numColors, onHover, display, error, errorCode, visible} = this.state;
 		const albums = Object.values(this.state.albums);
 		
 		if (isLoaded && !error) {
 			return (
 				<div>
+				
 					<header className="App-header">
 						<div className="Playlist-image">
 							<img src={data.images[0].url} alt={data.name}/></div>
@@ -127,31 +152,36 @@ class PlaylistPage extends Component {
 							<p><a href={data.owner.external_urls.spotify}>{data.owner.display_name}</a></p>
 						</div>
 					</header>
+					
 					<div className="Playlist-body">
-						<button className="h2-button" onClick={this.toggleVisible}><h2>Albums</h2></button>
-						<div className={"Albums " + (visible ? 'visible' : 'hidden')}>
-							{albums.map(
-								(album, i) => (
-									<div className="Album" key={i}>
-										<Album 
-										name = {album.name}
-										image = {album.image.url}
-										url = {album.url}
-										grabColors = {this.grabColors}
-										numColors = {5}
-										display = {0}
-										onHover = "Disappears"
-										/>
-										<p><Link to={"/artist/" + album.artists[0].id}>{album.artists[0].name}</Link></p>
-										<ul>
-											{album.tracks.map((track, i) => (
-												<li key={i}><a href={track.url}>{track.name}</a></li>
-											))}
-										</ul>
-									</div>
-								)
-							)}
+						<AlbumOptions grabNumColors={this.grabNumColors} grabDisplay={this.grabDisplay} grabOnHover={this.grabOnHover}/>
+						<div className="Albums-Singles">
+							<button className="h2-button" onClick={this.toggleVisible}><h2>Albums</h2></button>
+							<div className={"Albums " + (visible ? 'visible' : 'hidden')}>
+								{albums.map(
+									(album, i) => (
+										<div className="Album" key={i}>
+											<Album 
+											name = {album.name}
+											image = {album.image.url}
+											url = {album.url}
+											grabColors = {this.grabColors}
+											numColors = {numColors}
+											display = {display}
+											onHover = {onHover}
+											/>
+											<p><Link to={"/artist/" + album.artists[0].id}>{album.artists[0].name}</Link></p>
+											<ul>
+												{album.tracks.map((track, i) => (
+													<li key={i}><a href={track.url}>{track.name}</a></li>
+												))}
+											</ul>
+										</div>
+									)
+								)}
+							</div>
 						</div>
+						<Colors colors={colors}/>
 					</div>
 				</div>
 			)

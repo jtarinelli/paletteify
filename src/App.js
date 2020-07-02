@@ -6,7 +6,7 @@ import ArtistHeader from './components/ArtistHeader.js';
 import ArtistBody from './components/ArtistBody.js';
 import PlaylistPage from './components/PlaylistPage.js';
 
-const token = 'BQCUL8BfS6neRdk3vuCwRHXBiiupX1-SUqYmcdvLoEPL5IzccEzvIIlGo05HfssTsrAQ9Vfq2W3c8szKx7f8ph8MvId6WKnKPpCMBn9wyFi4lXbiklDqJ8ii96UYKd2ku15KKyHJL4uGdigy';
+const token = 'BQAlpRkuwIu54ZT8s2JaMDNtH0cqJcZFpSkJgRY4ws-mMdv_y9EycOSuyAN9NCXerBgm274X5xCgqPvWFsVMMkK4InbQPf8Rsvr4vZXN7GRxuvnvv5vrNKgAZsuNlF5r5LIMHqZCYw54e4td';
 
 /* to do:
 ** make stuff more reusable
@@ -84,7 +84,7 @@ class SearchBoxes extends Component {
 
 function SearchPage() {
 	return (
-		<header className="App-header Loading">
+		<header className="App-header Loading Cover">
 			<h1 className="Bigboi">Paletteify</h1>
 			<SearchBoxes/>
 		</header>
@@ -141,7 +141,7 @@ function App() {
 			<Router>
 				<Switch>
 					<Route path="/artist/:artistID">
-					{/*<Link to="/">Home</Link>*/}
+					<Link to="/">Home</Link>
 						<SearchBoxes/>
 						<ArtistPage/>
 					</Route>
