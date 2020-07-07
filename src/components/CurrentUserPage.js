@@ -50,7 +50,6 @@ class Playlists extends Component {
 		const {data, error, errorCode, visible} = this.state;
 		
 		if (data !== null && !error) {
-			console.log(data);
 			return (	
 				<div>
 					<button className="h2-button" onClick={this.toggleVisible}><h2>Playlists</h2></button>
