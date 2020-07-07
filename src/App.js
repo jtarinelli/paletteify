@@ -162,7 +162,7 @@ function ErrorPage() {
 	return (
 		<header className="App-header Loading">
 			<h1>There's nothing here</h1>
-			<p><Link to="/paletteify/"</p>
+			<p><Link to="/paletteify/">Home</Link></p>
 		</header>
 	)
 }
