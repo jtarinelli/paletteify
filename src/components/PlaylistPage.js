@@ -145,7 +145,8 @@ class PlaylistPage extends Component {
 				
 					<header className="App-header">
 						<div className="Playlist-image">
-							<img src={data.images[0].url} alt={data.name}/></div>
+							<img src={data.images[0].url} alt={data.name}/>
+						</div>
 						<div className="Playlist-info">
 							<h1><a href={data.external_urls.spotify}>{data.name}</a></h1>
 							<p className="Playlist-description">{data.description}</p>

@@ -5,6 +5,7 @@ import './App.css';
 import ArtistHeader from './components/ArtistHeader.js';
 import ArtistBody from './components/ArtistBody.js';
 import PlaylistPage from './components/PlaylistPage.js';
+import CurrentUserPage from './components/CurrentUserPage.js';
 
 export const authEndpoint = 'https://accounts.spotify.com/authorize'; // not used currently
 const clientId = "a4e61050459f4f3cbac28ccd3826f37a";
@@ -26,7 +27,8 @@ window.location.hash = "";
 
 /* to do:
 ** figure out what to do when token expires
-** make it so you dont constantly have 2 login/re log in every time i save this file 
+** make it so you dont constantly have 2 login/re log in every time i save this file (might be fixed?)
+** add no login option if you don't want to
 ** highlight options change but actual selection doesn't when new playlist is loaded via search box
 **** should seperate options from body so it doesn't reload a billion times everytime it updates
 ** dot size option (maybe also album image size?)
@@ -103,6 +105,7 @@ class SearchBoxes extends Component {
 }
 
 function Menu() {
+	// add logout button on end (profile/logout right aligned)
 	return (
 		<div className="Menu">
 			<Link to="/">Home</Link>
@@ -153,58 +156,6 @@ function ArtistPage(props) {
 			<ArtistBody requestInfo={requestInfo}/>
 		</div>
 	)
-}
-
-class CurrentUserPage extends Component {
-	
-	constructor(props) {
-		super(props);
-		
-		this.state = {
-			isLoaded: false,
-			data: null,
-			errorCode: null,
-		}
-	}
-	
-	makeRequest() {
-		let headers = {'Authorization': 'Bearer '.concat(this.props.token)};
-		
-		fetch('https://api.spotify.com/v1/me', {headers})
-			.then(handleErrors)
-			.then(response => response.json())
-			.then(stuff => this.setState({ 
-				data: stuff
-				}))
-			.catch(error => this.setState({
-				error: true,
-				errorCode: error.message
-			}));
-	}
-	
-	componentDidMount() {
-		this.makeRequest();
-	}
-	
-	componentDidUpdate() {
-		this.makeRequest(); //prob not a good idea in long run/put in an if statement unless page will be totally static
-	}
-	
-	render() {
-		const {data, error, errorCode} = this.state;
-		
-		if (data !== null && !error) {
-			return (				
-				<h1>{data.display_name}</h1>
-			)
-		} else {
-			return (
-				<div>
-					{error ? <h1>Error: {errorCode}</h1> : <h1>Loading...</h1>}
-				</div>
-			)
-		}
-	}
 }
 
 function ErrorPage() {
@@ -259,7 +210,7 @@ class App extends Component {
 							<CurrentUserPage token={token}/>
 						</Route>
 						<Route path="/">
-							<LoginPage token={token}/> 
+							<LoginPage token={token} handleErrors={handleErrors}/> 
 						</Route>
 					</Switch>
 				</Router>
