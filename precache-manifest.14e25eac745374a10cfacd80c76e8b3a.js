@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3f1efc98b3bfc8632e6b200ef403583c",
+    "revision": "a6b8b5e49f104a1c2a4b1aab66631472",
     "url": "/paletteify/index.html"
   },
   {
-    "revision": "c68b8d1e6fec97686fbc",
+    "revision": "30263d15c8dc3583ccf1",
     "url": "/paletteify/static/css/main.e3bddee0.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/paletteify/static/js/2.5a6c299d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "c68b8d1e6fec97686fbc",
-    "url": "/paletteify/static/js/main.a6a59065.chunk.js"
+    "revision": "30263d15c8dc3583ccf1",
+    "url": "/paletteify/static/js/main.5ed3416f.chunk.js"
   },
   {
     "revision": "109e6cf625f5dd538f87",
