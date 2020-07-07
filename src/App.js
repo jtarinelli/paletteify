@@ -6,15 +6,27 @@ import ArtistHeader from './components/ArtistHeader.js';
 import ArtistBody from './components/ArtistBody.js';
 import PlaylistPage from './components/PlaylistPage.js';
 
-//const token = 'BQDWzxkLIQMgo17c8iZK7Mq1E4hi5vCeC-pV97xPzgGT-HbaYWGjZzde9PjY3zrt-vM0TTLAm_vvao0SP44UodjpRc_f-Ezi_SSrKlxz1RUHPZ6iiNiKHtSIbAHeZJubIdvzezl2OTLPduPeWxdHVUr85_q9Xw';
-
-export const authEndpoint = 'https://accounts.spotify.com/authorize';
-// Replace with your app's client ID, redirect URI and desired scopes
+export const authEndpoint = 'https://accounts.spotify.com/authorize'; // not used currently
 const clientId = "a4e61050459f4f3cbac28ccd3826f37a";
-const redirectUri = "http://localhost:3000/paletteify";
-const scopes = [];
+const redirectUri = "http://localhost:3000/me";
+const scopes = []; // not used
+
+const hash = window.location.hash // idk what this even is
+	.substring(1)
+	.split("&")
+	.reduce(function(initial, item) {
+	if (item) {
+		var parts = item.split("=");
+		initial[parts[0]] = decodeURIComponent(parts[1]);
+	}
+	return initial;
+	}, {});
+
+window.location.hash = "";
 
 /* to do:
+** figure out what to do when token expires
+** make it so you dont constantly have 2 login/re log in every time i save this file 
 ** highlight options change but actual selection doesn't when new playlist is loaded via search box
 **** should seperate options from body so it doesn't reload a billion times everytime it updates
 ** dot size option (maybe also album image size?)
@@ -95,26 +107,27 @@ function Menu() {
 		<div className="Menu">
 			<Link to="/">Home</Link>
 			<SearchBoxes/>
+			<Link to ="/me">My Profile</Link>
 		</div>
 	)
 }
 
-function LoginPage() {
+function LoginPage(props) {
 	return (
 		<header className="App-header Loading Cover">
 			<h1 className="Bigboi">Paletteify</h1>
-			<button className="h2-button" href={`${authEndpoint}client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join("%20")}&response_type=token&show_dialog=true`}><h2>Login to Spotify</h2></button>
-			<SearchBoxes/>
+			<h2 className="Login-button"><a href={`https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token`}>Login to Spotify</a></h2>
+			{props.token !== 'undefined' && <SearchBoxes/>}
 		</header>
 	)
 }
 
-function DoPlaylistPage() {
+function DoPlaylistPage(props) {
 	let {playlistID} = useParams();
 	let requestInfo = {
 		playlistID: playlistID,
 		country: "US",
-		//headers: {'Authorization': 'Bearer '.concat(token)},
+		headers: {'Authorization': 'Bearer '.concat(props.token)},
 		handleErrors: handleErrors
 	}
 		
@@ -125,12 +138,12 @@ function DoPlaylistPage() {
 	)
 }
 
-function ArtistPage() {
+function ArtistPage(props) {
 	let {artistID} = useParams();
 	let requestInfo = {
 		artistID: artistID,
 		country: "US",
-		//headers: {'Authorization': 'Bearer '.concat(token)},
+		headers: {'Authorization': 'Bearer '.concat(props.token)},
 		handleErrors: handleErrors
 	}
 		
@@ -140,6 +153,58 @@ function ArtistPage() {
 			<ArtistBody requestInfo={requestInfo}/>
 		</div>
 	)
+}
+
+class CurrentUserPage extends Component {
+	
+	constructor(props) {
+		super(props);
+		
+		this.state = {
+			isLoaded: false,
+			data: null,
+			errorCode: null,
+		}
+	}
+	
+	makeRequest() {
+		let headers = {'Authorization': 'Bearer '.concat(this.props.token)};
+		
+		fetch('https://api.spotify.com/v1/me', {headers})
+			.then(handleErrors)
+			.then(response => response.json())
+			.then(stuff => this.setState({ 
+				data: stuff
+				}))
+			.catch(error => this.setState({
+				error: true,
+				errorCode: error.message
+			}));
+	}
+	
+	componentDidMount() {
+		this.makeRequest();
+	}
+	
+	componentDidUpdate() {
+		this.makeRequest(); //prob not a good idea in long run/put in an if statement unless page will be totally static
+	}
+	
+	render() {
+		const {data, error, errorCode} = this.state;
+		
+		if (data !== null && !error) {
+			return (				
+				<h1>{data.display_name}</h1>
+			)
+		} else {
+			return (
+				<div>
+					{error ? <h1>Error: {errorCode}</h1> : <h1>Loading...</h1>}
+				</div>
+			)
+		}
+	}
 }
 
 function ErrorPage() {
@@ -152,45 +217,49 @@ function ErrorPage() {
 	)
 }
 
-const hash = window.location.hash
-	.substring(1)
-	.split("&")
-	.reduce(function(initial, item) {
-	if (item) {
-		var parts = item.split("=");
-		initial[parts[0]] = decodeURIComponent(parts[1]);
-	}
-	return initial;
-	}, {});
-
-window.location.hash = "";
-
 class App extends Component {
 	
+	constructor(props) {
+		super(props);
+		const token = localStorage.getItem('token');
+		
+		this.state = ({
+			token: token
+		})
+	}
+	
 	componentDidMount() {
-		let _token = hash.access_token;
-		if (_token) {
+		let token = hash.access_token;
+		
+		if (token) {
 			this.setState({
-				token: _token
+				token: token
 			});
+			localStorage.setItem('token', token);
 		}
 	}
 		
 	render() {
+		let {token} = this.state;
+		
 		return (
 			<div className="App">
 				<Router>
 					<Switch>
 						<Route path="/artist/:artistID">
 							<Menu/>
-							<ArtistPage/>
+							<ArtistPage token={token}/>
 						</Route>
 						<Route path="/playlist/:playlistID">
 							<Menu/>
-							<DoPlaylistPage/>
+							<DoPlaylistPage token={token}/>
+						</Route>
+						<Route path="/me">
+							<Menu/>
+							<CurrentUserPage token={token}/>
 						</Route>
 						<Route path="/">
-							<LoginPage/>
+							<LoginPage token={token}/> 
 						</Route>
 					</Switch>
 				</Router>
