@@ -18,7 +18,6 @@ class PlaylistPage extends Component {
 			display: 0,
 			onHover: "Disappears",
 			colors: null,
-			colorsLoaded: false,
 			error: false,
 			errorCode: null,
 			visible: true
@@ -36,21 +35,23 @@ class PlaylistPage extends Component {
 		
 		data.tracks.items.forEach(song => {
 			let track = song.track;
-			if (albums[track.album.id] != null) {
-				albums[track.album.id].tracks.push({
-					name: track.name,
-					url: track.external_urls.spotify
-				})
-			} else {
-				albums[track.album.id] = {
-					name: track.album.name,
-					url: track.album.external_urls.spotify,
-					image: track.album.images[1],
-					artists: track.album.artists,
-					tracks: [{
+			if (!track.is_local) {
+				if (albums[track.album.id] != null) {
+					albums[track.album.id].tracks.push({
 						name: track.name,
 						url: track.external_urls.spotify
-					}]
+					})
+				} else {
+					albums[track.album.id] = {
+						name: track.album.name,
+						url: track.album.external_urls.spotify,
+						image: track.album.images[1],
+						artists: track.album.artists,
+						tracks: [{
+							name: track.name,
+							url: track.external_urls.spotify
+						}]
+					}
 				}
 			}
 		})
@@ -72,9 +73,7 @@ class PlaylistPage extends Component {
 	}
 	
 	grabColors = (albumColors) => {
-		let numColors = this.state.numColors;
-		let prevColors = this.state.colors;
-		let albumsCount = Object.keys(this.state.albums).length;		
+		let prevColors = this.state.colors;	
 		
 		if (prevColors === null) {
 			this.setState({
@@ -83,13 +82,6 @@ class PlaylistPage extends Component {
 		} else {
 			this.setState({
 				colors: prevColors.concat(albumColors)
-			})
-		}
-			
-		if (this.state.colors.length === albumsCount * numColors) {
-			console.log(this.state.colors);
-			this.setState({
-				colorsLoaded: true
 			})
 		}
 	}
@@ -122,15 +114,23 @@ class PlaylistPage extends Component {
 			this.setState({
 				isLoaded: false,
 				data: null,
+				colors: null,
 				albums: {},
 				error: false,
 				errorCode: null
 			})
 		} 
+		
 		if (prevState.data !== this.state.data && this.state.data != null && this.state.isLoaded === false) {
 			this.makeAlbums();
 			this.setState({
 				isLoaded: true
+			})
+		} 
+		
+		if (prevState.numColors !== this.state.numColors) {
+			this.setState({
+				colors: null
 			})
 		}
 	}

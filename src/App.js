@@ -6,10 +6,12 @@ import ArtistHeader from './components/ArtistHeader.js';
 import ArtistBody from './components/ArtistBody.js';
 import PlaylistPage from './components/PlaylistPage.js';
 
-const token = 'BQAlpRkuwIu54ZT8s2JaMDNtH0cqJcZFpSkJgRY4ws-mMdv_y9EycOSuyAN9NCXerBgm274X5xCgqPvWFsVMMkK4InbQPf8Rsvr4vZXN7GRxuvnvv5vrNKgAZsuNlF5r5LIMHqZCYw54e4td';
+const token = 'BQDWzxkLIQMgo17c8iZK7Mq1E4hi5vCeC-pV97xPzgGT-HbaYWGjZzde9PjY3zrt-vM0TTLAm_vvao0SP44UodjpRc_f-Ezi_SSrKlxz1RUHPZ6iiNiKHtSIbAHeZJubIdvzezl2OTLPduPeWxdHVUr85_q9Xw';
 
 /* to do:
-** make stuff more reusable
+** highlight options change but actual selection doesn't when new playlist is loaded via search box
+**** should seperate options from body so it doesn't reload a billion times everytime it updates
+** dot size option (maybe also album image size?)
 ** make nice landing/search page and appearing menu bar (make menu its own thing)
 ** multiple artists for playlist album
 ** fix id form so both pressing enter and the button works (or not cause it'll be a search eventually anyway >:))
@@ -82,6 +84,15 @@ class SearchBoxes extends Component {
 	}
 }
 
+function Menu() {
+	return (
+		<div className="Menu">
+			<Link to="/">Home</Link>
+			<SearchBoxes/>
+		</div>
+	)
+}
+
 function SearchPage() {
 	return (
 		<header className="App-header Loading Cover">
@@ -141,13 +152,11 @@ function App() {
 			<Router>
 				<Switch>
 					<Route path="/artist/:artistID">
-					<Link to="/">Home</Link>
-						<SearchBoxes/>
+						<Menu/>
 						<ArtistPage/>
 					</Route>
 					<Route path="/playlist/:playlistID">
-						<Link to="/">Home</Link>
-						<SearchBoxes/>
+						<Menu/>
 						<DoPlaylistPage/>
 					</Route>
 					<Route path="/">

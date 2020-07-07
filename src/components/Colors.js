@@ -97,7 +97,12 @@ class Colors extends Component {
 			return (
 				<section className="Colors">
 					<h2>Colors</h2>
-					<p>...</p>
+					<div className="Sorting-options">
+						<Dropdown className="p-button" title="Max Number of Bins:" labels={numBinsLabels} params={numBinsOptions} funct={this.updateNumBins} selected={numBins} alwaysOpen={true} /><br/>
+						<Dropdown className="p-button" title="Primary Sort:" labels={hsl} params={[0,1,2]} funct={this.updatePrimarySort} selected={primarySort} alwaysOpen={true}/><br/>
+						<Dropdown className="p-button" title="Secondary Sort:" labels={hsl} params={[0,1,2]} funct={this.updateSecondarySort} selected={secondarySort} alwaysOpen={true}/><br/>
+					</div>
+					<div className="Gradient" style={gradientStyles[primarySort]}></div>
 				</section>
 			)
 		} else {

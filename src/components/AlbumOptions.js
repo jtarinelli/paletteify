@@ -39,6 +39,16 @@ class AlbumOptions extends Component {
 		});
 	}
 	
+	componentDidUpdate(prevProps, prevState) {
+		if (prevProps !== this.props) {
+			console.log("props");
+			console.log(this.props);
+		}
+		if (prevState !== this.state) {
+			console.log("state");
+		}
+	}
+	
 	render() {
 		let numColorsOptions = [1,2,3,4,5,6,7];
 		

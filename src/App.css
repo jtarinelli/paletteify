@@ -104,7 +104,8 @@
 
 .App .Menu input {
 	margin: 0 10px;
-	padding: 5px;
+	width: 160px;
+    padding: 5px 10px;
 	border: 2px #eee solid;
 }
 
@@ -132,10 +133,10 @@
 	https://data.whicdn.com/images/152593249/original.jpg
 	https://upload.wikimedia.org/wikipedia/commons/f/fb/Julien_Alden_Weir_The_Bridge_Nocturne_aka_Nocturne_Queensboro_Bridge.jpg
     background-image: linear-gradient(to top, rgba(0,0,0,.75), transparent), url(https://upload.wikimedia.org/wikipedia/commons/b/b1/Whistler-Nocturne_in_black_and_gold.jpg);
-	
+	"https://66.media.tumblr.com/3e327da01b83ec9222ef7e554810e494/tumblr_pb7bzgJi1g1vz5npso1_500.gifv"
 	*/
 	
-	background-image: linear-gradient(to top, rgba(0,0,0,.75), transparent), url(https://66.media.tumblr.com/3e327da01b83ec9222ef7e554810e494/tumblr_pb7bzgJi1g1vz5npso1_500.gifv);
+	background-image: linear-gradient(to top, rgba(0,0,0,.75), transparent), url(https://66.media.tumblr.com/50461211b0dae46c62b625f1cf8d1ce6/488942c07c75fe29-1b/s540x810/aa54d15cd3fee3e843ad23d4af0a55b3cc151185.gifv);
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100vh;
@@ -172,7 +173,7 @@
 	margin: 5px 0;
 }
 
-.Playlist-body ul {
+.Playlist-body .Album ul {
 	margin: 0;
 	padding: 5px 0px;
 	font-size: 18px;
@@ -180,7 +181,7 @@
 	list-style-type: none;
 }
 
-.Playlist-body li {
+.Playlist-body .Album li {
 	margin-bottom: 5px;
 }
 
@@ -231,6 +232,7 @@
 }
 
 .Options .Dropdown {
+	height: 30px;
 	border-bottom: 2px #eee solid;
 	border-top-right-radius: 10px;
 }
@@ -315,7 +317,7 @@
 }
 
 .Colors .Dropdown {
-	padding: 0;
+	padding: 5px;
 }
 
 .Colors .Dropdown-content {
