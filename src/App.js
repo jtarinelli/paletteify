@@ -10,7 +10,7 @@ import CurrentUserPage from './components/CurrentUserPage.js';
 export const authEndpoint = 'https://accounts.spotify.com/authorize'; // not used currently
 const clientId = "a4e61050459f4f3cbac28ccd3826f37a";
 const redirectUri = "http://localhost:3000/me";
-const scopes = []; // not used
+const scopes = ["playlist-read-private"];
 
 const hash = window.location.hash // idk what this even is
 	.substring(1)
@@ -119,7 +119,7 @@ function LoginPage(props) {
 	return (
 		<header className="App-header Loading Cover">
 			<h1 className="Bigboi">Paletteify</h1>
-			<h2 className="Login-button"><a href={`https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token`}>Login to Spotify</a></h2>
+			<h2 className="Login-button"><a href={`https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&scope=${scopes}`}>Login to Spotify</a></h2>
 			{props.token !== 'undefined' && <SearchBoxes/>}
 		</header>
 	)
