@@ -6,7 +6,13 @@ import ArtistHeader from './components/ArtistHeader.js';
 import ArtistBody from './components/ArtistBody.js';
 import PlaylistPage from './components/PlaylistPage.js';
 
-const token = 'BQDWzxkLIQMgo17c8iZK7Mq1E4hi5vCeC-pV97xPzgGT-HbaYWGjZzde9PjY3zrt-vM0TTLAm_vvao0SP44UodjpRc_f-Ezi_SSrKlxz1RUHPZ6iiNiKHtSIbAHeZJubIdvzezl2OTLPduPeWxdHVUr85_q9Xw';
+//const token = 'BQDWzxkLIQMgo17c8iZK7Mq1E4hi5vCeC-pV97xPzgGT-HbaYWGjZzde9PjY3zrt-vM0TTLAm_vvao0SP44UodjpRc_f-Ezi_SSrKlxz1RUHPZ6iiNiKHtSIbAHeZJubIdvzezl2OTLPduPeWxdHVUr85_q9Xw';
+
+export const authEndpoint = 'https://accounts.spotify.com/authorize';
+// Replace with your app's client ID, redirect URI and desired scopes
+const clientId = "a4e61050459f4f3cbac28ccd3826f37a";
+const redirectUri = "http://localhost:3000/paletteify";
+const scopes = [];
 
 /* to do:
 ** highlight options change but actual selection doesn't when new playlist is loaded via search box
@@ -93,10 +99,11 @@ function Menu() {
 	)
 }
 
-function SearchPage() {
+function LoginPage() {
 	return (
 		<header className="App-header Loading Cover">
 			<h1 className="Bigboi">Paletteify</h1>
+			<button className="h2-button" href={`${authEndpoint}client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join("%20")}&response_type=token&show_dialog=true`}><h2>Login to Spotify</h2></button>
 			<SearchBoxes/>
 		</header>
 	)
@@ -107,7 +114,7 @@ function DoPlaylistPage() {
 	let requestInfo = {
 		playlistID: playlistID,
 		country: "US",
-		headers: {'Authorization': 'Bearer '.concat(token)},
+		//headers: {'Authorization': 'Bearer '.concat(token)},
 		handleErrors: handleErrors
 	}
 		
@@ -123,7 +130,7 @@ function ArtistPage() {
 	let requestInfo = {
 		artistID: artistID,
 		country: "US",
-		headers: {'Authorization': 'Bearer '.concat(token)},
+		//headers: {'Authorization': 'Bearer '.concat(token)},
 		handleErrors: handleErrors
 	}
 		
@@ -145,27 +152,51 @@ function ErrorPage() {
 	)
 }
 
-function App() {
+const hash = window.location.hash
+	.substring(1)
+	.split("&")
+	.reduce(function(initial, item) {
+	if (item) {
+		var parts = item.split("=");
+		initial[parts[0]] = decodeURIComponent(parts[1]);
+	}
+	return initial;
+	}, {});
+
+window.location.hash = "";
+
+class App extends Component {
+	
+	componentDidMount() {
+		let _token = hash.access_token;
+		if (_token) {
+			this.setState({
+				token: _token
+			});
+		}
+	}
 		
-	return (
-		<div className="App">
-			<Router>
-				<Switch>
-					<Route path="/artist/:artistID">
-						<Menu/>
-						<ArtistPage/>
-					</Route>
-					<Route path="/playlist/:playlistID">
-						<Menu/>
-						<DoPlaylistPage/>
-					</Route>
-					<Route path="/">
-						<SearchPage/>
-					</Route>
-				</Switch>
-			</Router>
-		</div>
-	);
+	render() {
+		return (
+			<div className="App">
+				<Router>
+					<Switch>
+						<Route path="/artist/:artistID">
+							<Menu/>
+							<ArtistPage/>
+						</Route>
+						<Route path="/playlist/:playlistID">
+							<Menu/>
+							<DoPlaylistPage/>
+						</Route>
+						<Route path="/">
+							<LoginPage/>
+						</Route>
+					</Switch>
+				</Router>
+			</div>
+		)
+	}
 }
 
 export default App;
