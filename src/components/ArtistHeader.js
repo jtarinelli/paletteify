@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import TopTracks from './TopTracks.js';
+import {Link} from "react-router-dom";
 
 class ArtistHeader extends Component {
 	
@@ -65,7 +66,8 @@ class ArtistHeader extends Component {
 			return (
 			<header className="App-header Loading">
 				{error ? <h1>Error: {errorCode}</h1> : <h1>Loading...</h1>}
-					{error && <p><a href="https://developer.spotify.com/documentation/web-api/">Status code info here</a></p>}
+					{error && errorCode !== '401' && <p><a href="https://developer.spotify.com/documentation/web-api/">Status code info here</a></p>}
+					{error && errorCode === '401' && <Link to='/'><p>Unauthorized: Try logging in again</p></Link>}
 			</header>
 			)
 		} 

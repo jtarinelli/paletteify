@@ -5,10 +5,30 @@ import './App.css';
 import ArtistHeader from './components/ArtistHeader.js';
 import ArtistBody from './components/ArtistBody.js';
 import PlaylistPage from './components/PlaylistPage.js';
+import CurrentUserPage from './components/CurrentUserPage.js';
 
-const token = 'BQDWzxkLIQMgo17c8iZK7Mq1E4hi5vCeC-pV97xPzgGT-HbaYWGjZzde9PjY3zrt-vM0TTLAm_vvao0SP44UodjpRc_f-Ezi_SSrKlxz1RUHPZ6iiNiKHtSIbAHeZJubIdvzezl2OTLPduPeWxdHVUr85_q9Xw';
+export const authEndpoint = 'https://accounts.spotify.com/authorize'; // not used currently
+const clientId = "a4e61050459f4f3cbac28ccd3826f37a";
+const redirectUri = "http://localhost:3000/me";
+const scopes = ["playlist-read-private"];
+
+const hash = window.location.hash // idk what this even is
+	.substring(1)
+	.split("&")
+	.reduce(function(initial, item) {
+	if (item) {
+		var parts = item.split("=");
+		initial[parts[0]] = decodeURIComponent(parts[1]);
+	}
+	return initial;
+	}, {});
+
+window.location.hash = "";
 
 /* to do:
+** figure out what to do when token expires
+** make it so you dont constantly have 2 login/re log in every time i save this file (might be fixed?)
+** add no login option if you don't want to
 ** highlight options change but actual selection doesn't when new playlist is loaded via search box
 **** should seperate options from body so it doesn't reload a billion times everytime it updates
 ** dot size option (maybe also album image size?)
@@ -85,29 +105,32 @@ class SearchBoxes extends Component {
 }
 
 function Menu() {
+	// add logout button on end (profile/logout right aligned)
 	return (
 		<div className="Menu">
 			<Link to="/">Home</Link>
 			<SearchBoxes/>
+			<Link to ="/me">My Profile</Link>
 		</div>
 	)
 }
 
-function SearchPage() {
+function LoginPage(props) {
 	return (
 		<header className="App-header Loading Cover">
 			<h1 className="Bigboi">Paletteify</h1>
-			<SearchBoxes/>
+			<h2 className="Login-button"><a href={`https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&scope=${scopes}`}>Login to Spotify</a></h2>
+			{props.token !== 'undefined' && <SearchBoxes/>}
 		</header>
 	)
 }
 
-function DoPlaylistPage() {
+function DoPlaylistPage(props) {
 	let {playlistID} = useParams();
 	let requestInfo = {
 		playlistID: playlistID,
 		country: "US",
-		headers: {'Authorization': 'Bearer '.concat(token)},
+		headers: {'Authorization': 'Bearer '.concat(props.token)},
 		handleErrors: handleErrors
 	}
 		
@@ -118,12 +141,12 @@ function DoPlaylistPage() {
 	)
 }
 
-function ArtistPage() {
+function ArtistPage(props) {
 	let {artistID} = useParams();
 	let requestInfo = {
 		artistID: artistID,
 		country: "US",
-		headers: {'Authorization': 'Bearer '.concat(token)},
+		headers: {'Authorization': 'Bearer '.concat(props.token)},
 		handleErrors: handleErrors
 	}
 		
@@ -145,27 +168,55 @@ function ErrorPage() {
 	)
 }
 
-function App() {
+class App extends Component {
+	
+	constructor(props) {
+		super(props);
+		const token = localStorage.getItem('token');
 		
-	return (
-		<div className="App">
-			<Router>
-				<Switch>
-					<Route path="/artist/:artistID">
-						<Menu/>
-						<ArtistPage/>
-					</Route>
-					<Route path="/playlist/:playlistID">
-						<Menu/>
-						<DoPlaylistPage/>
-					</Route>
-					<Route path="/">
-						<SearchPage/>
-					</Route>
-				</Switch>
-			</Router>
-		</div>
-	);
+		this.state = ({
+			token: token
+		})
+	}
+	
+	componentDidMount() {
+		let token = hash.access_token;
+		
+		if (token) {
+			this.setState({
+				token: token
+			});
+			localStorage.setItem('token', token);
+		}
+	}
+		
+	render() {
+		let {token} = this.state;
+		
+		return (
+			<div className="App">
+				<Router>
+					<Switch>
+						<Route path="/artist/:artistID">
+							<Menu/>
+							<ArtistPage token={token}/>
+						</Route>
+						<Route path="/playlist/:playlistID">
+							<Menu/>
+							<DoPlaylistPage token={token}/>
+						</Route>
+						<Route path="/me">
+							<Menu/>
+							<CurrentUserPage token={token}/>
+						</Route>
+						<Route path="/">
+							<LoginPage token={token} handleErrors={handleErrors}/> 
+						</Route>
+					</Switch>
+				</Router>
+			</div>
+		)
+	}
 }
 
 export default App;

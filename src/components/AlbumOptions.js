@@ -38,7 +38,7 @@ class AlbumOptions extends Component {
 			onHover: option
 		});
 	}
-	
+	/*
 	componentDidUpdate(prevProps, prevState) {
 		if (prevProps !== this.props) {
 			console.log("props");
@@ -48,7 +48,7 @@ class AlbumOptions extends Component {
 			console.log("state");
 		}
 	}
-	
+	*/
 	render() {
 		let numColorsOptions = [1,2,3,4,5,6,7];
 		
