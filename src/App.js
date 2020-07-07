@@ -9,7 +9,7 @@ import CurrentUserPage from './components/CurrentUserPage.js';
 
 export const authEndpoint = 'https://accounts.spotify.com/authorize'; // not used currently
 const clientId = "a4e61050459f4f3cbac28ccd3826f37a";
-const redirectUri = "http://localhost:3000/me";
+const redirectUri = "http://localhost:3000/paletteify/me";
 const scopes = ["playlist-read-private"];
 
 const hash = window.location.hash // idk what this even is
@@ -92,11 +92,11 @@ class SearchBoxes extends Component {
 					<label>
 						Enter artist ID: <input type="text" value={this.state.artistID} onChange={this.artistChange}/>
 					</label>
-					<Link to={"/artist/" + this.state.artistID}>>></Link>
+					<Link to={"/paletteify/artist/" + this.state.artistID}>>></Link>
 					<label>
 						Enter playlist ID: <input type="text" value={this.state.playlistID} onChange={this.playlistChange}/>
 					</label>
-					<Link to={"/playlist/" + this.state.playlistID}>>></Link>
+					<Link to={"/paletteify/playlist/" + this.state.playlistID}>>></Link>
 				</div>
 				{/*<button onClick={this.toggleVisible} className="h2-button Menu-icon"><h2>UWU</h2></button>*/}
 			</div>
@@ -108,9 +108,9 @@ function Menu() {
 	// add logout button on end (profile/logout right aligned)
 	return (
 		<div className="Menu">
-			<Link to="/">Home</Link>
+			<Link to="/paletteify/">Home</Link>
 			<SearchBoxes/>
-			<Link to ="/me">My Profile</Link>
+			<Link to ="/paletteify/me">My Profile</Link>
 		</div>
 	)
 }
@@ -159,11 +159,10 @@ function ArtistPage(props) {
 }
 
 function ErrorPage() {
-	// not currently used
 	return (
 		<header className="App-header Loading">
-			<h1>There's nothing here broseph</h1>
-			<p>Link back to search page here (but not yet XD)</p>
+			<h1>There's nothing here</h1>
+			<p><Link to="/paletteify/"</p>
 		</header>
 	)
 }
@@ -197,19 +196,19 @@ class App extends Component {
 			<div className="App">
 				<Router>
 					<Switch>
-						<Route path="/artist/:artistID">
+						<Route path="/paletteify/artist/:artistID">
 							<Menu/>
 							<ArtistPage token={token}/>
 						</Route>
-						<Route path="/playlist/:playlistID">
+						<Route path="/paletteify/playlist/:playlistID">
 							<Menu/>
 							<DoPlaylistPage token={token}/>
 						</Route>
-						<Route path="/me">
+						<Route path="/paletteify/me">
 							<Menu/>
 							<CurrentUserPage token={token}/>
 						</Route>
-						<Route path="/">
+						<Route path="/paletteify/">
 							<LoginPage token={token} handleErrors={handleErrors}/> 
 						</Route>
 					</Switch>

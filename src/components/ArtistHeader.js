@@ -67,7 +67,7 @@ class ArtistHeader extends Component {
 			<header className="App-header Loading">
 				{error ? <h1>Error: {errorCode}</h1> : <h1>Loading...</h1>}
 					{error && errorCode !== '401' && <p><a href="https://developer.spotify.com/documentation/web-api/">Status code info here</a></p>}
-					{error && errorCode === '401' && <Link to='/'><p>Unauthorized: Try logging in again</p></Link>}
+					{error && errorCode === '401' && <Link to='/paletteify/'><p>Unauthorized: Try logging in again</p></Link>}
 			</header>
 			)
 		} 

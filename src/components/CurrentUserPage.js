@@ -57,7 +57,7 @@ class Playlists extends Component {
 					<ul className={"Playlists " + (visible ? 'visible' : 'hidden')}>
 						{data.items.map((item, i) => (
 							<li key={i}>
-								<p><Link to={'/playlist/' + item.id}>{item.name}</Link></p>
+								<p><Link to={'/paletteify/playlist/' + item.id}>{item.name}</Link></p>
 							</li>
 						))}
 					</ul>
