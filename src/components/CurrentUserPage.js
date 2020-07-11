@@ -31,7 +31,6 @@ class Playlists extends Component {
 	
 	makeRequest() {
 		let headers = {'Authorization': 'Bearer '.concat(this.props.token)};
-		console.log(headers);
 		
 		fetch('https://api.spotify.com/v1/me/playlists', {headers})
 			.then(handleErrors)
@@ -66,10 +65,13 @@ class Playlists extends Component {
 			return (	
 				<div>
 					<button className="h2-button" onClick={this.toggleVisible}><h2>Playlists</h2></button>
-					<ul className={"Playlists " + (visible ? 'visible' : 'hidden')}>
+					<ul className={"Albums " + (visible ? 'visible' : 'hidden')}>
 						{data.items.map((item, i) => (
-							<li key={i}>
-								<p><Link to={'/paletteify/playlist/' + item.id}>{item.name}</Link></p>
+							<li key={i} className="Album">
+								<Link to={'/paletteify/playlist/' + item.id}>
+									<img src={item.images[0].url} alt={item.name}/>
+									<p>{item.name}</p>
+								</Link>
 							</li>
 						))}
 					</ul>
@@ -99,7 +101,6 @@ class CurrentUserPage extends Component {
 	
 	makeRequest() {
 		let headers = {'Authorization': 'Bearer '.concat(this.props.token)};
-		console.log(headers);
 		
 		fetch('https://api.spotify.com/v1/me', {headers})
 			.then(handleErrors)

@@ -95,20 +95,30 @@
 }
 
 .App .Menu {
-	height: 100px;
+	height: 80px;
 	font-size: 18px;
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
 	align-items: center;
-	margin: 0 20px;
+	margin: 0 30px;
 }
 
-.App .Menu label {
+.App .Menu-right {
+	text-align: right;
+	padding-top: 4px;
+	flex-grow: 2;
+}
+
+.App .Search-boxes {
+	padding-top: 6px;
+}
+
+.App .Search-boxes label {
 	margin-left: 20px;
 }
 
-.App .Menu input {
+.App .Search-boxes input {
 	margin: 0 10px;
 	width: 170px;
     padding: 5px 10px;
@@ -146,15 +156,11 @@
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100vh;
+	text-align: center;
 }
 
 .App-header a {
 	color: white;
-}
-
-.Playlists {
-	list-style-type: none;
-	text-align: left;
 }
 
 .Playlist-image, .Playlist-image img {
@@ -302,6 +308,10 @@
 	justify-content: center;
 	align-items: baseline;
 	font-size: calc(10px + 2vmin);;
+}
+
+.Albums li {
+	list-style-type: none;
 }
 
 .Album {

@@ -7,7 +7,6 @@ import ArtistBody from './components/ArtistBody.js';
 import PlaylistPage from './components/PlaylistPage.js';
 import CurrentUserPage from './components/CurrentUserPage.js';
 
-const authEndpoint = 'https://accounts.spotify.com/authorize'; // not used currently
 const clientId = "a4e61050459f4f3cbac28ccd3826f37a";
 const redirectUri = "http://localhost:3000/paletteify/";
 //const redirectUri = "https://jtarinelli.github.io/paletteify/";
@@ -27,9 +26,9 @@ var hash = window.location.hash // idk what this even is
 window.location.hash = "";
 
 /* to do:
-** figure out what to do when token expires
-** make it so you dont constantly have 2 login/re log in every time i save this file (might be fixed?)
-** add no login option if you don't want to
+** make var/let/const and double/single quotes consistent
+** figure out what to do when token expires/check if token in local storage is expired 
+** add no login option if you don't want to and figure out how to log out
 ** highlight options change but actual selection doesn't when new playlist is loaded via search box
 **** should seperate options from body so it doesn't reload a billion times everytime it updates
 ** dot size option (maybe also album image size?)
@@ -66,7 +65,6 @@ class SearchBoxes extends Component {
 		this.state = {
 			artistID: '',
 			playlistID: '',
-			visible: true
 			};
 	}
 
@@ -78,27 +76,17 @@ class SearchBoxes extends Component {
 		this.setState({playlistID: event.target.value});
 	}
 	
-	toggleVisible = () => {
-		this.setState(prevState => ({
-			visible: !prevState.visible
-		}));
-	}
-	
 	render() {
-		const {visible} = this.state;
-		
 		return (
-			<div>
-				<div className= {"Menu " + (visible ? 'visible' : 'hidden')}>
-					<label>
-						Enter artist ID: <input type="text" value={this.state.artistID} onChange={this.artistChange}/>
-					</label>
-					<Link to={"/paletteify/artist/" + this.state.artistID}>>></Link>
-					<label>
-						Enter playlist ID: <input type="text" value={this.state.playlistID} onChange={this.playlistChange}/>
-					</label>
-					<Link to={"/paletteify/playlist/" + this.state.playlistID}>>></Link>
-				</div>
+			<div className="Search-boxes">
+				<label>
+					Enter artist ID: <input type="text" value={this.state.artistID} onChange={this.artistChange}/>
+				</label>
+				<Link to={"/paletteify/artist/" + this.state.artistID}>>></Link>
+				<label>
+					Enter playlist ID: <input type="text" value={this.state.playlistID} onChange={this.playlistChange}/>
+				</label>
+				<Link to={"/paletteify/playlist/" + this.state.playlistID}>>></Link>
 				{/*<button onClick={this.toggleVisible} className="h2-button Menu-icon"><h2>UWU</h2></button>*/}
 			</div>
 		);
@@ -111,18 +99,23 @@ function Menu() {
 		<div className="Menu">
 			<Link to="/paletteify/">Home</Link>
 			<SearchBoxes/>
-			<Link to ="/paletteify/me">My Profile</Link>
+			<div className="Menu-right">
+				<Link to ="/paletteify/me">My Profile</Link>
+			</div>
 		</div>
 	)
 }
 
 function LoginPage(props) {
+	/*<a href={"https://www.spotify.com/logout"}>Logout</a>*/
 	return (
 		<header className="App-header Loading Cover">
 			<h1 className="Bigboi">Paletteify</h1>
-			<h2 className="Login-button"><a href={`https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&scope=${scopes}&show_dialog=true`}>Login to Spotify</a></h2>
-			{props.token !== null && <p ><Link to="/paletteify/me">My Profile</Link></p>}
-			{props.token !== null && <SearchBoxes/>}
+			<h2 className="Login-button"><a href={`https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&scope=${scopes}`}>Login to Spotify</a></h2>
+			{props.token !== null && <div>
+				<p><Link to="/paletteify/me">My Profile</Link></p>
+				<SearchBoxes/>
+				</div>}
 		</header>
 	)
 }
