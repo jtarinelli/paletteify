@@ -8,8 +8,8 @@ import PlaylistPage from './components/PlaylistPage.js';
 import CurrentUserPage from './components/CurrentUserPage.js';
 
 const clientId = "a4e61050459f4f3cbac28ccd3826f37a";
-const redirectUri = "http://localhost:3000/paletteify/";
-//const redirectUri = "https://jtarinelli.github.io/paletteify/";
+//const redirectUri = "http://localhost:3000/paletteify/";
+const redirectUri = "https://jtarinelli.github.io/paletteify/";
 var scopes = ["playlist-read-private"];
 
 var hash = window.location.hash // idk what this even is
@@ -26,21 +26,20 @@ var hash = window.location.hash // idk what this even is
 window.location.hash = "";
 
 /* to do:
+** figure out how to make redirecting to your profile page on login work
 ** make var/let/const and double/single quotes consistent
 ** figure out what to do when token expires/check if token in local storage is expired 
 ** add no login option if you don't want to and figure out how to log out
-** highlight options change but actual selection doesn't when new playlist is loaded via search box
+** highlighted options change but actual selection doesn't when new playlist is loaded via search box
 **** should seperate options from body so it doesn't reload a billion times everytime it updates
-** dot size option (maybe also album image size?)
-** make nice landing/search page and appearing menu bar (make menu its own thing)
+** dot size option (maybe also album image size?) 
+** make menu collapsable
 ** multiple artists for playlist album
 ** fix id form so both pressing enter and the button works (or not cause it'll be a search eventually anyway >:))
-** reduce repetition with update/grab functions for options
 ** make toptracks work better with more than 2 columns
 ** maybe? change dropdown to actual html select element instead of all divs
 ** make numBins not a dropdown(prob form/textbox would be good? or actual dropdown w/ scrollbar)
 ** play snippets of top songs (might need to redo track component)
-** automatically get token (need to login??)
 ** load more albums button
 ** factor out makeResponse function if possible (add root variable i think)
 ** show better message on error 
