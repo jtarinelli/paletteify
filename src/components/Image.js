@@ -9,7 +9,7 @@ constructor(props) {
 		this.state = {
 			colorsLoaded: false,
 			bgStyle: {
-				backgroundImage: "white"
+				backgroundImage: 'white'
 			},
 			imageColors: []
 		}
@@ -33,34 +33,34 @@ constructor(props) {
 	displayMode(colors, option) {
 		//result.reverse(); //optional 
 		
-		let gradientString = "";
+		let gradientString = '';
 		let stripeWidth = 0;
 		
 		if (option === 0) {
 			// diagonal stripes
-			gradientString = "linear-gradient(to bottom left, ";
+			gradientString = 'linear-gradient(to bottom left, ';
 			stripeWidth = 424 / colors.length;
 		
 		} else if (option === 1) {
 			// vertical stripes
-			gradientString = "linear-gradient(to right, ";
+			gradientString = 'linear-gradient(to right, ';
 			stripeWidth = 300 / colors.length;
 			
 		} else if (option === 2) {
 			// target/ radial gradient
-			colors.push("white");
-			gradientString = "radial-gradient(circle, ";
+			colors.push('white');
+			gradientString = 'radial-gradient(circle, ';
 			stripeWidth = 170 / colors.length;
 		}
 		
 		for (var i = 0; i < colors.length; i++) {
-			gradientString += colors[i] + " " + stripeWidth*i + "px," + colors[i] + " " + stripeWidth*(i+1) + "px";
+			gradientString += colors[i] + ' ' + stripeWidth*i + 'px,' + colors[i] + ' ' + stripeWidth*(i+1) + 'px';
 			if (i < colors.length - 1) {
-				gradientString += ",";
+				gradientString += ',';
 			}
 		}
 		
-		gradientString += ")";
+		gradientString += ')';
 		
 		if (option === 2) {
 			colors.pop(); // for radial version only!
@@ -79,7 +79,7 @@ constructor(props) {
 		let {numColors, display} = this.props;
 		let options = {count: numColors}
 
-		var promise = getColors(imageURL, options);
+		let promise = getColors(imageURL, options);
 		promise.then(function(result) {
 			currentObject.displayMode(result, display);
 
@@ -99,7 +99,7 @@ constructor(props) {
 		const {src, alt, onHover} = this.props;
 
 		return (
-			<div className="Background" style = {this.state.bgStyle}>
+			<div className='Background' style = {this.state.bgStyle}>
 				<img className={onHover} src={src} alt={alt} />
 			</div>
 		)

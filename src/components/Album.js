@@ -4,7 +4,7 @@ import Image from './Image.js';
 class Album extends Component {
 	
 	grabColors = (imageColors) => {
-		let passUpColors = this.props.grabColors;
+		var passUpColors = this.props.grabColors;
 		passUpColors(imageColors);
 	}
 	

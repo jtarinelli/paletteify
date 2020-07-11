@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Switch, Route, Link, useParams} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route, Link, useParams} from 'react-router-dom';
 
 import './App.css';
 import ArtistHeader from './components/ArtistHeader.js';
@@ -7,27 +7,26 @@ import ArtistBody from './components/ArtistBody.js';
 import PlaylistPage from './components/PlaylistPage.js';
 import CurrentUserPage from './components/CurrentUserPage.js';
 
-const clientId = "a4e61050459f4f3cbac28ccd3826f37a";
-//const redirectUri = "http://localhost:3000/paletteify/";
-const redirectUri = "https://jtarinelli.github.io/paletteify/";
-var scopes = ["playlist-read-private"];
+const clientId = 'a4e61050459f4f3cbac28ccd3826f37a';
+//const redirectUri = 'http://localhost:3000/paletteify/';
+const redirectUri = 'https://jtarinelli.github.io/paletteify/';
+var scopes = ['playlist-read-private'];
 
-var hash = window.location.hash // idk what this even is
+var hash = window.location.hash // idk what this even is, move it into somewhere
 	.substring(1)
-	.split("&")
+	.split('&')
 	.reduce(function(initial, item) {
 	if (item) {
-		var parts = item.split("=");
+		var parts = item.split('=');
 		initial[parts[0]] = decodeURIComponent(parts[1]);
 	}
 	return initial;
 	}, {});
 
-window.location.hash = "";
+window.location.hash = '';
 
 /* to do:
 ** figure out how to make redirecting to your profile page on login work
-** make var/let/const and double/single quotes consistent
 ** figure out what to do when token expires/check if token in local storage is expired 
 ** add no login option if you don't want to and figure out how to log out
 ** highlighted options change but actual selection doesn't when new playlist is loaded via search box
@@ -45,14 +44,6 @@ window.location.hash = "";
 ** show better message on error 
 **** it seems like when there's an error the api returns multiple objects, but idk how to get them
 */
-
-function handleErrors(response) {
-	// idk if this should be a method or not? where do i put this
-    if (!response.ok) {
-        throw Error(response.status);
-    }
-    return response;
-}
 
 class SearchBoxes extends Component {
 	constructor(props) {
@@ -77,16 +68,16 @@ class SearchBoxes extends Component {
 	
 	render() {
 		return (
-			<div className="Search-boxes">
+			<div className='Search-boxes'>
 				<label>
-					Enter artist ID: <input type="text" value={this.state.artistID} onChange={this.artistChange}/>
+					Enter artist ID: <input type='text' value={this.state.artistID} onChange={this.artistChange}/>
 				</label>
-				<Link to={"/paletteify/artist/" + this.state.artistID}>>></Link>
+				<Link to={'/paletteify/artist/' + this.state.artistID}>>></Link>
 				<label>
-					Enter playlist ID: <input type="text" value={this.state.playlistID} onChange={this.playlistChange}/>
+					Enter playlist ID: <input type='text' value={this.state.playlistID} onChange={this.playlistChange}/>
 				</label>
-				<Link to={"/paletteify/playlist/" + this.state.playlistID}>>></Link>
-				{/*<button onClick={this.toggleVisible} className="h2-button Menu-icon"><h2>UWU</h2></button>*/}
+				<Link to={'/paletteify/playlist/' + this.state.playlistID}>>></Link>
+				{/*<button onClick={this.toggleVisible} className='h2-button Menu-icon'><h2>UWU</h2></button>*/}
 			</div>
 		);
 	}
@@ -95,24 +86,24 @@ class SearchBoxes extends Component {
 function Menu() {
 	// add logout button on end (profile/logout right aligned)
 	return (
-		<div className="Menu">
-			<Link to="/paletteify/">Home</Link>
+		<div className='Menu'>
+			<Link to='/paletteify/'>Home</Link>
 			<SearchBoxes/>
-			<div className="Menu-right">
-				<Link to ="/paletteify/me">My Profile</Link>
+			<div className='Menu-right'>
+				<Link to ='/paletteify/me'>My Profile</Link>
 			</div>
 		</div>
 	)
 }
 
 function LoginPage(props) {
-	/*<a href={"https://www.spotify.com/logout"}>Logout</a>*/
+	/*<a href={'https://www.spotify.com/logout'}>Logout</a>*/
 	return (
-		<header className="App-header Loading Cover">
-			<h1 className="Bigboi">Paletteify</h1>
-			<h2 className="Login-button"><a href={`https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&scope=${scopes}`}>Login to Spotify</a></h2>
+		<header className='App-header Loading Cover'>
+			<h1 className='Bigboi'>Paletteify</h1>
+			<h2 className='Login-button'><a href={`https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&scope=${scopes}`}>Login to Spotify</a></h2>
 			{props.token !== null && <div>
-				<p><Link to="/paletteify/me">My Profile</Link></p>
+				<p><Link to='/paletteify/me'>My Profile</Link></p>
 				<SearchBoxes/>
 				</div>}
 		</header>
@@ -120,12 +111,12 @@ function LoginPage(props) {
 }
 
 function DoPlaylistPage(props) {
-	let {playlistID} = useParams();
-	let requestInfo = {
+	const {playlistID} = useParams();
+	var requestInfo = {
 		playlistID: playlistID,
-		country: "US",
+		country: 'US',
 		headers: {'Authorization': 'Bearer '.concat(props.token)},
-		handleErrors: handleErrors
+		handleErrors: props.handleErrors
 	}
 		
 	return (
@@ -136,12 +127,12 @@ function DoPlaylistPage(props) {
 }
 
 function ArtistPage(props) {
-	let {artistID} = useParams();
-	let requestInfo = {
+	const {artistID} = useParams();
+	var requestInfo = {
 		artistID: artistID,
-		country: "US",
+		country: 'US',
 		headers: {'Authorization': 'Bearer '.concat(props.token)},
-		handleErrors: handleErrors
+		handleErrors: props.handleErrors
 	}
 		
 	return (
@@ -152,20 +143,11 @@ function ArtistPage(props) {
 	)
 }
 
-function ErrorPage() {
-	return (
-		<header className="App-header Loading">
-			<h1>There's nothing here</h1>
-			<p><Link to="/paletteify/">Home</Link></p>
-		</header>
-	)
-}
-
 class App extends Component {
 	
 	constructor(props) {
 		super(props);
-		let token = localStorage.getItem('token');
+		const token = localStorage.getItem('token');
 		
 		this.state = ({
 			token: token
@@ -173,7 +155,7 @@ class App extends Component {
 	}
 	
 	componentDidMount() {
-		let token = hash.access_token;
+		const token = hash.access_token;
 		
 		if (token) {
 			this.setState({
@@ -182,27 +164,34 @@ class App extends Component {
 			localStorage.setItem('token', token);
 		}
 	}
+	
+	handleErrors(response) {
+		if (!response.ok) {
+			throw Error(response.status);
+		}
+		return response;
+	}
 		
 	render() {
-		let {token} = this.state;
+		const {token} = this.state;
 		
 		return (
-			<div className="App">
+			<div className='App'>
 				<Router>
 					<Switch>
-						<Route path="/paletteify/artist/:artistID">
+						<Route path='/paletteify/artist/:artistID'>
 							<Menu/>
-							<ArtistPage token={token}/>
+							<ArtistPage token={token} handleErrors={this.handleErrors}/>
 						</Route>
-						<Route path="/paletteify/playlist/:playlistID">
+						<Route path='/paletteify/playlist/:playlistID'>
 							<Menu/>
-							<DoPlaylistPage token={token}/>
+							<DoPlaylistPage token={token} handleErrors={this.handleErrors}/>
 						</Route>
-						<Route path="/paletteify/me">
+						<Route path='/paletteify/me'>
 							<Menu/>
-							<CurrentUserPage token={token}/>
+							<CurrentUserPage token={token} handleErrors={this.handleErrors}/>
 						</Route>
-						<Route path="/paletteify/">
+						<Route path='/paletteify/'>
 							<LoginPage token={token}/> 
 						</Route>
 					</Switch>

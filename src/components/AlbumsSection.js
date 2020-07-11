@@ -66,7 +66,7 @@ class AlbumsSection extends Component {
 		let passUpColors = this.props.grabColors;
 		let numColors = this.props.numColors;
 		let prevColors = this.state.colors;
-		let albumsCount = this.state.data.items.length;
+		const albumsCount = this.state.data.items.length;
 		
 		if (prevColors === null) {
 			this.setState({
@@ -86,18 +86,18 @@ class AlbumsSection extends Component {
 	
 	render() {
 		const {title, numColors, display, onHover} = this.props;
-		let {visible, isLoaded, data, error, errorCode} = this.state;
+		const {visible, isLoaded, data, error, errorCode} = this.state;
 		
 		if (isLoaded && data.items.length === 0) {
 			return null;
 		} else if (isLoaded && !error) {
 			return (
 				<div>
-					<button onClick={this.toggleVisible} className="h2-button"><h2>{title}</h2></button>
-					<div className = {"Albums " + (visible ? 'visible' : 'hidden')}>
+					<button onClick={this.toggleVisible} className='h2-button'><h2>{title}</h2></button>
+					<div className = {'Albums ' + (visible ? 'visible' : 'hidden')}>
 						{data.items.map(
 							(album, i) => (
-								<div className="Album" key={i}>
+								<div className='Album' key={i}>
 								<Album 
 								name = {album.name}
 								image = {album.images[1].url}
@@ -116,8 +116,8 @@ class AlbumsSection extends Component {
 		} else {
 			return (
 				<div>
-					<button onClick={this.toggleVisible} className="h2-button"><h2>{title}</h2></button>
-					<div className = {"Albums " + (visible ? 'visible' : 'hidden')}>
+					<button onClick={this.toggleVisible} className='h2-button'><h2>{title}</h2></button>
+					<div className = {'Albums ' + (visible ? 'visible' : 'hidden')}>
 						{error ? <p>Error:  {errorCode}</p> : <p>...</p>}
 					</div>
 				</div>

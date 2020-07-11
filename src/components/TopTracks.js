@@ -30,17 +30,16 @@ class TopTracks extends Component {
 	}
 
 	render() {
-		
 		const {isLoaded, data, error, errorCode} = this.state;
 		
 		if (isLoaded && !error) {
 			return (
 				<div>
 					<p>Top Tracks</p>
-					<ol className="Top-tracks">
+					<ol className='Top-tracks'>
 						{data.tracks.map(
 							(track, i) => (
-								<li className="Track" key = {i}>
+								<li className='Track' key = {i}>
 									<a href ={track.external_urls.spotify}>
 										<p>{track.name}</p>
 									</a>

@@ -7,11 +7,12 @@ class ArtistBody extends Component {
 	
 	constructor(props) {
 		super(props);
+		
 		this.state = ({
 			colors: null,
 			numColors: 5,
 			display: 0,
-			onHover: "Disappears"
+			onHover: 'Disappears'
 		})
 	}
 	
@@ -40,12 +41,12 @@ class ArtistBody extends Component {
 	}
 	
 	render() {
-		let allColors = this.state.colors;
+		const allColors = this.state.colors;
 		const {requestInfo} = this.props;
-		let {numColors, display, onHover} = this.state;
+		const {numColors, display, onHover} = this.state;
 	
 		return (
-			<div className="Body">
+			<div className='Body'>
 				<AlbumOptions grabNumColors={this.grabNumColors} grabDisplay={this.grabDisplay} grabOnHover={this.grabOnHover}/>
 				<AlbumsSingles grabColors={this.grabColors} requestInfo={requestInfo} numColors={numColors} display={display} onHover={onHover}/>
 				<Colors colors={allColors}/>

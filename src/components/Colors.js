@@ -45,10 +45,10 @@ class Colors extends Component {
 		
 		this.sortColors(colors, primarySort, false);
 		
-		let max = colors[0].hsl()[primarySort];
-		let min = colors[colors.length-1].hsl()[primarySort];
+		const max = colors[0].hsl()[primarySort];
+		const min = colors[colors.length-1].hsl()[primarySort];
 		
-		let increment = (max-min) / numBins;
+		const increment = (max-min) / numBins;
 		let threshold = max - increment;
 		
 		colors.forEach(color => {
@@ -83,26 +83,26 @@ class Colors extends Component {
 	}
 	
 	render() {
-		let {colors} = this.props;
-		let {numBins, primarySort, secondarySort} = this.state;
+		var {colors} = this.props;
+		var {numBins, primarySort, secondarySort} = this.state;
 		const numBinsOptions = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14];
 		const numBinsLabels = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
-		const hsl = ["Hue", "Saturation", "Lightness"];
+		const hsl = ['Hue', 'Saturation', 'Lightness'];
 		const gradientStyles = [
-		{backgroundImage: "linear-gradient(to right, white, magenta, purple, blue, green, yellow, orange, red)"},
-		{backgroundImage: "linear-gradient(to right, #47d8ff, gray)"},
-		{backgroundImage: "linear-gradient(to right, white, #47d8ff, black)"}]
+		{backgroundImage: 'linear-gradient(to right, white, magenta, purple, blue, green, yellow, orange, red)'},
+		{backgroundImage: 'linear-gradient(to right, #47d8ff, gray)'},
+		{backgroundImage: 'linear-gradient(to right, white, #47d8ff, black)'}]
 
 		if (colors === null) {
 			return (
-				<section className="Colors">
+				<section className='Colors'>
 					<h2>Colors</h2>
-					<div className="Sorting-options">
-						<Dropdown className="p-button" title="Max Number of Bins:" labels={numBinsLabels} params={numBinsOptions} funct={this.updateNumBins} selected={numBins} alwaysOpen={true} /><br/>
-						<Dropdown className="p-button" title="Primary Sort:" labels={hsl} params={[0,1,2]} funct={this.updatePrimarySort} selected={primarySort} alwaysOpen={true}/><br/>
-						<Dropdown className="p-button" title="Secondary Sort:" labels={hsl} params={[0,1,2]} funct={this.updateSecondarySort} selected={secondarySort} alwaysOpen={true}/><br/>
+					<div className='Sorting-options'>
+						<Dropdown className='p-button' title='Max Number of Bins:' labels={numBinsLabels} params={numBinsOptions} funct={this.updateNumBins} selected={numBins} alwaysOpen={true} /><br/>
+						<Dropdown className='p-button' title='Primary Sort:' labels={hsl} params={[0,1,2]} funct={this.updatePrimarySort} selected={primarySort} alwaysOpen={true}/><br/>
+						<Dropdown className='p-button' title='Secondary Sort:' labels={hsl} params={[0,1,2]} funct={this.updateSecondarySort} selected={secondarySort} alwaysOpen={true}/><br/>
 					</div>
-					<div className="Gradient" style={gradientStyles[primarySort]}></div>
+					<div className='Gradient' style={gradientStyles[primarySort]}></div>
 				</section>
 			)
 		} else {
@@ -113,17 +113,17 @@ class Colors extends Component {
 			})
 			
 			return (
-				<section className="Colors">
+				<section className='Colors'>
 					<h2>Colors</h2>
-					<div className="Sorting-options">
-						<Dropdown className="p-button" title="Max Number of Bins:" labels={numBinsLabels} params={numBinsOptions} funct={this.updateNumBins} selected={numBins} alwaysOpen={true} /><br/>
-						<Dropdown className="p-button" title="Primary Sort:" labels={hsl} params={[0,1,2]} funct={this.updatePrimarySort} selected={primarySort} alwaysOpen={true}/><br/>
-						<Dropdown className="p-button" title="Secondary Sort:" labels={hsl} params={[0,1,2]} funct={this.updateSecondarySort} selected={secondarySort} alwaysOpen={true}/><br/>
+					<div className='Sorting-options'>
+						<Dropdown className='p-button' title='Max Number of Bins:' labels={numBinsLabels} params={numBinsOptions} funct={this.updateNumBins} selected={numBins} alwaysOpen={true} /><br/>
+						<Dropdown className='p-button' title='Primary Sort:' labels={hsl} params={[0,1,2]} funct={this.updatePrimarySort} selected={primarySort} alwaysOpen={true}/><br/>
+						<Dropdown className='p-button' title='Secondary Sort:' labels={hsl} params={[0,1,2]} funct={this.updateSecondarySort} selected={secondarySort} alwaysOpen={true}/><br/>
 					</div>
-					<div className="Gradient" style={gradientStyles[primarySort]}></div>
-					<div className="Dots">
+					<div className='Gradient' style={gradientStyles[primarySort]}></div>
+					<div className='Dots'>
 						{bins.map((bin, i) => (
-							<div className="Bin" key={i}>
+							<div className='Bin' key={i}>
 									{bin.map((color, j) => (<Dot key = {j} bgColor = {color}/>))}
 							</div>
 						))}

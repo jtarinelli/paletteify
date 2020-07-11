@@ -6,7 +6,7 @@ class Dot extends Component {
 		const {bgColor} = this.props;
 		
 		return (
-			<div className="Dot" style={{"backgroundColor": bgColor}}></div>
+			<div className='Dot' style={{'backgroundColor': bgColor}}></div>
 		)
 	}
 	

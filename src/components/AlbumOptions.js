@@ -8,7 +8,7 @@ class AlbumOptions extends Component {
 		this.state = ({
 			numColors: 5,
 			display: 0,
-			onHover: "Disappears"
+			onHover: 'Disappears'
 		})
 	}
 	
@@ -41,30 +41,30 @@ class AlbumOptions extends Component {
 	/*
 	componentDidUpdate(prevProps, prevState) {
 		if (prevProps !== this.props) {
-			console.log("props");
+			console.log('props');
 			console.log(this.props);
 		}
 		if (prevState !== this.state) {
-			console.log("state");
+			console.log('state');
 		}
 	}
 	*/
 	render() {
-		let numColorsOptions = [1,2,3,4,5,6,7];
+		const numColorsOptions = [1,2,3,4,5,6,7];
 		
-		let displayLabels = ["Diagonal", "Vertical", "Target"];
-		let displayParams = [0,1,2];
+		const displayLabels = ['Diagonal', 'Vertical', 'Target'];
+		const displayParams = [0,1,2];
 		
-		let onHoverLabels = ["Album Art", "Color Palette"];
-		let onHoverParams = ["Disappears", "Appears"];
+		const onHoverLabels = ['Album Art', 'Color Palette'];
+		const onHoverParams = ['Disappears', 'Appears'];
 		
-		let {numColors, display, onHover} = this.state;
+		const {numColors, display, onHover} = this.state;
 		
 		return (
-			<div className="Options">
-				<Dropdown title="#" labels={numColorsOptions} params={numColorsOptions} funct={this.updateNumColors} tooltip="Number of colors per album" className="h2-button" selected={numColors}/>
-				<Dropdown title="☐" labels={onHoverLabels} params={onHoverParams} funct={this.updateOnHover} tooltip="Display by default" className="h2-button" selected={onHover}/>
-				<Dropdown title="//" labels={displayLabels} params={displayParams} funct={this.updateDisplay} tooltip="Album colors display style" className="h2-button" selected={display}/>
+			<div className='Options'>
+				<Dropdown title='#' labels={numColorsOptions} params={numColorsOptions} funct={this.updateNumColors} tooltip='Number of colors per album' className='h2-button' selected={numColors}/>
+				<Dropdown title='☐' labels={onHoverLabels} params={onHoverParams} funct={this.updateOnHover} tooltip='Display by default' className='h2-button' selected={onHover}/>
+				<Dropdown title='//' labels={displayLabels} params={displayParams} funct={this.updateDisplay} tooltip='Album colors display style' className='h2-button' selected={display}/>
 			</div>
 		)
 		

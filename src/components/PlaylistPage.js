@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import AlbumOptions from './AlbumOptions.js';
 import Album from './Album.js';
 import Colors from './Colors.js';
-import {Link} from "react-router-dom";
+import {Link} from 'react-router-dom';
 
 class PlaylistPage extends Component {
 	
@@ -16,7 +16,7 @@ class PlaylistPage extends Component {
 			albums: {},
 			numColors: 5,
 			display: 0,
-			onHover: "Disappears",
+			onHover: 'Disappears',
 			colors: null,
 			error: false,
 			errorCode: null,
@@ -143,25 +143,25 @@ class PlaylistPage extends Component {
 			return (
 				<div>
 				
-					<header className="App-header">
-						<div className="Playlist-image">
+					<header className='App-header'>
+						<div className='Playlist-image'>
 							<img src={data.images[0].url} alt={data.name}/>
 						</div>
-						<div className="Playlist-info">
+						<div className='Playlist-info'>
 							<h1><a href={data.external_urls.spotify}>{data.name}</a></h1>
-							<p className="Playlist-description">{data.description}</p>
+							<p className='Playlist-description'>{data.description}</p>
 							<p><a href={data.owner.external_urls.spotify}>{data.owner.display_name}</a></p>
 						</div>
 					</header>
 					
-					<div className="Playlist-body">
+					<div className='Playlist-body'>
 						<AlbumOptions grabNumColors={this.grabNumColors} grabDisplay={this.grabDisplay} grabOnHover={this.grabOnHover}/>
-						<div className="Albums-Singles">
-							<button className="h2-button" onClick={this.toggleVisible}><h2>Albums</h2></button>
-							<div className={"Albums " + (visible ? 'visible' : 'hidden')}>
+						<div className='Albums-Singles'>
+							<button className='h2-button' onClick={this.toggleVisible}><h2>Albums</h2></button>
+							<div className={'Albums ' + (visible ? 'visible' : 'hidden')}>
 								{albums.map(
 									(album, i) => (
-										<div className="Album" key={i}>
+										<div className='Album' key={i}>
 											<Album 
 											name = {album.name}
 											image = {album.image.url}
@@ -171,7 +171,7 @@ class PlaylistPage extends Component {
 											display = {display}
 											onHover = {onHover}
 											/>
-											<p><Link to={"/paletteify/artist/" + album.artists[0].id}>{album.artists[0].name}</Link></p>
+											<p><Link to={'/paletteify/artist/' + album.artists[0].id}>{album.artists[0].name}</Link></p>
 											<ul>
 												{album.tracks.map((track, i) => (
 													<li key={i}><a href={track.url}>{track.name}</a></li>
@@ -189,9 +189,9 @@ class PlaylistPage extends Component {
 			
 		} else {
 			return (
-			<header className="App-header Loading">
+			<header className='App-header Loading'>
 				{error ? <h1>Error: {errorCode}</h1> : <h1>Loading...</h1>}
-					{error && errorCode !== '401' && <p><a href="https://developer.spotify.com/documentation/web-api/">Status code info here</a></p>}
+					{error && errorCode !== '401' && <p><a href='https://developer.spotify.com/documentation/web-api/'>Status code info here</a></p>}
 					{error && errorCode === '401' && <Link to='/paletteify/'><p>Unauthorized: Try logging in again</p></Link>}
 			</header>
 			)
