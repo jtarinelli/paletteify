@@ -141,6 +141,7 @@
 	font-size: calc(10px + 2vmin);
 	color: white;
 	text-align: left;
+	margin-bottom: 10px;
 }
 
 .Cover {
@@ -161,6 +162,10 @@
 
 .App-header a {
 	color: white;
+}
+
+.User-body {
+	margin-top: 30px;
 }
 
 .Playlist-image, .Playlist-image img {
@@ -237,7 +242,6 @@
 }
 
 .Options {
-	/* messy but the right idea: want it less obtrusive, now it acts weird when over another link */
 	display: flex;
 	justify-content: flex-start;
 	flex-direction: column;
@@ -297,7 +301,7 @@
 }
 
 .Albums-Singles {
-	margin-top: -135px; /* height of options box plus a little*/
+	margin-top: -170px; /* height of options box plus a little*/
 	margin-left: 5%;
 	margin-right: 5%;
 }

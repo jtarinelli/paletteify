@@ -134,7 +134,7 @@ class CurrentUserPage extends Component {
 							<a href={data.external_urls.spotify}><h1>{data.display_name}</h1></a>
 						</div>
 					</header>
-					<div>
+					<div className="User-body">
 						<Playlists token={token}/>
 					</div>
 				</div>

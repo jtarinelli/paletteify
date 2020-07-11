@@ -8,8 +8,8 @@ import PlaylistPage from './components/PlaylistPage.js';
 import CurrentUserPage from './components/CurrentUserPage.js';
 
 const clientId = 'a4e61050459f4f3cbac28ccd3826f37a';
-//const redirectUri = 'http://localhost:3000/paletteify/';
-const redirectUri = 'https://jtarinelli.github.io/paletteify/';
+const redirectUri = 'http://localhost:3000/paletteify/';
+//const redirectUri = 'https://jtarinelli.github.io/paletteify/';
 var scopes = ['playlist-read-private'];
 
 var hash = window.location.hash // idk what this even is, move it into somewhere
@@ -26,7 +26,7 @@ var hash = window.location.hash // idk what this even is, move it into somewhere
 window.location.hash = '';
 
 /* to do:
-** figure out how to make redirecting to your profile page on login work
+** figure out how to make redirecting to your profile page on login work (spotify redirect to redirect page that redirects to profile? lol)
 ** figure out what to do when token expires/check if token in local storage is expired 
 ** add no login option if you don't want to and figure out how to log out
 ** highlighted options change but actual selection doesn't when new playlist is loaded via search box
@@ -40,7 +40,7 @@ window.location.hash = '';
 ** make numBins not a dropdown(prob form/textbox would be good? or actual dropdown w/ scrollbar)
 ** play snippets of top songs (might need to redo track component)
 ** load more albums button
-** factor out makeResponse function if possible (add root variable i think)
+** factor out makeResponse function if possible (make requestor obj/class that takes in string and holds just data/error info?)
 ** show better message on error 
 **** it seems like when there's an error the api returns multiple objects, but idk how to get them
 */
@@ -77,27 +77,26 @@ class SearchBoxes extends Component {
 					Enter playlist ID: <input type='text' value={this.state.playlistID} onChange={this.playlistChange}/>
 				</label>
 				<Link to={'/paletteify/playlist/' + this.state.playlistID}>>></Link>
-				{/*<button onClick={this.toggleVisible} className='h2-button Menu-icon'><h2>UWU</h2></button>*/}
 			</div>
 		);
 	}
 }
 
-function Menu() {
-	// add logout button on end (profile/logout right aligned)
-	return (
-		<div className='Menu'>
-			<Link to='/paletteify/'>Home</Link>
-			<SearchBoxes/>
-			<div className='Menu-right'>
-				<Link to ='/paletteify/me'>My Profile</Link>
+class Menu extends Component {
+	render() {
+		return (
+			<div className='Menu'>
+				<Link to='/paletteify/'>Home</Link>
+				<SearchBoxes/>
+				<div className='Menu-right'>
+					<Link to ='/paletteify/me'>My Profile</Link>
+				</div>
 			</div>
-		</div>
-	)
+		)
+	}
 }
 
 function LoginPage(props) {
-	/*<a href={'https://www.spotify.com/logout'}>Logout</a>*/
 	return (
 		<header className='App-header Loading Cover'>
 			<h1 className='Bigboi'>Paletteify</h1>
