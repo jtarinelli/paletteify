@@ -1,6 +1,15 @@
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 
+// putting this here as a temp fix :/
+function handleErrors(response) {
+	// idk if this should be a method or not? where do i put this
+    if (!response.ok) {
+        throw Error(response.status);
+    }
+    return response;
+}
+
 class Playlists extends Component {
 	// show images like albums section? :0
 	constructor(props) {
@@ -21,14 +30,15 @@ class Playlists extends Component {
 	}
 	
 	makeRequest() {
-		const {handleErrors, token} = this.props.requestInfo;
-		let headers = {'Authorization': 'Bearer '.concat(token)};
+		let headers = {'Authorization': 'Bearer '.concat(this.props.token)};
+		console.log(headers);
 		
 		fetch('https://api.spotify.com/v1/me/playlists', {headers})
 			.then(handleErrors)
 			.then(response => response.json())
 			.then(stuff => this.setState({ 
-				data: stuff
+				data: stuff,
+				isLoaded: true
 				}))
 			.catch(error => this.setState({
 				error: true,
@@ -43,13 +53,16 @@ class Playlists extends Component {
 	componentDidUpdate(prevProps) {
 		if (prevProps !== this.props) {
 			this.makeRequest();
+			this.setState({
+				isLoaded: false
+			})
 		}
 	}
 	
 	render() {
-		const {data, error, errorCode, visible} = this.state;
+		const {data, isLoaded, error, errorCode, visible} = this.state;
 		
-		if (data !== null && !error) {
+		if (isLoaded && !error) {
 			return (	
 				<div>
 					<button className="h2-button" onClick={this.toggleVisible}><h2>Playlists</h2></button>
@@ -85,14 +98,15 @@ class CurrentUserPage extends Component {
 	}
 	
 	makeRequest() {
-		const {handleErrors} = this.props;
 		let headers = {'Authorization': 'Bearer '.concat(this.props.token)};
+		console.log(headers);
 		
 		fetch('https://api.spotify.com/v1/me', {headers})
 			.then(handleErrors)
 			.then(response => response.json())
 			.then(stuff => this.setState({ 
-				data: stuff
+				data: stuff,
+				isLoaded: true
 				}))
 			.catch(error => this.setState({
 				error: true,
@@ -107,14 +121,17 @@ class CurrentUserPage extends Component {
 	componentDidUpdate(prevProps) {
 		if (prevProps !== this.props) {
 			this.makeRequest();
+			this.setState({
+				isLoaded: false
+			})
 		}
 	}
 	
 	render() {
-		const {data, error, errorCode} = this.state;
-		const requestInfo = {handleErrors: this.props.handleErrors, token: this.props.token};
+		const {data, isLoaded, error, errorCode} = this.state;
+		const {token} = this.props;
 		
-		if (data !== null && !error) {
+		if (isLoaded && !error) {
 			return (
 				<div>
 					<header className="App-header">	
@@ -126,7 +143,7 @@ class CurrentUserPage extends Component {
 						</div>
 					</header>
 					<div>
-						<Playlists requestInfo={requestInfo}/>
+						<Playlists token={token}/>
 					</div>
 				</div>
 			)
@@ -134,6 +151,8 @@ class CurrentUserPage extends Component {
 			return (
 				<header className="App-header Loading">	
 					{error ? <h1>Error: {errorCode}</h1> : <h1>Loading...</h1>}
+					{error && errorCode !== '401' && <p><a href="https://developer.spotify.com/documentation/web-api/">Status code info here</a></p>}
+					{error && errorCode === '401' && <Link to='/paletteify/'><p>Unauthorized: Try logging in again</p></Link>}
 				</header>
 			)
 		}

@@ -7,13 +7,13 @@ import ArtistBody from './components/ArtistBody.js';
 import PlaylistPage from './components/PlaylistPage.js';
 import CurrentUserPage from './components/CurrentUserPage.js';
 
-export const authEndpoint = 'https://accounts.spotify.com/authorize'; // not used currently
+const authEndpoint = 'https://accounts.spotify.com/authorize'; // not used currently
 const clientId = "a4e61050459f4f3cbac28ccd3826f37a";
-//const redirectUri = "http://localhost:3000/paletteify/me";
-const redirectUri = "https://jtarinelli.github.io/paletteify/me";
-const scopes = ["playlist-read-private"];
+const redirectUri = "http://localhost:3000/paletteify/";
+//const redirectUri = "https://jtarinelli.github.io/paletteify/";
+var scopes = ["playlist-read-private"];
 
-const hash = window.location.hash // idk what this even is
+var hash = window.location.hash // idk what this even is
 	.substring(1)
 	.split("&")
 	.reduce(function(initial, item) {
@@ -120,7 +120,7 @@ function LoginPage(props) {
 	return (
 		<header className="App-header Loading Cover">
 			<h1 className="Bigboi">Paletteify</h1>
-			<h2 className="Login-button"><a href={`https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&scope=${scopes}`}>Login to Spotify</a></h2>
+			<h2 className="Login-button"><a href={`https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&scope=${scopes}&show_dialog=true`}>Login to Spotify</a></h2>
 			{props.token !== null && <p ><Link to="/paletteify/me">My Profile</Link></p>}
 			{props.token !== null && <SearchBoxes/>}
 		</header>
@@ -173,7 +173,7 @@ class App extends Component {
 	
 	constructor(props) {
 		super(props);
-		const token = localStorage.getItem('token');
+		let token = localStorage.getItem('token');
 		
 		this.state = ({
 			token: token
@@ -182,7 +182,6 @@ class App extends Component {
 	
 	componentDidMount() {
 		let token = hash.access_token;
-		console.log(token);
 		
 		if (token) {
 			this.setState({
@@ -212,7 +211,7 @@ class App extends Component {
 							<CurrentUserPage token={token}/>
 						</Route>
 						<Route path="/paletteify/">
-							<LoginPage token={token} handleErrors={handleErrors}/> 
+							<LoginPage token={token}/> 
 						</Route>
 					</Switch>
 				</Router>
