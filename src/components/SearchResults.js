@@ -67,7 +67,8 @@ class SearchResults extends Component {
 					<header className="App-header Loading">
 						<h1>Search for "{query}"</h1>
 					</header>
-					<div className='Body'>
+					<section className='Body'>
+						<div>
 						<button className='h2-button' onClick={this.toggleArtistsVisible}><h2>Artists</h2></button>
 						<div className={'Albums ' + (artistsVisible ? 'visible' : 'hidden')}>
 							{data.artists.items.length === 0 ? 
@@ -84,6 +85,8 @@ class SearchResults extends Component {
 								))
 							}
 						</div>
+						</div>
+						<div>
 						<button className='h2-button' onClick={this.togglePlaylistsVisible}><h2>Playlists</h2></button>
 						<div className={'Albums ' + (playlistsVisible ? 'visible' : 'hidden')}>
 							{data.playlists.items.length === 0 ? 
@@ -100,7 +103,8 @@ class SearchResults extends Component {
 								))
 							}
 						</div>
-					</div>
+						</div>
+					</section>
 				</div>
 			)
 		} else {

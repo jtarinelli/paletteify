@@ -10,7 +10,7 @@ import SearchResults from './components/SearchResults.js';
 
 const clientId = 'a4e61050459f4f3cbac28ccd3826f37a';
 const redirectUri = 'http://localhost:3000/paletteify/callback';
-//const redirectUri = 'https://jtarinelli.github.io/paletteify/callback';
+//const redirectUri = 'https://jtarinelli.github.io/paletteify/';
 var scopes = ['playlist-read-private'];
 
 var hash = window.location.hash // idk what this even is, move it into somewhere?
@@ -30,6 +30,7 @@ window.location.hash = '';
 ** put in spaces
 ** clean up css/combine classes where possible
 ** make it so you can open links in new tabs/go directly somewhere besides the home page (if possible?)
+**** make the callback actually work on git pages
 ** figure out what to do when token expires/check if token in local storage is expired 
 ** add no login option if you don't want to and figure out how to log out
 ** highlighted options change but actual selection doesn't when new playlist is loaded via search box (might not matter once is actually search)
