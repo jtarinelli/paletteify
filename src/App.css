@@ -26,7 +26,7 @@
 	color: #282c34;
 	font-size: calc(10px + 2vmin);
 	overflow: visible;
-	width: auto;
+	width: 100%;
 	background: none;
 	margin: 0;
 	padding: 0;
@@ -110,15 +110,15 @@
 	flex-grow: 2;
 }
 
-.App .Search-boxes {
-	padding-top: 6px;
+.App .Search-box {
+	padding-top: 7px;
 }
 
-.App .Search-boxes label {
+.App .Search-box label {
 	margin-left: 20px;
 }
 
-.App .Search-boxes input {
+.App .Search-box input {
 	margin: 0 10px;
 	width: 170px;
     padding: 5px 10px;
@@ -158,6 +158,7 @@
     background-size: cover;
     min-height: 100vh;
 	text-align: center;
+	margin: 0;
 }
 
 .App-header a {
@@ -310,12 +311,8 @@
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: center;
-	align-items: baseline;
+	/*align-items: center;*/
 	font-size: calc(10px + 2vmin);;
-}
-
-.Albums li {
-	list-style-type: none;
 }
 
 .Album {
@@ -328,6 +325,12 @@
 	full size is 300x300*/
 	height: 300px;
 	width: 300px;
+}
+
+.Album .Image-replacement {
+	height: 300px;
+	width: 300px;
+	background: #eee;
 }
 
 .Background {

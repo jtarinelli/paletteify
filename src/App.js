@@ -6,13 +6,14 @@ import ArtistHeader from './components/ArtistHeader.js';
 import ArtistBody from './components/ArtistBody.js';
 import PlaylistPage from './components/PlaylistPage.js';
 import CurrentUserPage from './components/CurrentUserPage.js';
+import SearchResults from './components/SearchResults.js';
 
 const clientId = 'a4e61050459f4f3cbac28ccd3826f37a';
 const redirectUri = 'http://localhost:3000/paletteify/callback';
 //const redirectUri = 'https://jtarinelli.github.io/paletteify/callback';
 var scopes = ['playlist-read-private'];
 
-var hash = window.location.hash // idk what this even is, move it into somewhere
+var hash = window.location.hash // idk what this even is, move it into somewhere?
 	.substring(1)
 	.split('&')
 	.reduce(function(initial, item) {
@@ -26,10 +27,12 @@ var hash = window.location.hash // idk what this even is, move it into somewhere
 window.location.hash = '';
 
 /* to do:
+** put in spaces
+** clean up css/combine classes where possible
 ** make it so you can open links in new tabs/go directly somewhere besides the home page (if possible?)
 ** figure out what to do when token expires/check if token in local storage is expired 
 ** add no login option if you don't want to and figure out how to log out
-** highlighted options change but actual selection doesn't when new playlist is loaded via search box
+** highlighted options change but actual selection doesn't when new playlist is loaded via search box (might not matter once is actually search)
 **** should seperate options from body so it doesn't reload a billion times everytime it updates
 ** dot size option (maybe also album image size?) 
 ** make menu collapsable
@@ -38,45 +41,33 @@ window.location.hash = '';
 ** make toptracks work better with more than 2 columns
 ** maybe? change dropdown to actual html select element instead of all divs
 ** make numBins not a dropdown(prob form/textbox would be good? or actual dropdown w/ scrollbar)
-** play snippets of top songs (might need to redo track component)
 ** load more albums button
 ** factor out makeResponse function if possible (make requestor obj/class that takes in string and holds just data/error info?)
 ** show better message on error 
 **** it seems like when there's an error the api returns multiple objects, but idk how to get them
 */
 
-class SearchBoxes extends Component {
+class SearchBox extends Component {
 	constructor(props) {
 		super(props);
-
-		this.artistChange = this.artistChange.bind(this);
-		this.playlistChange = this.playlistChange.bind(this);
+		this.queryChange = this.queryChange.bind(this);
 
 		this.state = {
-			artistID: '',
-			playlistID: '',
+			query: ''
 			};
 	}
 
-	artistChange(event) {
-		this.setState({artistID: event.target.value});
-	}
-	
-	playlistChange(event) {
-		this.setState({playlistID: event.target.value});
+	queryChange(event) {
+		this.setState({query: event.target.value});
 	}
 	
 	render() {
 		return (
-			<div className='Search-boxes'>
+			<div className='Search-box'>
 				<label>
-					Enter artist ID: <input type='text' value={this.state.artistID} onChange={this.artistChange}/>
+					Search: <input type='text' value={this.state.query} onChange={this.queryChange}/>
 				</label>
-				<Link to={'/paletteify/artist/' + this.state.artistID}>>></Link>
-				<label>
-					Enter playlist ID: <input type='text' value={this.state.playlistID} onChange={this.playlistChange}/>
-				</label>
-				<Link to={'/paletteify/playlist/' + this.state.playlistID}>>></Link>
+				<Link to={'/paletteify/search/' + this.state.query}>>></Link>
 			</div>
 		);
 	}
@@ -87,7 +78,7 @@ class Menu extends Component {
 		return (
 			<div className='Menu'>
 				<Link to='/paletteify/'>Home</Link>
-				<SearchBoxes/>
+				<SearchBox/>
 				<div className='Menu-right'>
 					<Link to ='/paletteify/me'>My Profile</Link>
 				</div>
@@ -103,13 +94,29 @@ function LoginPage(props) {
 			<h2 className='Login-button'><a href={`https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&scope=${scopes}`}>Login to Spotify</a></h2>
 			{props.token !== null && <div>
 				<p><Link to='/paletteify/me'>My Profile</Link></p>
-				<SearchBoxes/>
+				<SearchBox/>
 				</div>}
 		</header>
 	)
 }
 
-function DoPlaylistPage(props) {
+function DoSearchResults(props) {
+	const {query} = useParams();
+	var requestInfo = {
+		query: query,
+		country: 'US',
+		headers: {'Authorization': 'Bearer '.concat(props.token)},
+		handleErrors: props.handleErrors
+	}
+		
+	return (
+		<div>
+			<SearchResults requestInfo={requestInfo}/>
+		</div>
+	)
+}
+
+function DoPlaylistPage(props) { // not ideal way to do this i think
 	const {playlistID} = useParams();
 	var requestInfo = {
 		playlistID: playlistID,
@@ -185,6 +192,10 @@ class App extends Component {
 						<Route path='/paletteify/playlist/:playlistID'>
 							<Menu/>
 							<DoPlaylistPage token={token} handleErrors={this.handleErrors}/>
+							</Route>
+						<Route path='/paletteify/search/:query'>
+							<Menu/>
+							<DoSearchResults token={token} handleErrors={this.handleErrors}/>
 							</Route>
 						<Route path='/paletteify/me'>
 							<Menu/>

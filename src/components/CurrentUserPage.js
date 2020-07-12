@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
 class Playlists extends Component {
-	// show images like albums section? :0
 	constructor(props) {
 		super(props);
 		
@@ -54,18 +53,18 @@ class Playlists extends Component {
 		
 		if (isLoaded && !error) {
 			return (	
-				<div>
+				<div className='Body'>
 					<button className='h2-button' onClick={this.toggleVisible}><h2>Playlists</h2></button>
-					<ul className={'Albums ' + (visible ? 'visible' : 'hidden')}>
+					<div className={'Albums ' + (visible ? 'visible' : 'hidden')}>
 						{data.items.map((item, i) => (
-							<li key={i} className='Album'>
+							<div key={i} className='Album'>
 								<Link to={'/paletteify/playlist/' + item.id}>
 									<img src={item.images[0].url} alt={item.name}/>
 									<p>{item.name}</p>
 								</Link>
-							</li>
+							</div>
 						))}
-					</ul>
+					</div>
 				</div>
 			)
 		} else {
