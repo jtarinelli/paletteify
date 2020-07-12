@@ -27,6 +27,7 @@ window.location.hash = '';
 
 /* to do:
 ** figure out how to make redirecting to your profile page on login work (spotify redirect to redirect page that redirects to profile? lol)
+** make it so you can open links in new tabs/go directly somewhere besides the home page (if possible?)
 ** figure out what to do when token expires/check if token in local storage is expired 
 ** add no login option if you don't want to and figure out how to log out
 ** highlighted options change but actual selection doesn't when new playlist is loaded via search box
