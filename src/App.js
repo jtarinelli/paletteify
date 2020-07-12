@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Switch, Route, Link, useParams} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route, Link, Redirect, useParams} from 'react-router-dom';
 
 import './App.css';
 import ArtistHeader from './components/ArtistHeader.js';
@@ -8,8 +8,8 @@ import PlaylistPage from './components/PlaylistPage.js';
 import CurrentUserPage from './components/CurrentUserPage.js';
 
 const clientId = 'a4e61050459f4f3cbac28ccd3826f37a';
-const redirectUri = 'http://localhost:3000/paletteify/';
-//const redirectUri = 'https://jtarinelli.github.io/paletteify/';
+const redirectUri = 'http://localhost:3000/paletteify/callback';
+//const redirectUri = 'https://jtarinelli.github.io/paletteify/callback';
 var scopes = ['playlist-read-private'];
 
 var hash = window.location.hash // idk what this even is, move it into somewhere
@@ -26,7 +26,6 @@ var hash = window.location.hash // idk what this even is, move it into somewhere
 window.location.hash = '';
 
 /* to do:
-** figure out how to make redirecting to your profile page on login work (spotify redirect to redirect page that redirects to profile? lol)
 ** make it so you can open links in new tabs/go directly somewhere besides the home page (if possible?)
 ** figure out what to do when token expires/check if token in local storage is expired 
 ** add no login option if you don't want to and figure out how to log out
@@ -182,18 +181,21 @@ class App extends Component {
 						<Route path='/paletteify/artist/:artistID'>
 							<Menu/>
 							<ArtistPage token={token} handleErrors={this.handleErrors}/>
-						</Route>
+							</Route>
 						<Route path='/paletteify/playlist/:playlistID'>
 							<Menu/>
 							<DoPlaylistPage token={token} handleErrors={this.handleErrors}/>
-						</Route>
+							</Route>
 						<Route path='/paletteify/me'>
 							<Menu/>
 							<CurrentUserPage token={token} handleErrors={this.handleErrors}/>
-						</Route>
+							</Route>
+						<Route path='/paletteify/callback'>
+							<Redirect to='/paletteify/me'/>
+							</Route>
 						<Route path='/paletteify/'>
 							<LoginPage token={token}/> 
-						</Route>
+							</Route>
 					</Switch>
 				</Router>
 			</div>
