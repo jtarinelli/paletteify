@@ -6,6 +6,7 @@ import ArtistHeader from './components/ArtistHeader.js';
 import ArtistBody from './components/ArtistBody.js';
 import PlaylistPage from './components/PlaylistPage.js';
 import CurrentUserPage from './components/CurrentUserPage.js';
+import SearchBox from './components/SearchBox.js';
 import SearchResults from './components/SearchResults.js';
 
 const clientId = 'a4e61050459f4f3cbac28ccd3826f37a';
@@ -33,7 +34,6 @@ window.location.hash = '';
 **** make the callback actually work on git pages
 ** figure out what to do when token expires/check if token in local storage is expired 
 ** add no login option if you don't want to and figure out how to log out
-** highlighted options change but actual selection doesn't when new playlist is loaded via search box (might not matter once is actually search)
 **** should seperate options from body so it doesn't reload a billion times everytime it updates
 ** dot size option (maybe also album image size?) 
 ** make menu collapsable
@@ -41,38 +41,11 @@ window.location.hash = '';
 ** fix id form so both pressing enter and the button works (or not cause it'll be a search eventually anyway >:))
 ** make toptracks work better with more than 2 columns
 ** maybe? change dropdown to actual html select element instead of all divs
-** make numBins not a dropdown(prob form/textbox would be good? or actual dropdown w/ scrollbar)
 ** load more albums button
 ** factor out makeResponse function if possible (make requestor obj/class that takes in string and holds just data/error info?)
 ** show better message on error 
 **** it seems like when there's an error the api returns multiple objects, but idk how to get them
 */
-
-class SearchBox extends Component {
-	constructor(props) {
-		super(props);
-		this.queryChange = this.queryChange.bind(this);
-
-		this.state = {
-			query: ''
-			};
-	}
-
-	queryChange(event) {
-		this.setState({query: event.target.value});
-	}
-	
-	render() {
-		return (
-			<div className='Search-box'>
-				<label>
-					Search: <input type='text' value={this.state.query} onChange={this.queryChange}/>
-				</label>
-				<Link to={'/paletteify/search/' + this.state.query}>>></Link>
-			</div>
-		);
-	}
-}
 
 class Menu extends Component {
 	render() {
