@@ -112,10 +112,10 @@ class SearchResults extends Component {
 				<div className='Search-results'>
 					<header className="App-header Loading">
 						<h1>Search for {query}</h1>
-							{error && <h2>Error: {errorCode}</h2>}
+							{error && <h1>Error: {errorCode}</h1>}
 					</header>
-					{error && errorCode !== '401' && <p><a href='https://developer.spotify.com/documentation/web-api/'>Status code info here</a></p>}
-					{error && errorCode === '401' && <Link to='/paletteify/'><p>Unauthorized: Try logging in again</p></Link>}
+					{error && errorCode !== '401' && <h2><a href='https://developer.spotify.com/documentation/web-api/'>Status code info here</a></h2>}
+					{error && errorCode === '401' && <Link to='/paletteify/'><h2>Unauthorized: Try logging in again</h2></Link>}
 					{!error && <h2>Loading...</h2>}
 				</div>
 			)

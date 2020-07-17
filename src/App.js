@@ -36,9 +36,7 @@ window.location.hash = '';
 ** add no login option if you don't want to and figure out how to log out
 **** should seperate options from body so it doesn't reload a billion times everytime it updates
 ** dot size option (maybe also album image size?) 
-** make menu collapsable
-** multiple artists for playlist album
-** fix id form so both pressing enter and the button works (or not cause it'll be a search eventually anyway >:))
+** make menu collapsable? maybe?
 ** make toptracks work better with more than 2 columns
 ** maybe? change dropdown to actual html select element instead of all divs
 ** load more albums button

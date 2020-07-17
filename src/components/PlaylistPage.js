@@ -171,7 +171,19 @@ class PlaylistPage extends Component {
 											display = {display}
 											onHover = {onHover}
 											/>
-											<p><Link to={'/paletteify/artist/' + album.artists[0].id}>{album.artists[0].name}</Link></p>
+											<p>
+												{album.artists.map((artist, i) => {
+													if (i === 0) {
+														return (
+															<span key={i}><Link to={'/paletteify/artist/' + artist.id}>{artist.name}</Link></span>
+														)
+													} else {
+														return (
+															<span key={i}>, <Link to={'/paletteify/artist/' + artist.id}> {artist.name}</Link></span>
+														)
+													}
+												})}
+												</p>
 											<ul>
 												{album.tracks.map((track, i) => (
 													<li key={i}><a href={track.url}>{track.name}</a></li>

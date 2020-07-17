@@ -21,13 +21,13 @@ class Slider extends Component {
 	
 	render() {
 		let {value} = this.state;
-		const {title} = this.props;
+		const {title, min, max} = this.props;
 		
 		return (
 			<div className='Slider'>
 				<p>
 					{title}
-					<input type='range' min='1' max='20' value={value} onChange={this.valueChange}/>
+					<input type='range' min={min} max={max} value={value} onChange={this.valueChange}/>
 					{value}
 				</p>
 			</div>
@@ -135,7 +135,7 @@ class Colors extends Component {
 				<section className='Colors'>
 					<h2>Colors</h2>
 					<div className='Sorting-options'>
-						<Slider title="Max Number of Bins: " funct={this.updateNumBins} selected={numBins}/>
+						<Slider title='Max Number of Bins: ' funct={this.updateNumBins} selected={numBins} min='1' max='20'/>
 						<Dropdown className='p-button' title='Primary Sort:' labels={hsl} params={[0,1,2]} funct={this.updatePrimarySort} selected={primarySort} alwaysOpen={true}/><br/>
 						<Dropdown className='p-button' title='Secondary Sort:' labels={hsl} params={[0,1,2]} funct={this.updateSecondarySort} selected={secondarySort} alwaysOpen={true}/><br/>
 					</div>
@@ -154,7 +154,7 @@ class Colors extends Component {
 				<section className='Colors'>
 					<h2>Colors</h2>
 					<div className='Sorting-options'>
-						<Slider title="Max Number of Bins: " funct={this.updateNumBins} selected={numBins}/>
+						<Slider title="Max Number of Bins: " funct={this.updateNumBins} selected={numBins} min='1' max='20'/>
 						<Dropdown className='p-button' title='Primary Sort:' labels={hsl} params={[0,1,2]} funct={this.updatePrimarySort} selected={primarySort} alwaysOpen={true}/><br/>
 						<Dropdown className='p-button' title='Secondary Sort:' labels={hsl} params={[0,1,2]} funct={this.updateSecondarySort} selected={secondarySort} alwaysOpen={true}/><br/>
 					</div>
