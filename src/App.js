@@ -18,17 +18,17 @@ var hash = window.location.hash // idk what this even is, move it into somewhere
 	.substring(1)
 	.split('&')
 	.reduce(function(initial, item) {
-	if (item) {
-		var parts = item.split('=');
-		initial[parts[0]] = decodeURIComponent(parts[1]);
-	}
-	return initial;
+		if (item) {
+			var parts = item.split('=');
+			initial[parts[0]] = decodeURIComponent(parts[1]);
+		}
+		return initial;
 	}, {});
 
 window.location.hash = '';
 
 /* to do:
-** put in spaces
+** put in line breaks, especially in render methods
 ** clean up css/combine classes where possible
 ** make it so you can open links in new tabs/go directly somewhere besides the home page (if possible?)
 **** make the callback actually work on git pages
@@ -64,10 +64,12 @@ function LoginPage(props) {
 		<header className='App-header Loading Cover'>
 			<h1 className='Bigboi'>Paletteify</h1>
 			<h2 className='Login-button'><a href={`https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&scope=${scopes}`}>Login to Spotify</a></h2>
+			
 			{props.token !== null && <div>
 				<p><Link to='/paletteify/me'>My Profile</Link></p>
 				<SearchBox/>
 				</div>}
+			
 		</header>
 	)
 }
@@ -127,18 +129,14 @@ class App extends Component {
 		super(props);
 		const token = localStorage.getItem('token');
 		
-		this.state = ({
-			token: token
-		})
+		this.state = ({token: token});
 	}
 	
 	componentDidMount() {
 		const token = hash.access_token;
 		
 		if (token) {
-			this.setState({
-				token: token
-			});
+			this.setState({token: token});
 			localStorage.setItem('token', token);
 		}
 	}
@@ -157,6 +155,7 @@ class App extends Component {
 			<div className='App'>
 				<Router>
 					<Switch>
+					
 						<Route path='/paletteify/artist/:artistID'>
 							<Menu/>
 							<ArtistPage token={token} handleErrors={this.handleErrors}/>
@@ -179,6 +178,7 @@ class App extends Component {
 						<Route path='/paletteify/'>
 							<LoginPage token={token}/> 
 							</Route>
+							
 					</Switch>
 				</Router>
 			</div>

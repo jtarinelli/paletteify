@@ -50,9 +50,7 @@ class SearchResults extends Component {
 	componentDidUpdate(prevProps) {
 		if (prevProps !== this.props) {
 			this.makeRequest();
-			this.setState({
-				isLoaded: false
-			})
+			this.setState({isLoaded: false})
 		}
 	}
 	
@@ -64,15 +62,19 @@ class SearchResults extends Component {
 			console.log(data.artists.items[0]);
 			return (			
 				<div className='Search-results'>
+				
 					<header className="App-header Loading">
 						<h1>Search for "{query}"</h1>
 					</header>
+					
 					<section className='Body'>
-						<div>
 						<button className='h2-button' onClick={this.toggleArtistsVisible}><h2>Artists</h2></button>
 						<div className={'Albums ' + (artistsVisible ? 'visible' : 'hidden')}>
+						
 							{data.artists.items.length === 0 ? 
+								
 								<p>No results found</p> :
+								
 								data.artists.items.map((artist, i) => (
 									<div className='Album' key={i}>
 										<Link to={{pathname: '/paletteify/artist/'.concat(artist.id)}}>
@@ -82,44 +84,55 @@ class SearchResults extends Component {
 											<p>{artist.name}</p>
 										</Link>
 									</div>
-								))
-							}
+								))}
+
 						</div>
-						</div>
+						
 						<div>
 						<button className='h2-button' onClick={this.togglePlaylistsVisible}><h2>Playlists</h2></button>
 						<div className={'Albums ' + (playlistsVisible ? 'visible' : 'hidden')}>
 							{data.playlists.items.length === 0 ? 
 								<p>No results found</p> :
+								
 								data.playlists.items.map((playlist, i) => (
 									<div className='Album' key={i}>
 										<Link to={{pathname: '/paletteify/playlist/'.concat(playlist.id)}}>
+											
 											{playlist.images.length === 0 ? 
+											
 											<div className='Image-replacement'/> :
+					
 											<img src={playlist.images[0].url} alt={playlist.name}/>}
+											
 											<p>{playlist.name}</p>
 										</Link>
 									</div>
-								))
-							}
+							))}
 						</div>
 						</div>
+						
 					</section>
+				
 				</div>
 			)
+		
 		} else {
 			return (
 				<div className='Search-results'>
+				
 					<header className="App-header Loading">
-						<h1>Search for {query}</h1>
+						<h1>Search for "{query}"</h1>
 							{error && <h1>Error: {errorCode}</h1>}
 					</header>
+					
 					{error && errorCode !== '401' && <h2><a href='https://developer.spotify.com/documentation/web-api/'>Status code info here</a></h2>}
 					{error && errorCode === '401' && <Link to='/paletteify/'><h2>Unauthorized: Try logging in again</h2></Link>}
 					{!error && <h2>Loading...</h2>}
+					
 				</div>
 			)
 		}
+		
 	}
 }
 

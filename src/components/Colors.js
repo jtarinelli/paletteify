@@ -1,39 +1,7 @@
 import React, {Component} from 'react';
 import Dot from './Dot.js';
 import Dropdown from './Dropdown.js';
-
-class Slider extends Component {
-	
-	constructor(props) {
-		super(props);
-		this.valueChange = this.valueChange.bind(this);
-		
-		this.state = {
-			value: this.props.selected
-		}
-	}
-	
-	valueChange(event) {
-		const newValue = event.target.value;
-		this.setState({value: newValue});
-		this.props.funct(newValue);
-	}
-	
-	render() {
-		let {value} = this.state;
-		const {title, min, max} = this.props;
-		
-		return (
-			<div className='Slider'>
-				<p>
-					{title}
-					<input type='range' min={min} max={max} value={value} onChange={this.valueChange}/>
-					{value}
-				</p>
-			</div>
-		)
-	}
-}
+import Slider from './Slider.js';
 
 class Colors extends Component {
 	
@@ -98,21 +66,15 @@ class Colors extends Component {
 	}
 	
 	updatePrimarySort(hsl) {
-		this.setState({
-			primarySort: hsl
-		})
+		this.setState({primarySort: hsl})
 	}
 	
 	updateSecondarySort(hsl) {
-		this.setState({
-			secondarySort: hsl
-		})
+		this.setState({secondarySort: hsl})
 	}
 	
 	updateNumBins(num) {
-		this.setState({
-			numBins: num
-		})
+		this.setState({numBins: num})
 	}
 	
 	render() {
@@ -120,9 +82,10 @@ class Colors extends Component {
 		var {numBins, primarySort, secondarySort} = this.state;
 		const hsl = ['Hue', 'Saturation', 'Lightness'];
 		const gradientStyles = [
-		{backgroundImage: 'linear-gradient(to right, white, magenta, purple, blue, green, yellow, orange, red)'},
-		{backgroundImage: 'linear-gradient(to right, #47d8ff, gray)'},
-		{backgroundImage: 'linear-gradient(to right, white, #47d8ff, black)'}]
+			{backgroundImage: 'linear-gradient(to right, white, magenta, purple, blue, green, yellow, orange, red)'},
+			{backgroundImage: 'linear-gradient(to right, #47d8ff, gray)'},
+			{backgroundImage: 'linear-gradient(to right, white, #47d8ff, black)'}
+		]
 
 		if (colors !== null) {
 			let bins = this.makeBins(colors, numBins, primarySort); 
@@ -134,34 +97,49 @@ class Colors extends Component {
 			return (
 				<section className='Colors'>
 					<h2>Colors</h2>
+					
 					<div className='Sorting-options'>
 						<Slider title='Max Number of Bins: ' funct={this.updateNumBins} selected={numBins} min='1' max='20'/>
+						
 						<Dropdown className='p-button' title='Primary Sort:' labels={hsl} params={[0,1,2]} funct={this.updatePrimarySort} selected={primarySort} alwaysOpen={true}/><br/>
+						
 						<Dropdown className='p-button' title='Secondary Sort:' labels={hsl} params={[0,1,2]} funct={this.updateSecondarySort} selected={secondarySort} alwaysOpen={true}/><br/>
 					</div>
+					
 					<div className='Gradient' style={gradientStyles[primarySort]}></div>
+					
 					<div className='Dots'>
+						
 						{bins.map((bin, i) => (
 							<div className='Bin' key={i}>
 									{bin.map((color, j) => (<Dot key = {j} bgColor = {color}/>))}
 							</div>
 						))}
+						
 					</div>
+					
 				</section>
 			)
+			
 		} else {
 			return (
 				<section className='Colors'>
 					<h2>Colors</h2>
+					
 					<div className='Sorting-options'>
 						<Slider title="Max Number of Bins: " funct={this.updateNumBins} selected={numBins} min='1' max='20'/>
+						
 						<Dropdown className='p-button' title='Primary Sort:' labels={hsl} params={[0,1,2]} funct={this.updatePrimarySort} selected={primarySort} alwaysOpen={true}/><br/>
+						
 						<Dropdown className='p-button' title='Secondary Sort:' labels={hsl} params={[0,1,2]} funct={this.updateSecondarySort} selected={secondarySort} alwaysOpen={true}/><br/>
 					</div>
+					
 					<div className='Gradient' style={gradientStyles[primarySort]}></div>
+				
 				</section>
 			)
 		}
+		
 	}
 		
 }	

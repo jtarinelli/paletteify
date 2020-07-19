@@ -42,9 +42,7 @@ class Playlists extends Component {
 	componentDidUpdate(prevProps) {
 		if (prevProps !== this.props) {
 			this.makeRequest();
-			this.setState({
-				isLoaded: false
-			})
+			this.setState({isLoaded: false})
 		}
 	}
 	
@@ -56,6 +54,7 @@ class Playlists extends Component {
 				<div className='Body'>
 					<button className='h2-button' onClick={this.toggleVisible}><h2>Playlists</h2></button>
 					<div className={'Albums ' + (visible ? 'visible' : 'hidden')}>
+						
 						{data.items.map((item, i) => (
 							<div key={i} className='Album'>
 								<Link to={'/paletteify/playlist/' + item.id}>
@@ -64,9 +63,11 @@ class Playlists extends Component {
 								</Link>
 							</div>
 						))}
+						
 					</div>
 				</div>
 			)
+			
 		} else {
 			return (
 				<div>	
@@ -74,6 +75,7 @@ class Playlists extends Component {
 				</div>
 			)
 		}
+		
 	}
 }
 
@@ -112,9 +114,7 @@ class CurrentUserPage extends Component {
 	componentDidUpdate(prevProps) {
 		if (prevProps !== this.props) {
 			this.makeRequest();
-			this.setState({
-				isLoaded: false
-			})
+			this.setState({isLoaded: false})
 		}
 	}
 	
@@ -125,6 +125,7 @@ class CurrentUserPage extends Component {
 		if (isLoaded && !error) {
 			return (
 				<div>
+					
 					<header className='App-header'>	
 						<div className='Playlist-image'>
 							<img src={data.images[0].url} alt={data.name}/>
@@ -133,20 +134,26 @@ class CurrentUserPage extends Component {
 							<a href={data.external_urls.spotify}><h1>{data.display_name}</h1></a>
 						</div>
 					</header>
+					
 					<div className="User-body">
 						<Playlists token={token}/>
 					</div>
+					
 				</div>
 			)
+		
 		} else {
 			return (
 				<header className='App-header Loading'>	
 					{error ? <h1>Error: {errorCode}</h1> : <h1>Loading...</h1>}
-					{error && errorCode !== '401' && <p><a href='https://developer.spotify.com/documentation/web-api/'>Status code info here</a></p>}
-					{error && errorCode === '401' && <Link to='/paletteify/'><p>Unauthorized: Try logging in again</p></Link>}
+					{error && errorCode !== '401' && 
+						<p><a href='https://developer.spotify.com/documentation/web-api/'>Status code info here</a></p>}
+					{error && errorCode === '401' && 
+						<Link to='/paletteify/'><p>Unauthorized: Try logging in again</p></Link>}
 				</header>
 			)
 		}
+		
 	}
 }
 

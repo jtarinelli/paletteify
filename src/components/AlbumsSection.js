@@ -69,13 +69,9 @@ class AlbumsSection extends Component {
 		const albumsCount = this.state.data.items.length;
 		
 		if (prevColors === null) {
-			this.setState({
-				colors: albumColors
-			})
+			this.setState({colors: albumColors})
 		} else {
-			this.setState({
-				colors: prevColors.concat(albumColors)
-			})
+			this.setState({colors: prevColors.concat(albumColors)})
 		}
 			
 		// when all album colors are collected, send them up to AlbumsSingles
@@ -90,14 +86,15 @@ class AlbumsSection extends Component {
 		
 		if (isLoaded && data.items.length === 0) {
 			return null;
+			
 		} else if (isLoaded && !error) {
 			return (
 				<div>
 					<button onClick={this.toggleVisible} className='h2-button'><h2>{title}</h2></button>
 					<div className = {'Albums ' + (visible ? 'visible' : 'hidden')}>
-						{data.items.map(
-							(album, i) => (
-								<div className='Album' key={i}>
+						
+						{data.items.map((album, i) => (
+							<div className='Album' key={i}>
 								<Album 
 								name = {album.name}
 								image = {album.images[1].url}
@@ -107,12 +104,13 @@ class AlbumsSection extends Component {
 								display = {display}
 								onHover = {onHover}
 								/>
-								</div>
-							)
-						)}
+							</div>
+						))}
+						
 					</div>
 				</div>
-			) 
+			)
+			
 		} else {
 			return (
 				<div>

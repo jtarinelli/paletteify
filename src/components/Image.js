@@ -8,9 +8,7 @@ constructor(props) {
 		
 		this.state = {
 			colorsLoaded: false,
-			bgStyle: {
-				backgroundImage: 'white'
-			},
+			bgStyle: {backgroundImage: 'white'},
 			imageColors: []
 		}
 
@@ -55,6 +53,7 @@ constructor(props) {
 		
 		for (var i = 0; i < colors.length; i++) {
 			gradientString += colors[i] + ' ' + stripeWidth*i + 'px,' + colors[i] + ' ' + stripeWidth*(i+1) + 'px';
+			
 			if (i < colors.length - 1) {
 				gradientString += ',';
 			}
@@ -66,11 +65,7 @@ constructor(props) {
 			colors.pop(); // for radial version only!
 		}
 		
-		this.setState({
-				bgStyle: {
-					backgroundImage: gradientString
-				}
-			})
+		this.setState({bgStyle: {backgroundImage: gradientString}})
 	}
 
 	fetchColors(imageURL) {

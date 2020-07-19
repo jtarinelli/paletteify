@@ -17,27 +17,19 @@ class ArtistBody extends Component {
 	}
 	
 	grabColors = (allColors) => {
-		this.setState({
-			colors: allColors
-		})
+		this.setState({colors: allColors})
 	}
 	
 	grabNumColors = (num) => {
-		this.setState({
-			numColors: num
-		})
+		this.setState({numColors: num})
 	}
 	
 	grabDisplay = (option) => {
-		this.setState({
-			display: option
-		})
+		this.setState({display: option})
 	}
 	
 	grabOnHover = (option) => {
-		this.setState({
-			onHover: option
-		})
+		this.setState({onHover: option})
 	}
 	
 	render() {

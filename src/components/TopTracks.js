@@ -37,18 +37,19 @@ class TopTracks extends Component {
 				<div>
 					<p>Top Tracks</p>
 					<ol className='Top-tracks'>
-						{data.tracks.map(
-							(track, i) => (
-								<li className='Track' key = {i}>
-									<a href ={track.external_urls.spotify}>
-										<p>{track.name}</p>
-									</a>
-								</li>
-							)
-						)}
+						
+						{data.tracks.map((track, i) => (
+							<li className='Track' key = {i}>
+								<a href ={track.external_urls.spotify}>
+									<p>{track.name}</p>
+								</a>
+							</li>
+						))}
+						
 					</ol>
 				</div>
 			)
+			
 		} else {
 			return (
 				<div>

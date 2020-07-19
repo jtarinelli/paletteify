@@ -53,22 +53,24 @@ class ArtistHeader extends Component {
 		
 		if (isLoaded && !error) {
 			return (
-			<header className="App-header">
-				<div className="Artist-image"><img src={data.images[0].url} alt={data.name}/></div>
-				<div className="Artist-info">
-					<h1><a href={data.external_urls.spotify}>{data.name}</a></h1>
-					<TopTracks requestInfo={requestInfo}/>
-				</div>
-			</header>
+				<header className="App-header">
+					<div className="Artist-image"><img src={data.images[0].url} alt={data.name}/></div>
+					<div className="Artist-info">
+						<h1><a href={data.external_urls.spotify}>{data.name}</a></h1>
+						<TopTracks requestInfo={requestInfo}/>
+					</div>
+				</header>
 			)
 			
 		} else {
 			return (
-			<header className="App-header Loading">
-				{error ? <h1>Error: {errorCode}</h1> : <h1>Loading...</h1>}
-					{error && errorCode !== '401' && <p><a href="https://developer.spotify.com/documentation/web-api/">Status code info here</a></p>}
-					{error && errorCode === '401' && <Link to='/paletteify/'><p>Unauthorized: Try logging in again</p></Link>}
-			</header>
+				<header className="App-header Loading">
+					{error ? <h1>Error: {errorCode}</h1> : <h1>Loading...</h1>}
+					{error && errorCode !== '401' && 
+						<p><a href="https://developer.spotify.com/documentation/web-api/">Status code info here</a></p>}
+					{error && errorCode === '401' && 
+						<Link to='/paletteify/'><p>Unauthorized: Try logging in again</p></Link>}
+				</header>
 			)
 		} 
 		
