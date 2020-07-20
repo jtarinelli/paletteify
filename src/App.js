@@ -12,7 +12,7 @@ import SearchResults from './components/SearchResults.js';
 const clientId = 'a4e61050459f4f3cbac28ccd3826f37a';
 const redirectUri = 'http://localhost:3000/paletteify/callback';
 //const redirectUri = 'https://jtarinelli.github.io/paletteify/';
-var scopes = ['playlist-read-private'];
+var scopes = ['playlist-read-private', 'user-top-read'];
 
 var hash = window.location.hash // idk what this even is, move it into somewhere?
 	.substring(1)
@@ -28,7 +28,6 @@ var hash = window.location.hash // idk what this even is, move it into somewhere
 window.location.hash = '';
 
 /* to do:
-** put in line breaks, especially in render methods
 ** clean up css/combine classes where possible
 ** make it so you can open links in new tabs/go directly somewhere besides the home page (if possible?)
 **** make the callback actually work on git pages

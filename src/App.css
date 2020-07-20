@@ -190,6 +190,7 @@
 
 .Playlist-body p, .Playlist-body li {
 	text-align: left;
+	font-size: 18px;
 }
 
 .Playlist-body p {
@@ -329,6 +330,24 @@
 .Album .Image-replacement {
 	height: 300px;
 	width: 300px;
+	background: #eee;
+}
+
+.Album-small {
+	padding: 1.5vw;
+	width: 200px;
+	overflow: hidden;
+	font-size: 18px;
+}
+
+.Album-small img {
+	height: 200px;
+	width: 200px;
+}
+
+.Album-small .Image-replacement {
+	height: 200px;
+	width: 200px;
 	background: #eee;
 }
 

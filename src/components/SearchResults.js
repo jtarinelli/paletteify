@@ -76,7 +76,7 @@ class SearchResults extends Component {
 								<p>No results found</p> :
 								
 								data.artists.items.map((artist, i) => (
-									<div className='Album' key={i}>
+									<div className='Album-small' key={i}>
 										<Link to={{pathname: '/paletteify/artist/'.concat(artist.id)}}>
 											{artist.images.length === 0 ? 
 											<div className='Image-replacement'/> :
@@ -95,14 +95,16 @@ class SearchResults extends Component {
 								<p>No results found</p> :
 								
 								data.playlists.items.map((playlist, i) => (
-									<div className='Album' key={i}>
+									<div className='Album-small' key={i}>
 										<Link to={{pathname: '/paletteify/playlist/'.concat(playlist.id)}}>
 											
 											{playlist.images.length === 0 ? 
 											
-											<div className='Image-replacement'/> :
-					
-											<img src={playlist.images[0].url} alt={playlist.name}/>}
+												<div className='Image-replacement'/> :
+						
+												<img src={playlist.images[0].url} alt={playlist.name}/>
+												
+											}
 											
 											<p>{playlist.name}</p>
 										</Link>
