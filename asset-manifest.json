@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/paletteify/static/css/main.1f9510f8.chunk.css",
-    "main.js": "/paletteify/static/js/main.f5ec09f8.chunk.js",
-    "main.js.map": "/paletteify/static/js/main.f5ec09f8.chunk.js.map",
+    "main.css": "/paletteify/static/css/main.89c676b8.chunk.css",
+    "main.js": "/paletteify/static/js/main.d997bea2.chunk.js",
+    "main.js.map": "/paletteify/static/js/main.d997bea2.chunk.js.map",
     "runtime-main.js": "/paletteify/static/js/runtime-main.3471e6ae.js",
     "runtime-main.js.map": "/paletteify/static/js/runtime-main.3471e6ae.js.map",
     "static/js/2.7d67bbda.chunk.js": "/paletteify/static/js/2.7d67bbda.chunk.js",
     "static/js/2.7d67bbda.chunk.js.map": "/paletteify/static/js/2.7d67bbda.chunk.js.map",
     "index.html": "/paletteify/index.html",
-    "precache-manifest.5155d57d45b04db9203f98936ef644fb.js": "/paletteify/precache-manifest.5155d57d45b04db9203f98936ef644fb.js",
+    "precache-manifest.cc7de5b51c40ecc74087fd8904ccd192.js": "/paletteify/precache-manifest.cc7de5b51c40ecc74087fd8904ccd192.js",
     "service-worker.js": "/paletteify/service-worker.js",
-    "static/css/main.1f9510f8.chunk.css.map": "/paletteify/static/css/main.1f9510f8.chunk.css.map",
+    "static/css/main.89c676b8.chunk.css.map": "/paletteify/static/css/main.89c676b8.chunk.css.map",
     "static/js/2.7d67bbda.chunk.js.LICENSE.txt": "/paletteify/static/js/2.7d67bbda.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.3471e6ae.js",
     "static/js/2.7d67bbda.chunk.js",
-    "static/css/main.1f9510f8.chunk.css",
-    "static/js/main.f5ec09f8.chunk.js"
+    "static/css/main.89c676b8.chunk.css",
+    "static/js/main.d997bea2.chunk.js"
   ]
 }
