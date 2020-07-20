@@ -30,12 +30,37 @@ class SearchResults extends Component {
 	makeRequest() {
 		const {query, headers, handleErrors} = this.props.requestInfo;
 		
-		fetch('https://api.spotify.com/v1/search?q='.concat(query).concat('&type=artist%2Cplaylist'), {headers})
+		fetch('https://api.spotify.com/v1/search?q='.concat(query).concat('&type=artist%2Cplaylist&limit=19'), {headers})
 			.then(handleErrors)
 			.then(response => response.json())
 			.then(stuff => this.setState({ 
 				data: stuff,
 				isLoaded: true
+				}))
+			.catch(error => this.setState({
+				error: true,
+				errorCode: error.message
+			}));
+	}
+	
+	requestNextPage(url) {
+		const {headers, handleErrors} = this.props.requestInfo;
+		
+		fetch(url, {headers})
+			.then(handleErrors)
+			.then(response => response.json())
+			.then(stuff => this.setState(prevState => {				
+				let newData = prevState.data;
+				
+				if (stuff.artists !== undefined) {
+					newData.artists.items = newData.artists.items.concat(stuff.artists.items);
+					newData.artists.next = stuff.artists.next;
+				} else if (stuff.playlists !== undefined) {
+					newData.playlists.items = newData.playlists.items.concat(stuff.playlists.items);
+					newData.playlists.next = stuff.playlists.next;
+				}
+				
+				return ({data: newData})
 				}))
 			.catch(error => this.setState({
 				error: true,
@@ -59,7 +84,7 @@ class SearchResults extends Component {
 		const {query} = this.props.requestInfo;
 		
 		if (isLoaded && !error) {
-			console.log(data.artists.items[0]);
+			console.log(data);
 			return (			
 				<div className='Search-results'>
 				
@@ -85,6 +110,17 @@ class SearchResults extends Component {
 										</Link>
 									</div>
 								))}
+								
+								{data.artists.next !== null &&
+									<button className='h2-button Album-small-button' onClick={() => this.requestNextPage(data.artists.next)}>
+										<div className='Album-small'>
+											<div className='Image-replacement'>
+												<h2>Load more</h2>
+											</div>
+											<p>  </p>
+										</div>
+									</button>
+								}
 
 						</div>
 						
@@ -110,6 +146,17 @@ class SearchResults extends Component {
 										</Link>
 									</div>
 							))}
+							
+							{data.playlists.next !== null &&
+									<button className='h2-button Album-small-button' onClick={() => this.requestNextPage(data.playlists.next)}>
+										<div className='Album-small'>
+											<div className='Image-replacement'>
+												<h2>Load more</h2>
+											</div>
+											<p>  </p>
+										</div>
+									</button>
+								}
 						</div>
 						</div>
 						

@@ -56,6 +56,10 @@
 	text-decoration-color:  #41bee0;
 }
 
+.App .Album-small-button {
+	display: flex;
+}
+
 .App .Disappears {
 	-webkit-transition: 0.65s;
 	-moz-transition: 0.65s;
@@ -358,6 +362,9 @@
 	width: 200px;
 	overflow: hidden;
 	font-size: 18px;
+	display: flex;
+	align-items: flex-start;
+    justify-content: center;
 }
 
 .Album-small img {
@@ -369,6 +376,9 @@
 	height: 200px;
 	width: 200px;
 	background: #eee;
+	display: flex;
+	align-items: center;
+    justify-content: center;
 }
 
 .Background {

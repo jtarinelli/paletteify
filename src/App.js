@@ -10,8 +10,8 @@ import SearchBox from './components/SearchBox.js';
 import SearchResults from './components/SearchResults.js';
 
 const clientId = 'a4e61050459f4f3cbac28ccd3826f37a';
-//const redirectUri = 'http://localhost:3000/paletteify/callback';
-const redirectUri = 'https://jtarinelli.github.io/paletteify/';
+const redirectUri = 'http://localhost:3000/paletteify/callback';
+//const redirectUri = 'https://jtarinelli.github.io/paletteify/';
 var scopes = ['playlist-read-private', 'user-top-read'];
 
 var hash = window.location.hash // idk what this even is, move it into somewhere?
@@ -29,6 +29,7 @@ window.location.hash = '';
 
 /* to do:
 ** make home screen when logged in less ugly
+** make image replacement in search results/load more button look nicer
 ** clean up css/combine classes where possible
 ** make it so you can open links in new tabs/go directly somewhere besides the home page (if possible?)
 **** make the callback actually work on git pages
