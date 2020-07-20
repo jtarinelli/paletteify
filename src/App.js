@@ -10,8 +10,8 @@ import SearchBox from './components/SearchBox.js';
 import SearchResults from './components/SearchResults.js';
 
 const clientId = 'a4e61050459f4f3cbac28ccd3826f37a';
-const redirectUri = 'http://localhost:3000/paletteify/callback';
-//const redirectUri = 'https://jtarinelli.github.io/paletteify/';
+//const redirectUri = 'http://localhost:3000/paletteify/callback';
+const redirectUri = 'https://jtarinelli.github.io/paletteify/';
 var scopes = ['playlist-read-private', 'user-top-read'];
 
 var hash = window.location.hash // idk what this even is, move it into somewhere?
@@ -28,6 +28,7 @@ var hash = window.location.hash // idk what this even is, move it into somewhere
 window.location.hash = '';
 
 /* to do:
+** make home screen when logged in less ugly
 ** clean up css/combine classes where possible
 ** make it so you can open links in new tabs/go directly somewhere besides the home page (if possible?)
 **** make the callback actually work on git pages
@@ -62,13 +63,16 @@ function LoginPage(props) {
 	return (
 		<header className='App-header Loading Cover'>
 			<h1 className='Bigboi'>Paletteify</h1>
-			<h2 className='Login-button'><a href={`https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&scope=${scopes}`}>Login to Spotify</a></h2>
+			<a href={`https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&scope=${scopes}`}>
+				<h2 className='Login-button'>Login to Spotify</h2>
+			</a>
 			
-			{props.token !== null && <div>
-				<p><Link to='/paletteify/me'>My Profile</Link></p>
-				<SearchBox/>
-				</div>}
-			
+			{props.token !== null && 
+				<div className='Menu'>
+					<Link to ='/paletteify/me'>My Profile</Link>
+					<SearchBox/>
+				</div>}	
+				
 		</header>
 	)
 }
