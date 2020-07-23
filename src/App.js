@@ -27,26 +27,6 @@ var hash = window.location.hash // idk what this even is, move it into somewhere
 
 window.location.hash = '';
 
-/* to do:
-** iron out updating colors when loading new page of albums
-** make home screen when logged in less ugly
-** make image replacement in search results/load more button look nicer
-** clean up css/combine classes where possible
-** make it so you can open links in new tabs/go directly somewhere besides the home page (if possible?)
-**** make the callback actually work on git pages
-** figure out what to do when token expires/check if token in local storage is expired 
-** add no login option if you don't want to and figure out how to log out
-**** should seperate options from body so it doesn't reload a billion times everytime it updates
-** dot size option (maybe also album image size?) 
-** make menu collapsable? maybe?
-** make toptracks work better with more than 2 columns
-** maybe? change dropdown to actual html select element instead of all divs
-** load more albums button
-** factor out makeResponse function if possible (make requestor obj/class that takes in string and holds just data/error info?)
-** show better message on error 
-**** it seems like when there's an error the api returns multiple objects, but idk how to get them
-*/
-
 class Menu extends Component {
 	render() {
 		return (
