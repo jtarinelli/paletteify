@@ -346,6 +346,8 @@ p b {
 .Album {
 	padding: 2vw;
 	width: 300px;
+	align-items: center;
+    justify-content: center;
 }
 
 .Album img {
@@ -359,6 +361,9 @@ p b {
 	height: 300px;
 	width: 300px;
 	background: #eee;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .Album-small {

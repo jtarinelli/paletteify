@@ -73,6 +73,26 @@ class PlaylistPage extends Component {
 			}));
 	}
 	
+	requestNextPage(url) {
+		const {headers, handleErrors} = this.props.requestInfo;
+		
+		fetch(url, {headers})
+			.then(handleErrors)
+			.then(response => response.json())
+			.then(stuff => this.setState(prevState => {				
+				let newData = prevState.data;
+								
+				newData.tracks.items = prevState.data.tracks.items.concat(stuff.items);
+				newData.tracks.next = stuff.next;
+				
+				return ({data: newData})
+				}))
+			.catch(error => this.setState({
+				error: true,
+				errorCode: error.message
+			}));
+	}
+	
 	grabColors = (albumColors) => {
 		let prevColors = this.state.colors;	
 		
@@ -119,6 +139,10 @@ class PlaylistPage extends Component {
 			})
 		} 
 		
+		if (this.state.isLoaded && prevState.data.tracks.items !== this.state.data.tracks.items) {
+			this.makeAlbums();
+		}
+		
 		if (prevState.numColors !== this.state.numColors) {
 			this.setState({
 				colors: null
@@ -131,6 +155,7 @@ class PlaylistPage extends Component {
 		const albums = Object.values(this.state.albums);
 		
 		if (isLoaded && !error) {
+			console.log(albums);
 			return (
 				<div>
 				
@@ -188,6 +213,18 @@ class PlaylistPage extends Component {
 										
 									</div>
 								))}
+								
+								{/*data.tracks.next !== null &&
+									<button className='h2-button Album-small-button' onClick={() => this.requestNextPage(data.tracks.next)}>
+										<div className='Album'>
+											<div className='Image-replacement'>
+												<h2>Load more</h2>
+											</div>
+											<p>  </p>
+										</div>
+									</button>
+								*/}
+								
 							</div>
 						</div>
 						

@@ -28,6 +28,7 @@ var hash = window.location.hash // idk what this even is, move it into somewhere
 window.location.hash = '';
 
 /* to do:
+** iron out updating colors when loading new page of albums
 ** make home screen when logged in less ugly
 ** make image replacement in search results/load more button look nicer
 ** clean up css/combine classes where possible

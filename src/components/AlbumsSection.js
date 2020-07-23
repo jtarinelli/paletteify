@@ -39,11 +39,31 @@ class AlbumsSection extends Component {
 			}));
 	}
 	
+	requestNextPage(url) {
+		const {headers, handleErrors} = this.props.requestInfo;
+		
+		fetch(url, {headers})
+			.then(handleErrors)
+			.then(response => response.json())
+			.then(stuff => this.setState(prevState => {				
+				let newData = prevState.data;
+				
+				newData.items = prevState.data.items.concat(stuff.items);
+				newData.next = stuff.next;
+				
+				return ({data: newData})
+				}))
+			.catch(error => this.setState({
+				error: true,
+				errorCode: error.message
+			}));
+	}
+	
 	componentDidMount() {
 		this.makeRequest();
 	}
 	
-	componentDidUpdate(prevProps) {
+	componentDidUpdate(prevProps, prevState) {
 		if (this.props.requestInfo !== prevProps.requestInfo) {
 			this.makeRequest();
 			this.setState({
@@ -75,7 +95,7 @@ class AlbumsSection extends Component {
 		}
 			
 		// when all album colors are collected, send them up to AlbumsSingles
-		if (this.state.colors.length === albumsCount * numColors) {
+		if (this.state.colors.length >= albumsCount * numColors) {
 			passUpColors(this.state.colors); 
 		}
 	}
@@ -106,6 +126,17 @@ class AlbumsSection extends Component {
 								/>
 							</div>
 						))}
+						
+						{data.next !== null &&
+							<button className='h2-button' onClick={() => this.requestNextPage(data.next)}>
+								<div className='Album'>
+									<div className='Image-replacement'>
+										<h2>Load more</h2>
+									</div>
+									<p>  </p>
+								</div>
+							</button>
+						}
 						
 					</div>
 				</div>

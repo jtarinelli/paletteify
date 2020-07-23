@@ -12,7 +12,7 @@ class AlbumsSingles extends Component {
 		})
 	}
 	
-	componentDidUpdate(prevProps) {
+	componentDidUpdate(prevProps, prevState) {
 		if (this.props.requestInfo !== prevProps.requestInfo || this.props.numColors !== prevProps.numColors) {
 			this.setState({
 				colors: null,
@@ -31,7 +31,7 @@ class AlbumsSingles extends Component {
 				colors: albumsColors,
 				sectionsLoaded: 1
 			})
-		} else {
+		} else if (this.state.sectionsLoaded < 2) { //change to a variable
 			this.setState({
 				colors: prevColors.concat(albumsColors),
 				sectionsLoaded: prevSectionsLoaded + 1
@@ -39,14 +39,14 @@ class AlbumsSingles extends Component {
 		}
 			
 		if (this.state.sectionsLoaded === 2) { //change to a variable
-			passUpColors(this.state.colors);
+				passUpColors(this.state.colors);
 		}
 
 	}
 	
 	render() {
 		const {requestInfo, numColors, display, onHover} = this.props;
-		
+
 		return (
 			<section className = 'Albums-Singles'>
 			
