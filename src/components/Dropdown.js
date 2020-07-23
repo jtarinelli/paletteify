@@ -23,7 +23,7 @@ class Dropdown extends Component {
 		return (
 			<div className='Dropdown' onMouseEnter={this.toggleVisible} onMouseLeave={this.toggleVisible}>
 			
-			{alwaysOpen ? <p>{title}</p> : <div className={className}  title={tooltip}>{title}</div>}
+			{alwaysOpen ? <p><b>{title}</b></p> : <div className={className}  title={tooltip}>{title}</div>}
 			
 				<ul className={'Dropdown-content ' + (visible ? 'visible' : 'hidden')}>
 					

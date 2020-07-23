@@ -128,7 +128,7 @@ class AlbumsSection extends Component {
 						))}
 						
 						{data.next !== null &&
-							<button className='h2-button' onClick={() => this.requestNextPage(data.next)}>
+							<button className='h2-button Album-small-button' onClick={() => this.requestNextPage(data.next)}>
 								<div className='Album'>
 									<div className='Image-replacement'>
 										<h2>Load more</h2>

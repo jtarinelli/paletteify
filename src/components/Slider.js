@@ -22,7 +22,7 @@ class Slider extends Component {
 		return (
 			<div className='Slider'>
 				<p>
-					{title}
+					<b>{title}</b>
 					<input type='range' min={min} max={max} value={value} onChange={this.valueChange}/>
 					{value}
 				</p>
