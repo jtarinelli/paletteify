@@ -1,84 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
-class TopArtists extends Component {
-	constructor(props) {
-		super(props);
-		
-		this.state = {
-			isLoaded: false,
-			data: null,
-			errorCode: null,
-			visible: true
-		}
-	}
-	
-	toggleVisible = () => {
-		this.setState(prevState => ({
-			visible: !prevState.visible
-		}));
-	}
-	
-	makeRequest() {
-		var headers = {'Authorization': 'Bearer '.concat(this.props.token)};
-		
-		fetch('https://api.spotify.com/v1/me/top/artists?time_range=medium_term', {headers})
-			.then(this.props.handleErrors)
-			.then(response => response.json())
-			.then(stuff => this.setState({ 
-				data: stuff,
-				isLoaded: true
-				}))
-			.catch(error => this.setState({
-				error: true,
-				errorCode: error.message
-			}));
-	}
-	
-	componentDidMount() {
-		this.makeRequest();
-	}
-	
-	componentDidUpdate(prevProps) {
-		if (prevProps !== this.props) {
-			this.makeRequest();
-			this.setState({isLoaded: false})
-		}
-	}
-	
-	render() {
-		const {data, isLoaded, error, errorCode, visible} = this.state;
-		
-		if (isLoaded && !error) {
-			return (	
-				<div>
-					<button className='h2-button' onClick={this.toggleVisible}><h2>Top Artists</h2></button>
-					<div className={'Albums ' + (visible ? 'visible' : 'hidden')}>
-						
-						{data.items.map((item, i) => (
-							<div key={i} className='Album-small'>
-								<Link to={'/paletteify/artist/' + item.id}>
-									<img src={item.images[0].url} alt={item.name}/>
-									<p>{item.name}</p>
-								</Link>
-							</div>
-						))}
-						
-					</div>
-				</div>
-			)
-			
-		} else {
-			return (
-				<div>	
-					{error ? <h2>Error: {errorCode}</h2> : <h2>Loading...</h2>}
-				</div>
-			)
-		}
-		
-	}
-}
-
 class Playlists extends Component {
 	constructor(props) {
 		super(props);
@@ -137,7 +59,85 @@ class Playlists extends Component {
 							<div key={i} className='Album-small'>
 								<Link to={'/paletteify/playlist/' + item.id}>
 									<img src={item.images[0].url} alt={item.name}/>
-									<p>{item.name}</p>
+									<p><b>{item.name}</b></p>
+								</Link>
+							</div>
+						))}
+						
+					</div>
+				</div>
+			)
+			
+		} else {
+			return (
+				<div>	
+					{error ? <h2>Error: {errorCode}</h2> : <h2>Loading...</h2>}
+				</div>
+			)
+		}
+		
+	}
+}
+
+class TopArtists extends Component {
+	constructor(props) {
+		super(props);
+		
+		this.state = {
+			isLoaded: false,
+			data: null,
+			errorCode: null,
+			visible: true
+		}
+	}
+	
+	toggleVisible = () => {
+		this.setState(prevState => ({
+			visible: !prevState.visible
+		}));
+	}
+	
+	makeRequest() {
+		var headers = {'Authorization': 'Bearer '.concat(this.props.token)};
+		
+		fetch('https://api.spotify.com/v1/me/top/artists?time_range=medium_term', {headers})
+			.then(this.props.handleErrors)
+			.then(response => response.json())
+			.then(stuff => this.setState({ 
+				data: stuff,
+				isLoaded: true
+				}))
+			.catch(error => this.setState({
+				error: true,
+				errorCode: error.message
+			}));
+	}
+	
+	componentDidMount() {
+		this.makeRequest();
+	}
+	
+	componentDidUpdate(prevProps) {
+		if (prevProps !== this.props) {
+			this.makeRequest();
+			this.setState({isLoaded: false})
+		}
+	}
+	
+	render() {
+		const {data, isLoaded, error, errorCode, visible} = this.state;
+		
+		if (isLoaded && !error) {
+			return (	
+				<div>
+					<button className='h2-button' onClick={this.toggleVisible}><h2>Top Artists</h2></button>
+					<div className={'Albums ' + (visible ? 'visible' : 'hidden')}>
+						
+						{data.items.map((item, i) => (
+							<div key={i} className='Album-small'>
+								<Link to={'/paletteify/artist/' + item.id}>
+									<img src={item.images[0].url} alt={item.name}/>
+									<p><b>{item.name}</b></p>
 								</Link>
 							</div>
 						))}

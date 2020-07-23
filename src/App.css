@@ -6,6 +6,10 @@
 	text-align: center;
 }
 
+p b {
+	font-weight: 600;
+}
+
 .App-link, .App a {
 	color: #41bee0;
 	text-decoration: none;
@@ -375,7 +379,7 @@
 .Album-small .Image-replacement {
 	height: 200px;
 	width: 200px;
-	background: #eee;
+	border: 2px dashed;
 	display: flex;
 	align-items: center;
     justify-content: center;

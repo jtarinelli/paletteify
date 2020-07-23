@@ -84,7 +84,6 @@ class SearchResults extends Component {
 		const {query} = this.props.requestInfo;
 		
 		if (isLoaded && !error) {
-			console.log(data);
 			return (			
 				<div className='Search-results'>
 				
@@ -106,7 +105,7 @@ class SearchResults extends Component {
 											{artist.images.length === 0 ? 
 											<div className='Image-replacement'/> :
 											<img src={artist.images[0].url} alt={artist.name}/>}
-											<p>{artist.name}</p>
+											<p><b>{artist.name}</b></p>
 										</Link>
 									</div>
 								))}
@@ -142,7 +141,7 @@ class SearchResults extends Component {
 												
 											}
 											
-											<p>{playlist.name}</p>
+											<p><b>{playlist.name}</b></p>
 										</Link>
 									</div>
 							))}

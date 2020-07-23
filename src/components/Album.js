@@ -14,7 +14,7 @@ class Album extends Component {
 		return (
 			<div>
 				<Image src={image} alt={name} grabColors={this.grabColors} numColors={numColors} display={display} onHover={onHover}/>
-				<p><a href = {url}>{name}</a></p>
+				<p><b><a href = {url}>{name}</a></b></p>
 			</div>
 		)
 	}
