@@ -9,9 +9,9 @@ import CurrentUserPage from './components/CurrentUserPage.js';
 import SearchBox from './components/SearchBox.js';
 import SearchResults from './components/SearchResults.js';
 
+var l = window.location;
 const clientId = 'a4e61050459f4f3cbac28ccd3826f37a';
-//const redirectUri = 'http://localhost:3000/paletteify/callback';
-const redirectUri = 'https://jtarinelli.github.io/paletteify/callback';
+const redirectUri = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + '/paletteify/callback';
 var scopes = ['playlist-read-private', 'user-top-read'];
 
 var hash = window.location.hash // idk what this even is, move it into somewhere?
@@ -112,7 +112,8 @@ function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
 
-function Redirector() { // come up with a better name
+// handles fresh page loads for gitpages
+function Redirector() { 
 	let query = useQuery();
 	let page = query.get("p");
 	
