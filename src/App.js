@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Switch, Route, Link, Redirect, useParams} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route, Link, Redirect, useParams, useLocation} from 'react-router-dom';
 
 import './App.css';
 import ArtistHeader from './components/ArtistHeader.js';
@@ -108,6 +108,18 @@ function ArtistPage(props) {
 	)
 }
 
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
+
+function Redirector() { // come up with a better name
+	let query = useQuery();
+
+	return (
+		<Redirect to={'/paletteify'.concat(query.get("p"))} />
+	)
+}
+
 class App extends Component {
 	
 	constructor(props) {
@@ -141,6 +153,9 @@ class App extends Component {
 				<Router>
 					<Switch>
 					
+						<Route path='/paletteify/redirect'>
+							<Redirector/>
+							</Route>
 						<Route path='/paletteify/artist/:artistID'>
 							<Menu/>
 							<ArtistPage token={token} handleErrors={this.handleErrors}/>
@@ -161,7 +176,7 @@ class App extends Component {
 							<Redirect to='/paletteify/me'/>
 							</Route>
 						<Route path='/paletteify/'>
-							<LoginPage token={token}/> 
+							<LoginPage token={token}/>
 							</Route>
 							
 					</Switch>
