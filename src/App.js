@@ -10,8 +10,8 @@ import SearchBox from './components/SearchBox.js';
 import SearchResults from './components/SearchResults.js';
 
 const clientId = 'a4e61050459f4f3cbac28ccd3826f37a';
-//const redirectUri = 'http://localhost:3000/paletteify/callback';
-const redirectUri = 'https://jtarinelli.github.io/paletteify/';
+const redirectUri = 'http://localhost:3000/paletteify/callback';
+//const redirectUri = 'https://jtarinelli.github.io/paletteify/';
 var scopes = ['playlist-read-private', 'user-top-read'];
 
 var hash = window.location.hash // idk what this even is, move it into somewhere?
@@ -114,10 +114,15 @@ function useQuery() {
 
 function Redirector() { // come up with a better name
 	let query = useQuery();
-
-	return (
-		<Redirect to={'/paletteify'.concat(query.get("p"))} />
-	)
+	let page = query.get("p");
+	
+	if (page !== null) {
+		return (
+			<Redirect to={'/paletteify'.concat(page)} />
+		)
+	} else {
+		return null
+	}
 }
 
 class App extends Component {
@@ -153,9 +158,6 @@ class App extends Component {
 				<Router>
 					<Switch>
 					
-						<Route path='/paletteify/redir'>
-							<Redirector/>
-							</Route>
 						<Route path='/paletteify/artist/:artistID'>
 							<Menu/>
 							<ArtistPage token={token} handleErrors={this.handleErrors}/>
@@ -176,6 +178,7 @@ class App extends Component {
 							<Redirect to='/paletteify/me'/>
 							</Route>
 						<Route path='/paletteify/'>
+							<Redirector/>
 							<LoginPage token={token}/>
 							</Route>
 							
