@@ -153,7 +153,7 @@ class App extends Component {
 				<Router>
 					<Switch>
 					
-						<Route path='/paletteify/redirect'>
+						<Route path='/paletteify/redir'>
 							<Redirector/>
 							</Route>
 						<Route path='/paletteify/artist/:artistID'>
