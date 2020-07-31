@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/paletteify/static/css/main.e3bddee0.chunk.css",
-    "main.js": "/paletteify/static/js/main.a6a59065.chunk.js",
-    "main.js.map": "/paletteify/static/js/main.a6a59065.chunk.js.map",
+    "main.css": "/paletteify/static/css/main.0571d01c.chunk.css",
+    "main.js": "/paletteify/static/js/main.6e7807aa.chunk.js",
+    "main.js.map": "/paletteify/static/js/main.6e7807aa.chunk.js.map",
     "runtime-main.js": "/paletteify/static/js/runtime-main.3471e6ae.js",
     "runtime-main.js.map": "/paletteify/static/js/runtime-main.3471e6ae.js.map",
-    "static/js/2.5a6c299d.chunk.js": "/paletteify/static/js/2.5a6c299d.chunk.js",
-    "static/js/2.5a6c299d.chunk.js.map": "/paletteify/static/js/2.5a6c299d.chunk.js.map",
+    "static/js/2.7d67bbda.chunk.js": "/paletteify/static/js/2.7d67bbda.chunk.js",
+    "static/js/2.7d67bbda.chunk.js.map": "/paletteify/static/js/2.7d67bbda.chunk.js.map",
     "index.html": "/paletteify/index.html",
-    "precache-manifest.b21cac979386efb9aa2d7a2b78daa235.js": "/paletteify/precache-manifest.b21cac979386efb9aa2d7a2b78daa235.js",
+    "precache-manifest.c6313e53d0f26d6805b208f18bfdf85c.js": "/paletteify/precache-manifest.c6313e53d0f26d6805b208f18bfdf85c.js",
     "service-worker.js": "/paletteify/service-worker.js",
-    "static/css/main.e3bddee0.chunk.css.map": "/paletteify/static/css/main.e3bddee0.chunk.css.map",
-    "static/js/2.5a6c299d.chunk.js.LICENSE.txt": "/paletteify/static/js/2.5a6c299d.chunk.js.LICENSE.txt"
+    "static/css/main.0571d01c.chunk.css.map": "/paletteify/static/css/main.0571d01c.chunk.css.map",
+    "static/js/2.7d67bbda.chunk.js.LICENSE.txt": "/paletteify/static/js/2.7d67bbda.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.3471e6ae.js",
-    "static/js/2.5a6c299d.chunk.js",
-    "static/css/main.e3bddee0.chunk.css",
-    "static/js/main.a6a59065.chunk.js"
+    "static/js/2.7d67bbda.chunk.js",
+    "static/css/main.0571d01c.chunk.css",
+    "static/js/main.6e7807aa.chunk.js"
   ]
 }
