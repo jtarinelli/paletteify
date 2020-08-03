@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 
+// displays the top 10 tracks on an artist page
 class TopTracks extends Component {
 	
 	constructor(props) {

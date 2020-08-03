@@ -31,7 +31,9 @@ class PlaylistPage extends Component {
 	}
 	
 	makeAlbums() {
-		let {data, albums} = this.state;
+		let {data} = this.state;
+		let albums = {};
+		console.log("UWU");
 		
 		data.tracks.items.forEach(song => {
 			let track = song.track;
@@ -56,6 +58,8 @@ class PlaylistPage extends Component {
 				}
 			}
 		})
+		
+		this.setState({albums: albums});
 	}
 	
 	makeRequest() {
@@ -85,8 +89,13 @@ class PlaylistPage extends Component {
 				newData.tracks.items = prevState.data.tracks.items.concat(stuff.items);
 				newData.tracks.next = stuff.next;
 				
-				return ({data: newData})
-				}))
+				return ({
+					data: newData,
+					albums: {},
+					colors: null
+				})
+			}))
+			.then(this.makeAlbums)
 			.catch(error => this.setState({
 				error: true,
 				errorCode: error.message
@@ -119,7 +128,7 @@ class PlaylistPage extends Component {
 		this.makeRequest();
 	}
 
-	componentDidUpdate(prevProps, prevState) {
+	componentDidUpdate(prevProps, prevState) {		
 		if (prevProps !== this.props) {
 			this.makeRequest();
 			this.setState({
@@ -134,19 +143,11 @@ class PlaylistPage extends Component {
 		
 		if (prevState.data !== this.state.data && this.state.data != null && this.state.isLoaded === false) {
 			this.makeAlbums();
-			this.setState({
-				isLoaded: true
-			})
+			this.setState({isLoaded: true})
 		} 
 		
-		if (this.state.isLoaded && prevState.data.tracks.items !== this.state.data.tracks.items) {
-			this.makeAlbums();
-		}
-		
 		if (prevState.numColors !== this.state.numColors) {
-			this.setState({
-				colors: null
-			})
+			this.setState({colors: null})
 		}
 	}
 	
@@ -155,7 +156,6 @@ class PlaylistPage extends Component {
 		const albums = Object.values(this.state.albums);
 		
 		if (isLoaded && !error) {
-			console.log(albums);
 			return (
 				<div>
 				
@@ -214,7 +214,7 @@ class PlaylistPage extends Component {
 									</div>
 								))}
 								
-								{/*data.tracks.next !== null &&
+								{data.tracks.next !== null &&
 									<button className='h2-button Album-small-button' onClick={() => this.requestNextPage(data.tracks.next)}>
 										<div className='Album'>
 											<div className='Image-replacement'>
@@ -223,7 +223,7 @@ class PlaylistPage extends Component {
 											<p>  </p>
 										</div>
 									</button>
-								*/}
+								}
 								
 							</div>
 						</div>

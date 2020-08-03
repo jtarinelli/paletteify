@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 
+// displays results for a search for an artist or playlist
 class SearchResults extends Component {
 	constructor(props) {
 		super(props);

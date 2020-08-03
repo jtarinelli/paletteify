@@ -14,7 +14,7 @@ const clientId = 'a4e61050459f4f3cbac28ccd3826f37a';
 const redirectUri = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + '/paletteify/callback';
 var scopes = ['playlist-read-private', 'user-top-read'];
 
-var hash = window.location.hash // idk what this even is, move it into somewhere?
+var hash = l.hash // idk what this even is, move it into somewhere?
 	.substring(1)
 	.split('&')
 	.reduce(function(initial, item) {
@@ -25,8 +25,9 @@ var hash = window.location.hash // idk what this even is, move it into somewhere
 		return initial;
 	}, {});
 
-window.location.hash = '';
+l.hash = '';
 
+// menu on top of every page except login page
 class Menu extends Component {
 	render() {
 		return (
@@ -41,6 +42,7 @@ class Menu extends Component {
 	}
 }
 
+// shows login button, and profile link + search when logged in
 function LoginPage(props) {
 	return (
 		<header className='App-header Loading Cover'>
@@ -59,6 +61,7 @@ function LoginPage(props) {
 	)
 }
 
+// renders search results
 function DoSearchResults(props) {
 	const {query} = useParams();
 	var requestInfo = {
@@ -75,6 +78,7 @@ function DoSearchResults(props) {
 	)
 }
 
+// renders playlist page
 function DoPlaylistPage(props) { // not ideal way to do this i think
 	const {playlistID} = useParams();
 	var requestInfo = {
@@ -91,6 +95,7 @@ function DoPlaylistPage(props) { // not ideal way to do this i think
 	)
 }
 
+// renders artist page
 function ArtistPage(props) {
 	const {artistID} = useParams();
 	var requestInfo = {
@@ -108,11 +113,13 @@ function ArtistPage(props) {
 	)
 }
 
+// custom hook to get search queries from url
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
 
 // handles fresh page loads for gitpages
+// ex) redirect from paletteify.git.io/?p=/me to paletteify.git.io/me without 404 page
 function Redirector() { 
 	let query = useQuery();
 	let page = query.get("p");
@@ -126,6 +133,7 @@ function Redirector() {
 	}
 }
 
+// app itself, handles routing, errors, and api tokens
 class App extends Component {
 	
 	constructor(props) {
