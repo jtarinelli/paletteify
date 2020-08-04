@@ -108,7 +108,6 @@ p b {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: flex-end;
 }
 
 .App .Login-button {
@@ -126,22 +125,18 @@ p b {
 
 .App .Menu {
 	height: 80px;
-	font-size: 18px;
+	font-size: 20px;
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
 	align-items: center;
-	margin: 0 30px;
+	padding: 0 30px;
+	border-bottom: 2px #eee solid;
 }
 
 .App .Menu-right {
 	text-align: right;
-	padding-top: 4px;
 	flex-grow: 2;
-}
-
-.App .Search-box {
-	padding-top: 7px;
 }
 
 .App .Search-box label {
@@ -154,6 +149,7 @@ p b {
 	width: 170px;
     padding: 5px 10px;
 	border: 2px #eee solid;
+	border-radius: 2px;
 }
 
 .App .Loading {
@@ -218,8 +214,11 @@ p b {
 	flex-direction: column;
 	justify-content: center;
 	align-items: baseline;
-	margin: 20px;
-	margin-bottom: 0px;
+	margin: 0px;
+	margin-top: 20px;
+	margin-left: 10px;
+	padding: 0px;
+	border: none;
 }
 
 .Cover .Search-box {

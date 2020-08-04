@@ -32,10 +32,10 @@ class Menu extends Component {
 	render() {
 		return (
 			<div className='Menu'>
-				<Link to='/paletteify/'>Home</Link>
+				<Link to='/paletteify/'><b>Paletteify</b></Link>
 				<SearchBox/>
 				<div className='Menu-right'>
-					<Link to ='/paletteify/me'>My Profile</Link>
+					<Link to ='/paletteify/me'><b>My Profile</b></Link>
 				</div>
 			</div>
 		)
