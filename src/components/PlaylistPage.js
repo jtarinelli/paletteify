@@ -33,7 +33,6 @@ class PlaylistPage extends Component {
 	makeAlbums() {
 		let {data} = this.state;
 		let albums = {};
-		console.log("UWU");
 		
 		data.tracks.items.forEach(song => {
 			let track = song.track;

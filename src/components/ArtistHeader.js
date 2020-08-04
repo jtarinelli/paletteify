@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import TopTracks from './TopTracks.js';
 import {Link} from "react-router-dom";
 
+// header for the artist page, contains image, name, and top tracks
 class ArtistHeader extends Component {
 	
 	constructor(props) {

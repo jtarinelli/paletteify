@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Image from './Image.js';
 
+// album that passes the color palette of the album art up to the parent component
 class Album extends Component {
 	
 	grabColors = (imageColors) => {

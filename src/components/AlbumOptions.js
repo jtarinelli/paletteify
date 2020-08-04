@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Dropdown from './Dropdown.js';
 
+// controls for the color palette on album images, sticky on left side
 class AlbumOptions extends Component {
 	
 	constructor(props) {

@@ -92,8 +92,23 @@ p b {
 	display: none;
 }
 
+.App-description {
+	text-align: left;
+    padding: 20px;
+    border-right: white 5px solid;
+}
+
 .App .Bigboi {
 	font-size: 15vmin;
+	margin-bottom: 20px;
+}
+
+.App .Login-menu {
+	padding: 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
 }
 
 .App .Login-button {
@@ -101,6 +116,8 @@ p b {
 	border: 2px white solid;
 	padding: 10px 20px;
 	border-radius: 30px;
+	width: fit-content;
+	margin: 0;
 }
 
 .App .Login-button:hover {
@@ -157,7 +174,24 @@ p b {
 	margin-bottom: 10px;
 }
 
-.Cover {
+.App-header-mobile {
+	background-color: #282c34;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	font-size: calc(10px + 2vmin);
+	color: white;
+	text-align: left;
+	margin-bottom: 10px;
+}
+
+.App-header-mobile img {
+	width: 100%;
+	height: auto;
+}
+
+.App .Cover {
 	background-color: #282c34;
 	/*
 	https://data.whicdn.com/images/152593249/original.jpg
@@ -173,21 +207,36 @@ p b {
     min-height: 100vh;
 	text-align: center;
 	margin: 0;
+	flex-direction: row;
 }
 
 .Cover .Menu {
 	height: auto;
 	font-size: calc(10px + 2vmin);
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: center;
 	align-items: baseline;
 	margin: 20px;
 }
 
 .Cover .Search-box {
-	margin: 10px;
 	padding: 0;
+	margin-left: -30px;
+	margin-top: 20px;
+}
+
+.Cover .Search-box input {
+	font-size: calc(10px + 2vmin);
+	color: white;
+	background: none;
+	border: 1px white solid;
+	border-radius: 10px;
+}
+
+.Cover .Search-box input::placeholder {
+	color: white;
+	opacity: .7;
 }
 
 .App-header a {
@@ -361,7 +410,7 @@ p b {
 .Album .Image-replacement {
 	height: 300px;
 	width: 300px;
-	background: #eee;
+	border: 2px dashed;
 	display: flex;
 	align-items: center;
 	justify-content: center;

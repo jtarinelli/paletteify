@@ -3,6 +3,7 @@ const getColors = require('get-image-colors');
 
 class Image extends Component {
 	
+// an image which generates its color palette then displays it on hover 
 constructor(props) {
 		super(props);
 		
@@ -28,6 +29,7 @@ constructor(props) {
 		}
 	}
 	
+	// changes how the color palette is displayed: as diagonal stripes, vertical stripes, or a target
 	displayMode(colors, option) {
 		//result.reverse(); //optional 
 		

@@ -46,16 +46,23 @@ class Menu extends Component {
 function LoginPage(props) {
 	return (
 		<header className='App-header Loading Cover'>
-			<h1 className='Bigboi'>Paletteify</h1>
-			<a href={`https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&scope=${scopes}`}>
-				<h2 className='Login-button'>Login to Spotify</h2>
-			</a>
+		
+			<div className='App-description'>
+				<h1 className='Bigboi'>Paletteify</h1>
+				<p>Break down the color palettes <br/>of your favorite artists and playlists</p>
+			</div>
 			
-			{props.token !== null && 
-				<div className='Menu'>
-					<Link to ='/paletteify/me'>My Profile</Link>
-					<SearchBox/>
-				</div>}	
+			<div className='Login-menu'>
+				<a href={`https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&scope=${scopes}`}>
+					<h2 className='Login-button'>Login to Spotify</h2>
+				</a>
+				
+				{props.token !== null && 
+					<div className='Menu'>
+						<Link to ='/paletteify/me'>My Profile</Link>
+						<SearchBox/>
+					</div>}	
+			</div>
 				
 		</header>
 	)

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import AlbumsSection from './AlbumsSection.js';
 
+// contains all albums/singles for an artist page
 class AlbumsSingles extends Component {
 	
 	constructor(props) {

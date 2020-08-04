@@ -3,6 +3,7 @@ import AlbumsSingles from './AlbumsSingles.js';
 import AlbumOptions from './AlbumOptions.js';
 import Colors from './Colors.js';
 
+// contains all albums sections and the color component for the artist page
 class ArtistBody extends Component {
 	
 	constructor(props) {
