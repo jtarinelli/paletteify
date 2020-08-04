@@ -94,13 +94,13 @@ p b {
 
 .App-description {
 	text-align: left;
-    padding: 20px;
-    border-right: white 5px solid;
+    padding: 30px;
+    border-left: white 5px solid;
 }
 
 .App .Bigboi {
 	font-size: 15vmin;
-	margin-bottom: 20px;
+	margin: 20px 0px;
 }
 
 .App .Login-menu {
@@ -108,7 +108,7 @@ p b {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: flex-start;
+	align-items: flex-end;
 }
 
 .App .Login-button {
@@ -149,6 +149,7 @@ p b {
 }
 
 .App .Search-box input {
+	font-size: 18px;
 	margin: 0 10px;
 	width: 170px;
     padding: 5px 10px;
@@ -218,6 +219,7 @@ p b {
 	justify-content: center;
 	align-items: baseline;
 	margin: 20px;
+	margin-bottom: 0px;
 }
 
 .Cover .Search-box {

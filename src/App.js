@@ -47,10 +47,7 @@ function LoginPage(props) {
 	return (
 		<header className='App-header Loading Cover'>
 		
-			<div className='App-description'>
-				<h1 className='Bigboi'>Paletteify</h1>
-				<p>Break down the color palettes <br/>of your favorite artists and playlists</p>
-			</div>
+			
 			
 			<div className='Login-menu'>
 				<a href={`https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&scope=${scopes}`}>
@@ -62,6 +59,11 @@ function LoginPage(props) {
 						<Link to ='/paletteify/me'>My Profile</Link>
 						<SearchBox/>
 					</div>}	
+			</div>
+			
+			<div className='App-description'>
+				<h1 className='Bigboi'>Paletteify</h1>
+				<p>Break down the color palettes <br/>of your favorite artists and playlists</p>
 			</div>
 				
 		</header>
