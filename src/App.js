@@ -56,8 +56,8 @@ function LoginPage(props) {
 				
 				{props.token !== null && 
 					<div className='Menu'>
-						<Link to ='/paletteify/me'>My Profile</Link>
 						<SearchBox/>
+						<Link to ='/paletteify/me'>My Profile</Link>
 					</div>}	
 			</div>
 			
