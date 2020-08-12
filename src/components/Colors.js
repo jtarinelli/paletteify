@@ -84,7 +84,7 @@ class Colors extends Component {
 		const hsl = ['Hue', 'Saturation', 'Lightness'];
 		const gradientStyles = [
 			{backgroundImage: 'linear-gradient(to right, white, magenta, purple, blue, green, yellow, orange, red)'},
-			{backgroundImage: 'linear-gradient(to right, #47d8ff, gray)'},
+			{backgroundImage: 'linear-gradient(to right, #47d8ff, #a3a3a3)'},
 			{backgroundImage: 'linear-gradient(to right, white, #47d8ff, black)'}
 		]
 
